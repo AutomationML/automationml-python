@@ -4,13 +4,17 @@ build-backend = "hatchling.build"
 
 [project]
 name = "automationml"
-version = "0.1.0"
+version = "0.1.0a1"
 description = "JSON-first Python SDK for AutomationML CAEX 3.0 documents."
 readme = "README.md"
 requires-python = ">=3.11"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [
   { name = "AutomationML SDK Contributors" }
+]
+maintainers = [
+  { name = "AutomationML Association" }
 ]
 keywords = ["automationml", "aml", "caex", "pydantic", "json", "xml"]
 classifiers = [
@@ -20,6 +24,7 @@ classifiers = [
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Topic :: File Formats",
   "Topic :: Software Development :: Libraries"
 ]
@@ -39,7 +44,10 @@ dev = [
 
 [project.urls]
 Homepage = "https://www.automationml.org/"
+Source = "https://github.com/AutomationML/automationml-python"
+Documentation = "https://github.com/AutomationML/automationml-python/tree/main/docs"
 Issues = "https://github.com/AutomationML/automationml-python/issues"
+Changelog = "https://github.com/AutomationML/automationml-python/blob/main/CHANGELOG.md"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/automationml"]

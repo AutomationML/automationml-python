@@ -1,0 +1,58 @@
+name: Bug report
+description: Report incorrect SDK, serialization, or validation behavior.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Remove confidential engineering data
+        from all attached AML documents.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened, and what did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest Python, AML JSON, or AML XML example that reproduces the issue.
+      render: python
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: SDK version
+      placeholder: 0.1.0a1 or commit SHA
+    validations:
+      required: true
+  - type: dropdown
+    id: format
+    attributes:
+      label: Affected area
+      options:
+        - Python API or models
+        - AML JSON
+        - AML XML
+        - JSON Schema
+        - Semantic validation
+        - Packaging or installation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: Python 3.12, Windows 11
+    validations:
+      required: true
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional context
+      description: Add relevant logs, validation issues, or CAEX references.

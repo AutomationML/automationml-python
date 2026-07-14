@@ -1,0 +1,34 @@
+name: Feature request
+description: Propose an SDK capability or AutomationML workflow improvement.
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: AutomationML use case
+      description: Describe the authoring, exchange, conversion, or validation workflow this enables.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or behavior
+      description: Show the desired Python or serialized representation when possible.
+    validations:
+      required: true
+  - type: dropdown
+    id: compatibility
+    attributes:
+      label: Compatibility impact
+      options:
+        - Additive change
+        - Potentially breaking change
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Describe current workarounds or related SDK features.
