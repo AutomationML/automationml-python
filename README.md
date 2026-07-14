@@ -1,5 +1,7 @@
 # AutomationML Python SDK
 
+[![CI](https://github.com/AutomationML/automationml-python/actions/workflows/ci.yml/badge.svg)](https://github.com/AutomationML/automationml-python/actions/workflows/ci.yml)
+
 A JSON-first Python SDK for creating, reading, validating, and converting
 AutomationML CAEX 3.0 documents.
 
