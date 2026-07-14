@@ -25,6 +25,11 @@ jobs:
       - name: Install packaging tools
         run: python -m pip install --upgrade build twine
 
+      - name: Use the TestPyPI distribution name
+        run: |
+          sed -i 's/^name = "automationml"$/name = "automationml-python"/' pyproject.toml
+          grep '^name = "automationml-python"$' pyproject.toml
+
       - name: Build package
         run: python -m build
 
@@ -46,7 +51,7 @@ jobs:
 
     environment:
       name: testpypi
-      url: https://test.pypi.org/p/automationml
+      url: https://test.pypi.org/p/automationml-python
 
     permissions:
       id-token: write
