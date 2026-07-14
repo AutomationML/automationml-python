@@ -1,0 +1,351 @@
+{
+  "SuperiorStandardVersion": [
+    "AutomationML 2.1"
+  ],
+  "SourceDocumentInformation": [
+    {
+      "OriginName": "AutomationML SDK validation suite",
+      "OriginID": "automationml-validation-suite",
+      "OriginVersion": "0.1.0",
+      "LastWritingDateTime": "2026-07-03T00:00:00Z"
+    }
+  ],
+  "InstanceHierarchy": [
+    {
+      "Name": "PackagingCell",
+      "InternalElement": [
+        {
+          "ID": "cell-1",
+          "Name": "RobotCell-1",
+          "Attribute": [
+            {
+              "Name": "assetTag",
+              "Value": "CELL-1",
+              "AttributeDataType": "xs:string",
+              "RefAttributeType": "LineAttributeTypes/AssetTag"
+            },
+            {
+              "Name": "cycleTime",
+              "Value": "38",
+              "Unit": "s",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "LineAttributeTypes/CycleTime"
+            }
+          ],
+          "ExternalInterface": [
+            {
+              "ID": "cell-1-data",
+              "Name": "Data",
+              "RefBaseClassPath": "AutomationMLInterfaceClassLib/DataPort"
+            }
+          ],
+          "InternalElement": [
+            {
+              "ID": "cell-1-conveyor",
+              "Name": "InfeedConveyor",
+              "Attribute": [
+                {
+                  "Name": "assetTag",
+                  "Value": "CONV-1",
+                  "AttributeDataType": "xs:string",
+                  "RefAttributeType": "LineAttributeTypes/AssetTag"
+                },
+                {
+                  "Name": "cycleTime",
+                  "Value": "8",
+                  "Unit": "s",
+                  "AttributeDataType": "xs:double",
+                  "RefAttributeType": "LineAttributeTypes/CycleTime"
+                }
+              ],
+              "ExternalInterface": [
+                {
+                  "ID": "cell-1-conveyor-out",
+                  "Name": "MaterialOut",
+                  "RefBaseClassPath": "AutomationMLInterfaceClassLib/MaterialPort"
+                },
+                {
+                  "ID": "cell-1-data",
+                  "Name": "Data",
+                  "RefBaseClassPath": "AutomationMLInterfaceClassLib/DataPort"
+                }
+              ],
+              "RoleRequirements": [
+                {
+                  "RefBaseRoleClassPath": "RoleClassLib/Conveyor"
+                }
+              ],
+              "RefBaseSystemUnitPath": "SystemUnitClassLib/ConveyorModule"
+            },
+            {
+              "ID": "cell-1-robot",
+              "Name": "RobotArm",
+              "Attribute": [
+                {
+                  "Name": "assetTag",
+                  "Value": "ROBOT-1",
+                  "AttributeDataType": "xs:string",
+                  "RefAttributeType": "LineAttributeTypes/AssetTag"
+                },
+                {
+                  "Name": "cycleTime",
+                  "Value": "12",
+                  "Unit": "s",
+                  "AttributeDataType": "xs:double",
+                  "RefAttributeType": "LineAttributeTypes/CycleTime"
+                },
+                {
+                  "Name": "payload",
+                  "Value": "10",
+                  "Unit": "kg",
+                  "AttributeDataType": "xs:double",
+                  "RefAttributeType": "LineAttributeTypes/PayloadKg"
+                }
+              ],
+              "ExternalInterface": [
+                {
+                  "ID": "cell-1-robot-in",
+                  "Name": "MaterialIn",
+                  "RefBaseClassPath": "AutomationMLInterfaceClassLib/MaterialPort"
+                },
+                {
+                  "ID": "cell-1-robot-data",
+                  "Name": "Data",
+                  "RefBaseClassPath": "AutomationMLInterfaceClassLib/DataPort"
+                }
+              ],
+              "RoleRequirements": [
+                {
+                  "RefBaseRoleClassPath": "RoleClassLib/MissingRobot"
+                }
+              ],
+              "RefBaseSystemUnitPath": "SystemUnitClassLib/RobotModule"
+            },
+            {
+              "ID": "cell-1-quality",
+              "Name": "VisionGate",
+              "Attribute": [
+                {
+                  "Name": "assetTag",
+                  "Value": "QUALITY-1",
+                  "AttributeDataType": "xs:string",
+                  "RefAttributeType": "LineAttributeTypes/AssetTag"
+                },
+                {
+                  "Name": "cycleTime",
+                  "Value": "6",
+                  "Unit": "s",
+                  "AttributeDataType": "xs:double",
+                  "RefAttributeType": "LineAttributeTypes/CycleTime"
+                },
+                {
+                  "Name": "qualityState",
+                  "Value": "ready",
+                  "AttributeDataType": "xs:string",
+                  "RefAttributeType": "LineAttributeTypes/QualityState"
+                }
+              ],
+              "ExternalInterface": [
+                {
+                  "ID": "cell-1-quality-data",
+                  "Name": "Data",
+                  "RefBaseClassPath": "AutomationMLInterfaceClassLib/DataPort"
+                }
+              ],
+              "RoleRequirements": [
+                {
+                  "RefBaseRoleClassPath": "RoleClassLib/QualityGate"
+                }
+              ],
+              "RefBaseSystemUnitPath": "SystemUnitClassLib/QualityGateModule"
+            }
+          ],
+          "InternalLink": [
+            {
+              "Name": "MaterialToRobot",
+              "RefPartnerSideA": "cell-1-conveyor-out",
+              "RefPartnerSideB": "missing-robot-interface"
+            },
+            {
+              "Name": "QualityFeedback",
+              "RefPartnerSideA": "cell-1-data",
+              "RefPartnerSideB": "cell-1-quality-data"
+            }
+          ],
+          "RefBaseSystemUnitPath": "SystemUnitClassLib/Cell"
+        }
+      ]
+    }
+  ],
+  "InterfaceClassLib": [
+    {
+      "Name": "AutomationMLInterfaceClassLib",
+      "InterfaceClass": [
+        {
+          "Name": "Port"
+        },
+        {
+          "Name": "DataPort",
+          "RefBaseClassPath": "AutomationMLInterfaceClassLib/Port"
+        },
+        {
+          "Name": "MaterialPort",
+          "RefBaseClassPath": "AutomationMLInterfaceClassLib/Port"
+        }
+      ]
+    }
+  ],
+  "RoleClassLib": [
+    {
+      "Name": "RoleClassLib",
+      "RoleClass": [
+        {
+          "Name": "Equipment"
+        },
+        {
+          "Name": "Conveyor",
+          "RefBaseClassPath": "RoleClassLib/Equipment"
+        },
+        {
+          "Name": "Robot",
+          "RefBaseClassPath": "RoleClassLib/Equipment"
+        },
+        {
+          "Name": "QualityGate",
+          "RefBaseClassPath": "RoleClassLib/Equipment"
+        }
+      ]
+    }
+  ],
+  "SystemUnitClassLib": [
+    {
+      "Name": "SystemUnitClassLib",
+      "SystemUnitClass": [
+        {
+          "Name": "Asset",
+          "Attribute": [
+            {
+              "Name": "assetTag",
+              "Value": "asset",
+              "AttributeDataType": "xs:string",
+              "RefAttributeType": "LineAttributeTypes/AssetTag"
+            }
+          ]
+        },
+        {
+          "Name": "Cell",
+          "Attribute": [
+            {
+              "Name": "cycleTime",
+              "Value": "42",
+              "Unit": "s",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "LineAttributeTypes/CycleTime"
+            }
+          ],
+          "ExternalInterface": [
+            {
+              "ID": "cell-class-data",
+              "Name": "Data",
+              "RefBaseClassPath": "AutomationMLInterfaceClassLib/DataPort"
+            }
+          ],
+          "SupportedRoleClass": [
+            {
+              "RefRoleClassPath": "RoleClassLib/Equipment"
+            }
+          ],
+          "RefBaseClassPath": "SystemUnitClassLib/Asset"
+        },
+        {
+          "Name": "ConveyorModule",
+          "ExternalInterface": [
+            {
+              "ID": "conveyor-class-material-out",
+              "Name": "MaterialOut",
+              "RefBaseClassPath": "AutomationMLInterfaceClassLib/MaterialPort"
+            }
+          ],
+          "SupportedRoleClass": [
+            {
+              "RefRoleClassPath": "RoleClassLib/Conveyor"
+            }
+          ],
+          "RefBaseClassPath": "SystemUnitClassLib/Cell"
+        },
+        {
+          "Name": "RobotModule",
+          "Attribute": [
+            {
+              "Name": "payload",
+              "Value": "12",
+              "Unit": "kg",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "LineAttributeTypes/PayloadKg"
+            }
+          ],
+          "ExternalInterface": [
+            {
+              "ID": "robot-class-material-in",
+              "Name": "MaterialIn",
+              "RefBaseClassPath": "AutomationMLInterfaceClassLib/MaterialPort"
+            }
+          ],
+          "SupportedRoleClass": [
+            {
+              "RefRoleClassPath": "RoleClassLib/Robot"
+            }
+          ],
+          "RefBaseClassPath": "SystemUnitClassLib/Cell"
+        },
+        {
+          "Name": "QualityGateModule",
+          "Attribute": [
+            {
+              "Name": "qualityState",
+              "Value": "ready",
+              "AttributeDataType": "xs:string",
+              "RefAttributeType": "LineAttributeTypes/QualityState"
+            }
+          ],
+          "SupportedRoleClass": [
+            {
+              "RefRoleClassPath": "RoleClassLib/QualityGate"
+            }
+          ],
+          "RefBaseClassPath": "SystemUnitClassLib/Cell"
+        },
+        {
+          "Name": "RobotModule"
+        }
+      ]
+    }
+  ],
+  "AttributeTypeLib": [
+    {
+      "Name": "LineAttributeTypes",
+      "AttributeType": [
+        {
+          "Name": "AssetTag",
+          "AttributeDataType": "xs:string"
+        },
+        {
+          "Name": "CycleTime",
+          "Unit": "s",
+          "AttributeDataType": "xs:double"
+        },
+        {
+          "Name": "PayloadKg",
+          "Unit": "kg",
+          "AttributeDataType": "xs:double"
+        },
+        {
+          "Name": "QualityState",
+          "AttributeDataType": "xs:string"
+        }
+      ]
+    }
+  ],
+  "SchemaVersion": "3.0",
+  "FileName": "medium-invalid-duplicates-and-links.aml"
+}

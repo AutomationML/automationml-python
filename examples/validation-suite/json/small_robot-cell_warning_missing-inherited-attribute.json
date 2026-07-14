@@ -1,0 +1,130 @@
+{
+  "SuperiorStandardVersion": [
+    "AutomationML 2.1"
+  ],
+  "SourceDocumentInformation": [
+    {
+      "OriginName": "AutomationML SDK validation suite",
+      "OriginID": "automationml-validation-suite",
+      "OriginVersion": "0.1.0",
+      "LastWritingDateTime": "2026-07-03T00:00:00Z"
+    }
+  ],
+  "InstanceHierarchy": [
+    {
+      "Name": "RobotCell",
+      "InternalElement": [
+        {
+          "ID": "small-robot-cell-1",
+          "Name": "RobotCell-1",
+          "Attribute": [
+            {
+              "Name": "cycleTime",
+              "Value": "38",
+              "Unit": "s",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "LineAttributeTypes/CycleTime"
+            }
+          ],
+          "InternalElement": [
+            {
+              "ID": "small-robot-arm-1",
+              "Name": "RobotArm",
+              "Attribute": [
+                {
+                  "Name": "payload",
+                  "Value": "10",
+                  "Unit": "kg",
+                  "AttributeDataType": "xs:double",
+                  "RefAttributeType": "LineAttributeTypes/PayloadKg"
+                }
+              ],
+              "RoleRequirements": [
+                {
+                  "RefBaseRoleClassPath": "RoleClassLib/Robot"
+                }
+              ],
+              "RefBaseSystemUnitPath": "SystemUnitClassLib/RobotModule"
+            }
+          ],
+          "RoleRequirements": [
+            {
+              "RefBaseRoleClassPath": "RoleClassLib/Equipment"
+            }
+          ],
+          "RefBaseSystemUnitPath": "SystemUnitClassLib/Cell"
+        }
+      ]
+    }
+  ],
+  "RoleClassLib": [
+    {
+      "Name": "RoleClassLib",
+      "RoleClass": [
+        {
+          "Name": "Equipment"
+        },
+        {
+          "Name": "Robot",
+          "RefBaseClassPath": "RoleClassLib/Equipment"
+        }
+      ]
+    }
+  ],
+  "SystemUnitClassLib": [
+    {
+      "Name": "SystemUnitClassLib",
+      "SystemUnitClass": [
+        {
+          "Name": "Cell",
+          "Attribute": [
+            {
+              "Name": "cycleTime",
+              "Value": "42",
+              "Unit": "s",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "LineAttributeTypes/CycleTime"
+            }
+          ]
+        },
+        {
+          "Name": "RobotModule",
+          "Attribute": [
+            {
+              "Name": "payload",
+              "Value": "12",
+              "Unit": "kg",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "LineAttributeTypes/PayloadKg"
+            }
+          ],
+          "SupportedRoleClass": [
+            {
+              "RefRoleClassPath": "RoleClassLib/Robot"
+            }
+          ],
+          "RefBaseClassPath": "SystemUnitClassLib/Cell"
+        }
+      ]
+    }
+  ],
+  "AttributeTypeLib": [
+    {
+      "Name": "LineAttributeTypes",
+      "AttributeType": [
+        {
+          "Name": "CycleTime",
+          "Unit": "s",
+          "AttributeDataType": "xs:double"
+        },
+        {
+          "Name": "PayloadKg",
+          "Unit": "kg",
+          "AttributeDataType": "xs:double"
+        }
+      ]
+    }
+  ],
+  "SchemaVersion": "3.0",
+  "FileName": "small_robot-cell_warning_missing-inherited-attribute.aml"
+}

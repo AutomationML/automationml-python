@@ -1,0 +1,167 @@
+{
+  "cases": [
+    {
+      "name": "small-valid-motor",
+      "title": "Small valid motor",
+      "size": "small",
+      "polarity": "positive",
+      "description": "A minimal motor instance with resolved system unit, role, and attribute type references.",
+      "json": "json/small-valid-motor.json",
+      "xml": "xml/small-valid-motor.aml",
+      "expected_valid": true,
+      "expected_issue_count": 0,
+      "expected_error_count": 0,
+      "expected_warning_count": 0,
+      "expected_issue_counts": {},
+      "expected_severity_counts": {}
+    },
+    {
+      "name": "small-invalid-unresolved-references",
+      "title": "Small invalid unresolved references",
+      "size": "small",
+      "polarity": "negative",
+      "description": "A compact document with unresolved system unit, role, interface, and attribute type references.",
+      "json": "json/small-invalid-unresolved-references.json",
+      "xml": "xml/small-invalid-unresolved-references.aml",
+      "expected_valid": false,
+      "expected_issue_count": 4,
+      "expected_error_count": 4,
+      "expected_warning_count": 0,
+      "expected_issue_counts": {
+        "unresolved-attribute-type-reference": 1,
+        "unresolved-interface-class-reference": 1,
+        "unresolved-role-class-reference": 1,
+        "unresolved-system-unit-class-reference": 1
+      },
+      "expected_severity_counts": {
+        "error": 4
+      }
+    },
+    {
+      "name": "small_robot-cell_warning_missing-inherited-attribute",
+      "title": "Small robot cell warning: missing inherited attribute",
+      "size": "small",
+      "polarity": "warning",
+      "description": "A compact valid robot cell where a RobotModule instance omits the inherited Cell cycleTime attribute.",
+      "json": "json/small_robot-cell_warning_missing-inherited-attribute.json",
+      "xml": "xml/small_robot-cell_warning_missing-inherited-attribute.aml",
+      "expected_valid": true,
+      "expected_issue_count": 1,
+      "expected_error_count": 0,
+      "expected_warning_count": 1,
+      "expected_issue_counts": {
+        "missing-inherited-attribute": 1
+      },
+      "expected_severity_counts": {
+        "warning": 1
+      }
+    },
+    {
+      "name": "medium-valid-robot-cell",
+      "title": "Medium valid robot cell",
+      "size": "medium",
+      "polarity": "positive",
+      "description": "A robot cell with class libraries, nested internal elements, role requirements, and internal links.",
+      "json": "json/medium-valid-robot-cell.json",
+      "xml": "xml/medium-valid-robot-cell.aml",
+      "expected_valid": true,
+      "expected_issue_count": 0,
+      "expected_error_count": 0,
+      "expected_warning_count": 0,
+      "expected_issue_counts": {},
+      "expected_severity_counts": {}
+    },
+    {
+      "name": "medium_robot-cell_warning_missing-inherited-attribute-and-class-interface",
+      "title": "Medium robot cell warning: missing inherited attribute and class interface",
+      "size": "medium",
+      "polarity": "warning",
+      "description": "A valid robot cell where instances omit inherited attributes and selected SystemUnitClass interfaces.",
+      "json": "json/medium_robot-cell_warning_missing-inherited-attribute-and-class-interface.json",
+      "xml": "xml/medium_robot-cell_warning_missing-inherited-attribute-and-class-interface.aml",
+      "expected_valid": true,
+      "expected_issue_count": 5,
+      "expected_error_count": 0,
+      "expected_warning_count": 5,
+      "expected_issue_counts": {
+        "missing-class-interface": 3,
+        "missing-inherited-attribute": 2
+      },
+      "expected_severity_counts": {
+        "warning": 5
+      }
+    },
+    {
+      "name": "medium-invalid-duplicates-and-links",
+      "title": "Medium invalid duplicates and links",
+      "size": "medium",
+      "polarity": "negative",
+      "description": "A robot cell with duplicate IDs, duplicate class paths, a missing role, and a broken internal link.",
+      "json": "json/medium-invalid-duplicates-and-links.json",
+      "xml": "xml/medium-invalid-duplicates-and-links.aml",
+      "expected_valid": false,
+      "expected_issue_count": 7,
+      "expected_error_count": 7,
+      "expected_warning_count": 0,
+      "expected_issue_counts": {
+        "duplicate-id": 2,
+        "duplicate-system-unit-class-path": 2,
+        "unresolved-internal-link-partner": 1,
+        "unresolved-role-class-reference": 1,
+        "unresolved-system-unit-class-reference": 1
+      },
+      "expected_severity_counts": {
+        "error": 7
+      }
+    },
+    {
+      "name": "big-valid-packaging-line",
+      "title": "Big valid packaging line",
+      "size": "big",
+      "polarity": "positive",
+      "description": "A larger multi-cell packaging line for graph, tree, filtering, and roundtrip testing.",
+      "json": "json/big-valid-packaging-line.json",
+      "xml": "xml/big-valid-packaging-line.aml",
+      "expected_valid": true,
+      "expected_issue_count": 27,
+      "expected_error_count": 0,
+      "expected_warning_count": 27,
+      "expected_issue_counts": {
+        "missing-class-attribute": 3,
+        "missing-class-interface": 6,
+        "missing-inherited-attribute": 18
+      },
+      "expected_severity_counts": {
+        "warning": 27
+      }
+    },
+    {
+      "name": "big-invalid-mixed-references",
+      "title": "Big invalid mixed references",
+      "size": "big",
+      "polarity": "negative",
+      "description": "A larger line with mixed unresolved references, duplicate IDs, and a broken internal link.",
+      "json": "json/big-invalid-mixed-references.json",
+      "xml": "xml/big-invalid-mixed-references.aml",
+      "expected_valid": false,
+      "expected_issue_count": 35,
+      "expected_error_count": 8,
+      "expected_warning_count": 27,
+      "expected_issue_counts": {
+        "duplicate-id": 2,
+        "missing-class-attribute": 3,
+        "missing-class-interface": 6,
+        "missing-inherited-attribute": 18,
+        "unresolved-attribute-type-reference": 1,
+        "unresolved-interface-class-reference": 1,
+        "unresolved-internal-link-partner": 1,
+        "unresolved-role-class-reference": 2,
+        "unresolved-system-unit-class-reference": 1
+      },
+      "expected_severity_counts": {
+        "error": 8,
+        "warning": 27
+      }
+    }
+  ]
+}

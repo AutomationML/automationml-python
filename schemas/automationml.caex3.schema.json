@@ -1,0 +1,2611 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.automationml.org/json/caex-3.0.schema.json",
+  "title": "AutomationML CAEX 3.0 JSON",
+  "description": "JSON-first serialization for AutomationML CAEX 3.0. Field names use the canonical AML element and attribute names while SDK models expose readable snake_case Python attributes.",
+  "type": "object",
+  "properties": {
+    "Description": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TextElement"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Textual description for CAEX objects."
+    },
+    "Version": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TextElement"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Organizational version information."
+    },
+    "Revision": {
+      "description": "Revision history entries.",
+      "items": {
+        "$ref": "#/$defs/Revision"
+      },
+      "type": "array"
+    },
+    "Copyright": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/TextElement"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "AdditionalInformation": {
+      "items": {
+        "$ref": "#/$defs/AdditionalInformation"
+      },
+      "type": "array"
+    },
+    "SourceObjectInformation": {
+      "items": {
+        "$ref": "#/$defs/SourceObjectInformation"
+      },
+      "type": "array"
+    },
+    "ChangeMode": {
+      "$ref": "#/$defs/ChangeMode",
+      "default": "state",
+      "description": "Optional CAEX change state."
+    },
+    "SuperiorStandardVersion": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "SourceDocumentInformation": {
+      "items": {
+        "$ref": "#/$defs/SourceDocumentInformation"
+      },
+      "type": "array"
+    },
+    "ExternalReference": {
+      "items": {
+        "$ref": "#/$defs/ExternalReference"
+      },
+      "type": "array"
+    },
+    "InstanceHierarchy": {
+      "items": {
+        "$ref": "#/$defs/InstanceHierarchy"
+      },
+      "type": "array"
+    },
+    "InterfaceClassLib": {
+      "items": {
+        "$ref": "#/$defs/InterfaceClassLib"
+      },
+      "type": "array"
+    },
+    "RoleClassLib": {
+      "items": {
+        "$ref": "#/$defs/RoleClassLib"
+      },
+      "type": "array"
+    },
+    "SystemUnitClassLib": {
+      "items": {
+        "$ref": "#/$defs/SystemUnitClassLib"
+      },
+      "type": "array"
+    },
+    "AttributeTypeLib": {
+      "items": {
+        "$ref": "#/$defs/AttributeTypeLib"
+      },
+      "type": "array"
+    },
+    "SchemaVersion": {
+      "default": "3.0",
+      "description": "CAEX schema version. CAEX 3.0 documents use fixed value 3.0.",
+      "type": "string"
+    },
+    "FileName": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "FileName"
+  ],
+  "$defs": {
+    "AdditionalInformation": {
+      "additionalProperties": true,
+      "description": "Auxiliary object information.\n\nCAEX 3.0 leaves this element open. The SDK keeps common AutomationML fields\nexplicit while allowing association-specific extensions.",
+      "properties": {
+        "value": {
+          "default": "",
+          "description": "Text content of the XML element.",
+          "type": "string"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "aml_version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "document_versions": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "type": "object"
+    },
+    "Attribute": {
+      "additionalProperties": false,
+      "description": "CAEX attribute instance.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "DefaultValue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "Value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RefSemantic": {
+          "items": {
+            "$ref": "#/$defs/RefSemantic"
+          },
+          "type": "array"
+        },
+        "Constraint": {
+          "items": {
+            "$ref": "#/$defs/AttributeValueRequirement"
+          },
+          "type": "array"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "Unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AttributeDataType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RefAttributeType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "AttributeNameMapping": {
+      "additionalProperties": false,
+      "description": "Mapping between system-unit and role attributes.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "SystemUnitAttributeName": {
+          "type": "string"
+        },
+        "RoleAttributeName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "SystemUnitAttributeName",
+        "RoleAttributeName"
+      ],
+      "type": "object"
+    },
+    "AttributeType": {
+      "additionalProperties": false,
+      "description": "Attribute type definition inside an AttributeTypeLib.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "DefaultValue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "Value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RefSemantic": {
+          "items": {
+            "$ref": "#/$defs/RefSemantic"
+          },
+          "type": "array"
+        },
+        "Constraint": {
+          "items": {
+            "$ref": "#/$defs/AttributeValueRequirement"
+          },
+          "type": "array"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "Unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AttributeDataType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RefAttributeType": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AttributeType": {
+          "items": {
+            "$ref": "#/$defs/AttributeType"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "AttributeTypeLib": {
+      "additionalProperties": false,
+      "description": "Container for attribute type definitions.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "AttributeType": {
+          "items": {
+            "$ref": "#/$defs/AttributeType"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "AttributeValueRequirement": {
+      "additionalProperties": false,
+      "description": "Constraint for an attribute value.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "Name": {
+          "type": "string"
+        },
+        "OrdinalScaledType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/OrdinalScaledType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "NominalScaledType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/NominalScaledType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "UnknownType": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/UnknownType"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "ChangeMode": {
+      "description": "CAEX change state for an element.",
+      "enum": [
+        "state",
+        "create",
+        "delete",
+        "change"
+      ],
+      "type": "string"
+    },
+    "ExternalReference": {
+      "additionalProperties": false,
+      "description": "Alias definition for an external CAEX file.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "Path": {
+          "type": "string"
+        },
+        "Alias": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Path",
+        "Alias"
+      ],
+      "type": "object"
+    },
+    "InstanceHierarchy": {
+      "additionalProperties": false,
+      "description": "Root element for a system hierarchy of object instances.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "InternalElement": {
+          "items": {
+            "$ref": "#/$defs/InternalElement"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "InterfaceClass": {
+      "additionalProperties": false,
+      "description": "Interface class or external interface.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "ExternalInterface": {
+          "items": {
+            "$ref": "#/$defs/InterfaceClass"
+          },
+          "type": "array"
+        },
+        "RefBaseClassPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "InterfaceClassLib": {
+      "additionalProperties": false,
+      "description": "Container for interface class definitions.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "InterfaceClass": {
+          "items": {
+            "$ref": "#/$defs/InterfaceFamily"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "InterfaceFamily": {
+      "additionalProperties": false,
+      "description": "Hierarchical interface class definition.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "ExternalInterface": {
+          "items": {
+            "$ref": "#/$defs/InterfaceClass"
+          },
+          "type": "array"
+        },
+        "RefBaseClassPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "InterfaceClass": {
+          "items": {
+            "$ref": "#/$defs/InterfaceFamily"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "InterfaceIDMapping": {
+      "additionalProperties": false,
+      "description": "Mapping between system-unit and role interface IDs.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "SystemUnitInterfaceID": {
+          "type": "string"
+        },
+        "RoleInterfaceID": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "SystemUnitInterfaceID",
+        "RoleInterfaceID"
+      ],
+      "type": "object"
+    },
+    "InternalElement": {
+      "additionalProperties": false,
+      "description": "Hierarchical object instance in an InstanceHierarchy or SystemUnitClass.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "ExternalInterface": {
+          "items": {
+            "$ref": "#/$defs/InterfaceClass"
+          },
+          "type": "array"
+        },
+        "InternalElement": {
+          "items": {
+            "$ref": "#/$defs/InternalElement"
+          },
+          "type": "array"
+        },
+        "SupportedRoleClass": {
+          "items": {
+            "$ref": "#/$defs/SupportedRoleClass"
+          },
+          "type": "array"
+        },
+        "InternalLink": {
+          "items": {
+            "$ref": "#/$defs/InternalLink"
+          },
+          "type": "array"
+        },
+        "RoleRequirements": {
+          "items": {
+            "$ref": "#/$defs/RoleRequirements"
+          },
+          "type": "array"
+        },
+        "RefBaseSystemUnitPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "InternalLink": {
+      "additionalProperties": false,
+      "description": "Relationship between internal interfaces.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "RefPartnerSideA": {
+          "type": "string"
+        },
+        "RefPartnerSideB": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Name",
+        "RefPartnerSideA",
+        "RefPartnerSideB"
+      ],
+      "type": "object"
+    },
+    "MappingObject": {
+      "additionalProperties": false,
+      "description": "Host object for CAEX attribute and interface mappings.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "AttributeNameMapping": {
+          "items": {
+            "$ref": "#/$defs/AttributeNameMapping"
+          },
+          "type": "array"
+        },
+        "InterfaceIDMapping": {
+          "items": {
+            "$ref": "#/$defs/InterfaceIDMapping"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "NominalScaledType": {
+      "additionalProperties": false,
+      "description": "Nominal value constraint.",
+      "properties": {
+        "RequiredValue": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "OrdinalScaledType": {
+      "additionalProperties": false,
+      "description": "Ordinal value constraint.",
+      "properties": {
+        "RequiredMaxValue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RequiredValue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RequiredMinValue": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "type": "object"
+    },
+    "RefSemantic": {
+      "additionalProperties": false,
+      "description": "Semantic reference for an attribute.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "CorrespondingAttributePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "CorrespondingAttributePath"
+      ],
+      "type": "object"
+    },
+    "Revision": {
+      "additionalProperties": false,
+      "description": "Revision entry in a CAEX header.",
+      "properties": {
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state"
+        },
+        "RevisionDate": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OldVersion": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "NewVersion": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AuthorName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "Comment": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "type": "object"
+    },
+    "RoleClassLib": {
+      "additionalProperties": false,
+      "description": "Container for role class definitions.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "RoleClass": {
+          "items": {
+            "$ref": "#/$defs/RoleFamily"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "RoleFamily": {
+      "additionalProperties": false,
+      "description": "Hierarchical role class definition.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "ExternalInterface": {
+          "items": {
+            "$ref": "#/$defs/InterfaceClass"
+          },
+          "type": "array"
+        },
+        "RefBaseClassPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RoleClass": {
+          "items": {
+            "$ref": "#/$defs/RoleFamily"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "RoleRequirements": {
+      "additionalProperties": false,
+      "description": "Role requirements attached to an internal element.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "ExternalInterface": {
+          "items": {
+            "$ref": "#/$defs/InterfaceClass"
+          },
+          "type": "array"
+        },
+        "MappingObject": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MappingObject"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "RefBaseRoleClassPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "RefBaseRoleClassPath"
+      ],
+      "type": "object"
+    },
+    "SourceDocumentInformation": {
+      "additionalProperties": false,
+      "description": "Information about a source document that contributed to the CAEX file.",
+      "properties": {
+        "OriginName": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginVendor": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginVendorURL": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginVersion": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginRelease": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "LastWritingDateTime": {
+          "anyOf": [
+            {
+              "format": "date-time",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginProjectTitle": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "OriginProjectID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "type": "object"
+    },
+    "SourceObjectInformation": {
+      "additionalProperties": false,
+      "description": "Source object metadata attached to a CAEX object.",
+      "properties": {
+        "value": {
+          "default": "",
+          "description": "Text content of the XML element.",
+          "type": "string"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "OriginID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "SourceObjID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "type": "object"
+    },
+    "SupportedRoleClass": {
+      "additionalProperties": false,
+      "description": "Role class supported by a system unit class.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "RefRoleClassPath": {
+          "type": "string"
+        },
+        "MappingObject": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/MappingObject"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "RefRoleClassPath"
+      ],
+      "type": "object"
+    },
+    "SystemUnitClassLib": {
+      "additionalProperties": false,
+      "description": "Container for system unit class definitions.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "SystemUnitClass": {
+          "items": {
+            "$ref": "#/$defs/SystemUnitFamily"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "SystemUnitFamily": {
+      "additionalProperties": false,
+      "description": "Hierarchical SystemUnitClass tree entry.",
+      "properties": {
+        "Description": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Textual description for CAEX objects."
+        },
+        "Version": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Organizational version information."
+        },
+        "Revision": {
+          "description": "Revision history entries.",
+          "items": {
+            "$ref": "#/$defs/Revision"
+          },
+          "type": "array"
+        },
+        "Copyright": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextElement"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "AdditionalInformation": {
+          "items": {
+            "$ref": "#/$defs/AdditionalInformation"
+          },
+          "type": "array"
+        },
+        "SourceObjectInformation": {
+          "items": {
+            "$ref": "#/$defs/SourceObjectInformation"
+          },
+          "type": "array"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        },
+        "ID": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Optional unique identifier of the CAEX object."
+        },
+        "Name": {
+          "description": "Required CAEX object name.",
+          "type": "string"
+        },
+        "Attribute": {
+          "items": {
+            "$ref": "#/$defs/Attribute"
+          },
+          "type": "array"
+        },
+        "ExternalInterface": {
+          "items": {
+            "$ref": "#/$defs/InterfaceClass"
+          },
+          "type": "array"
+        },
+        "InternalElement": {
+          "items": {
+            "$ref": "#/$defs/InternalElement"
+          },
+          "type": "array"
+        },
+        "SupportedRoleClass": {
+          "items": {
+            "$ref": "#/$defs/SupportedRoleClass"
+          },
+          "type": "array"
+        },
+        "InternalLink": {
+          "items": {
+            "$ref": "#/$defs/InternalLink"
+          },
+          "type": "array"
+        },
+        "SystemUnitClass": {
+          "items": {
+            "$ref": "#/$defs/SystemUnitFamily"
+          },
+          "type": "array"
+        },
+        "RefBaseClassPath": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "TextElement": {
+      "additionalProperties": false,
+      "description": "Simple CAEX text element with an optional ChangeMode attribute.",
+      "properties": {
+        "value": {
+          "default": "",
+          "description": "Text content of the XML element.",
+          "type": "string"
+        },
+        "ChangeMode": {
+          "$ref": "#/$defs/ChangeMode",
+          "default": "state",
+          "description": "Optional CAEX change state."
+        }
+      },
+      "type": "object"
+    },
+    "UnknownType": {
+      "additionalProperties": false,
+      "description": "Free-form value requirement.",
+      "properties": {
+        "Requirements": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "type": "object"
+    }
+  }
+}

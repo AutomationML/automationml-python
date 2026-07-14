@@ -1,0 +1,60 @@
+{
+  "SchemaVersion": "3.0",
+  "FileName": "minimal.aml",
+  "SuperiorStandardVersion": [
+    "AutomationML 2.1"
+  ],
+  "SourceDocumentInformation": [
+    {
+      "OriginName": "AutomationML Python SDK",
+      "OriginID": "automationml-python",
+      "OriginVersion": "0.1.0",
+      "LastWritingDateTime": "2026-06-28T00:00:00+00:00"
+    }
+  ],
+  "InstanceHierarchy": [
+    {
+      "Name": "Plant",
+      "InternalElement": [
+        {
+          "ID": "ie-1",
+          "Name": "Motor",
+          "RefBaseSystemUnitPath": "ExampleSystemUnitClassLib/Motor",
+          "Attribute": [
+            {
+              "Name": "speed",
+              "Value": "1500",
+              "Unit": "rpm",
+              "AttributeDataType": "xs:double"
+            }
+          ],
+          "RoleRequirements": [
+            {
+              "RefBaseRoleClassPath": "ExampleRoleClassLib/Drive"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "RoleClassLib": [
+    {
+      "Name": "ExampleRoleClassLib",
+      "RoleClass": [
+        {
+          "Name": "Drive"
+        }
+      ]
+    }
+  ],
+  "SystemUnitClassLib": [
+    {
+      "Name": "ExampleSystemUnitClassLib",
+      "SystemUnitClass": [
+        {
+          "Name": "Motor"
+        }
+      ]
+    }
+  ]
+}

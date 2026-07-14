@@ -1,0 +1,115 @@
+{
+  "SuperiorStandardVersion": [
+    "AutomationML 2.1"
+  ],
+  "SourceDocumentInformation": [
+    {
+      "OriginName": "AutomationML SDK validation suite",
+      "OriginID": "automationml-validation-suite",
+      "OriginVersion": "0.1.0",
+      "LastWritingDateTime": "2026-07-03T00:00:00Z"
+    }
+  ],
+  "InstanceHierarchy": [
+    {
+      "Name": "Plant",
+      "InternalElement": [
+        {
+          "ID": "ie-motor-1",
+          "Name": "Motor-1",
+          "Attribute": [
+            {
+              "Name": "speed",
+              "Value": "1500",
+              "Unit": "rpm",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "ExampleAttributeTypeLib/Speed"
+            }
+          ],
+          "ExternalInterface": [
+            {
+              "ID": "if-motor-power",
+              "Name": "Power",
+              "RefBaseClassPath": "ExampleInterfaceClassLib/PowerPort"
+            }
+          ],
+          "RoleRequirements": [
+            {
+              "RefBaseRoleClassPath": "ExampleRoleClassLib/Drive"
+            }
+          ],
+          "RefBaseSystemUnitPath": "ExampleSystemUnitClassLib/Motor"
+        }
+      ]
+    }
+  ],
+  "InterfaceClassLib": [
+    {
+      "Name": "ExampleInterfaceClassLib",
+      "InterfaceClass": [
+        {
+          "Name": "Port"
+        },
+        {
+          "Name": "PowerPort",
+          "RefBaseClassPath": "ExampleInterfaceClassLib/Port"
+        }
+      ]
+    }
+  ],
+  "RoleClassLib": [
+    {
+      "Name": "ExampleRoleClassLib",
+      "RoleClass": [
+        {
+          "Name": "Drive"
+        }
+      ]
+    }
+  ],
+  "SystemUnitClassLib": [
+    {
+      "Name": "ExampleSystemUnitClassLib",
+      "SystemUnitClass": [
+        {
+          "Name": "Motor",
+          "Attribute": [
+            {
+              "Name": "speed",
+              "Value": "1500",
+              "Unit": "rpm",
+              "AttributeDataType": "xs:double",
+              "RefAttributeType": "ExampleAttributeTypeLib/Speed"
+            }
+          ],
+          "ExternalInterface": [
+            {
+              "ID": "motor-class-power",
+              "Name": "Power",
+              "RefBaseClassPath": "ExampleInterfaceClassLib/PowerPort"
+            }
+          ],
+          "SupportedRoleClass": [
+            {
+              "RefRoleClassPath": "ExampleRoleClassLib/Drive"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "AttributeTypeLib": [
+    {
+      "Name": "ExampleAttributeTypeLib",
+      "AttributeType": [
+        {
+          "Name": "Speed",
+          "Unit": "rpm",
+          "AttributeDataType": "xs:double"
+        }
+      ]
+    }
+  ],
+  "SchemaVersion": "3.0",
+  "FileName": "small-valid-motor.aml"
+}

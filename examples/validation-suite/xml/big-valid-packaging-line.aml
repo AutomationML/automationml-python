@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" ChangeMode="state" SchemaVersion="3.0" FileName="big-valid-packaging-line.aml">
+  <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML SDK validation suite" OriginID="automationml-validation-suite" OriginVersion="0.1.0" LastWritingDateTime="2026-07-03T00:00:00+00:00"/>
+  <InstanceHierarchy ChangeMode="state" Name="FactoryLine">
+    <InternalElement ChangeMode="state" ID="line-a-cell-1" Name="PackagingCell-1" RefBaseSystemUnitPath="SystemUnitClassLib/Cell">
+      <Attribute ChangeMode="state" Name="cycleTime" Unit="s" AttributeDataType="xs:double" RefAttributeType="LineAttributeTypes/CycleTime">
+        <Value>36</Value>
+      </Attribute>
+      <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+        <Value>automatic</Value>
+      </Attribute>
+      <ExternalInterface ChangeMode="state" ID="line-a-cell-1-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <ExternalInterface ChangeMode="state" ID="line-a-cell-1-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+      <InternalElement ChangeMode="state" ID="line-a-cell-1-conv" Name="InfeedConveyor" RefBaseSystemUnitPath="SystemUnitClassLib/ConveyorModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-conv-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-conv-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-conv-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Conveyor"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-1-robot" Name="RobotArm" RefBaseSystemUnitPath="SystemUnitClassLib/RobotModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-robot-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-robot-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-robot-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Robot"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-1-buffer" Name="Buffer" RefBaseSystemUnitPath="SystemUnitClassLib/BufferModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-buffer-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-buffer-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-buffer-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Buffer"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-1-quality" Name="QualityGate" RefBaseSystemUnitPath="SystemUnitClassLib/QualityGateModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-quality-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-quality-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-quality-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/QualityGate"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-1-pallet" Name="Palletizer" RefBaseSystemUnitPath="SystemUnitClassLib/PalletizerModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-pallet-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-pallet-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-pallet-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Palletizer"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-1-scanner" Name="SafetyScanner" RefBaseSystemUnitPath="SystemUnitClassLib/SafetyScannerModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-scanner-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-scanner-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-scanner-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-1-scanner-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/SafetyDevice"/>
+      </InternalElement>
+      <InternalLink ChangeMode="state" Name="ConveyorToRobot" RefPartnerSideA="line-a-cell-1-conv-material-out" RefPartnerSideB="line-a-cell-1-robot-material-in"/>
+      <InternalLink ChangeMode="state" Name="RobotToBuffer" RefPartnerSideA="line-a-cell-1-robot-material-out" RefPartnerSideB="line-a-cell-1-buffer-material-in"/>
+      <InternalLink ChangeMode="state" Name="BufferToQuality" RefPartnerSideA="line-a-cell-1-buffer-material-out" RefPartnerSideB="line-a-cell-1-quality-material-in"/>
+      <InternalLink ChangeMode="state" Name="QualityToPalletizer" RefPartnerSideA="line-a-cell-1-quality-material-out" RefPartnerSideB="line-a-cell-1-pallet-material-in"/>
+      <InternalLink ChangeMode="state" Name="CellSafety" RefPartnerSideA="line-a-cell-1-safety" RefPartnerSideB="line-a-cell-1-scanner-safety"/>
+      <InternalLink ChangeMode="state" Name="QualityData" RefPartnerSideA="line-a-cell-1-data" RefPartnerSideB="line-a-cell-1-quality-data"/>
+      <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Equipment"/>
+    </InternalElement>
+    <InternalElement ChangeMode="state" ID="line-a-cell-2" Name="PackagingCell-2" RefBaseSystemUnitPath="SystemUnitClassLib/Cell">
+      <Attribute ChangeMode="state" Name="cycleTime" Unit="s" AttributeDataType="xs:double" RefAttributeType="LineAttributeTypes/CycleTime">
+        <Value>37</Value>
+      </Attribute>
+      <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+        <Value>automatic</Value>
+      </Attribute>
+      <ExternalInterface ChangeMode="state" ID="line-a-cell-2-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <ExternalInterface ChangeMode="state" ID="line-a-cell-2-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+      <InternalElement ChangeMode="state" ID="line-a-cell-2-conv" Name="InfeedConveyor" RefBaseSystemUnitPath="SystemUnitClassLib/ConveyorModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-conv-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-conv-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-conv-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Conveyor"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-2-robot" Name="RobotArm" RefBaseSystemUnitPath="SystemUnitClassLib/RobotModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-robot-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-robot-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-robot-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Robot"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-2-buffer" Name="Buffer" RefBaseSystemUnitPath="SystemUnitClassLib/BufferModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-buffer-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-buffer-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-buffer-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Buffer"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-2-quality" Name="QualityGate" RefBaseSystemUnitPath="SystemUnitClassLib/QualityGateModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-quality-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-quality-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-quality-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/QualityGate"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-2-pallet" Name="Palletizer" RefBaseSystemUnitPath="SystemUnitClassLib/PalletizerModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-pallet-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-pallet-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-pallet-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Palletizer"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-2-scanner" Name="SafetyScanner" RefBaseSystemUnitPath="SystemUnitClassLib/SafetyScannerModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-scanner-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-scanner-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-scanner-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-2-scanner-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/SafetyDevice"/>
+      </InternalElement>
+      <InternalLink ChangeMode="state" Name="ConveyorToRobot" RefPartnerSideA="line-a-cell-2-conv-material-out" RefPartnerSideB="line-a-cell-2-robot-material-in"/>
+      <InternalLink ChangeMode="state" Name="RobotToBuffer" RefPartnerSideA="line-a-cell-2-robot-material-out" RefPartnerSideB="line-a-cell-2-buffer-material-in"/>
+      <InternalLink ChangeMode="state" Name="BufferToQuality" RefPartnerSideA="line-a-cell-2-buffer-material-out" RefPartnerSideB="line-a-cell-2-quality-material-in"/>
+      <InternalLink ChangeMode="state" Name="QualityToPalletizer" RefPartnerSideA="line-a-cell-2-quality-material-out" RefPartnerSideB="line-a-cell-2-pallet-material-in"/>
+      <InternalLink ChangeMode="state" Name="CellSafety" RefPartnerSideA="line-a-cell-2-safety" RefPartnerSideB="line-a-cell-2-scanner-safety"/>
+      <InternalLink ChangeMode="state" Name="QualityData" RefPartnerSideA="line-a-cell-2-data" RefPartnerSideB="line-a-cell-2-quality-data"/>
+      <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Equipment"/>
+    </InternalElement>
+    <InternalElement ChangeMode="state" ID="line-a-cell-3" Name="PackagingCell-3" RefBaseSystemUnitPath="SystemUnitClassLib/Cell">
+      <Attribute ChangeMode="state" Name="cycleTime" Unit="s" AttributeDataType="xs:double" RefAttributeType="LineAttributeTypes/CycleTime">
+        <Value>38</Value>
+      </Attribute>
+      <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+        <Value>automatic</Value>
+      </Attribute>
+      <ExternalInterface ChangeMode="state" ID="line-a-cell-3-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <ExternalInterface ChangeMode="state" ID="line-a-cell-3-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+      <InternalElement ChangeMode="state" ID="line-a-cell-3-conv" Name="InfeedConveyor" RefBaseSystemUnitPath="SystemUnitClassLib/ConveyorModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-conv-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-conv-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-conv-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Conveyor"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-3-robot" Name="RobotArm" RefBaseSystemUnitPath="SystemUnitClassLib/RobotModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-robot-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-robot-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-robot-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Robot"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-3-buffer" Name="Buffer" RefBaseSystemUnitPath="SystemUnitClassLib/BufferModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-buffer-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-buffer-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-buffer-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Buffer"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-3-quality" Name="QualityGate" RefBaseSystemUnitPath="SystemUnitClassLib/QualityGateModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-quality-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-quality-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-quality-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/QualityGate"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-3-pallet" Name="Palletizer" RefBaseSystemUnitPath="SystemUnitClassLib/PalletizerModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-pallet-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-pallet-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-pallet-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Palletizer"/>
+      </InternalElement>
+      <InternalElement ChangeMode="state" ID="line-a-cell-3-scanner" Name="SafetyScanner" RefBaseSystemUnitPath="SystemUnitClassLib/SafetyScannerModule">
+        <Attribute ChangeMode="state" Name="mode" AttributeDataType="xs:string" RefAttributeType="LineAttributeTypes/Mode">
+          <Value>automatic</Value>
+        </Attribute>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-scanner-material-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-scanner-material-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-scanner-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+        <ExternalInterface ChangeMode="state" ID="line-a-cell-3-scanner-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+        <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/SafetyDevice"/>
+      </InternalElement>
+      <InternalLink ChangeMode="state" Name="ConveyorToRobot" RefPartnerSideA="line-a-cell-3-conv-material-out" RefPartnerSideB="line-a-cell-3-robot-material-in"/>
+      <InternalLink ChangeMode="state" Name="RobotToBuffer" RefPartnerSideA="line-a-cell-3-robot-material-out" RefPartnerSideB="line-a-cell-3-buffer-material-in"/>
+      <InternalLink ChangeMode="state" Name="BufferToQuality" RefPartnerSideA="line-a-cell-3-buffer-material-out" RefPartnerSideB="line-a-cell-3-quality-material-in"/>
+      <InternalLink ChangeMode="state" Name="QualityToPalletizer" RefPartnerSideA="line-a-cell-3-quality-material-out" RefPartnerSideB="line-a-cell-3-pallet-material-in"/>
+      <InternalLink ChangeMode="state" Name="CellSafety" RefPartnerSideA="line-a-cell-3-safety" RefPartnerSideB="line-a-cell-3-scanner-safety"/>
+      <InternalLink ChangeMode="state" Name="QualityData" RefPartnerSideA="line-a-cell-3-data" RefPartnerSideB="line-a-cell-3-quality-data"/>
+      <RoleRequirements ChangeMode="state" RefBaseRoleClassPath="RoleClassLib/Equipment"/>
+    </InternalElement>
+  </InstanceHierarchy>
+  <InterfaceClassLib ChangeMode="state" Name="AutomationMLInterfaceClassLib">
+    <InterfaceClass ChangeMode="state" Name="Port"/>
+    <InterfaceClass ChangeMode="state" Name="PowerPort" RefBaseClassPath="AutomationMLInterfaceClassLib/Port"/>
+    <InterfaceClass ChangeMode="state" Name="DataPort" RefBaseClassPath="AutomationMLInterfaceClassLib/Port"/>
+    <InterfaceClass ChangeMode="state" Name="MaterialPort" RefBaseClassPath="AutomationMLInterfaceClassLib/Port"/>
+    <InterfaceClass ChangeMode="state" Name="SafetyPort" RefBaseClassPath="AutomationMLInterfaceClassLib/Port"/>
+  </InterfaceClassLib>
+  <RoleClassLib ChangeMode="state" Name="RoleClassLib">
+    <RoleClass ChangeMode="state" Name="Equipment"/>
+    <RoleClass ChangeMode="state" Name="Robot" RefBaseClassPath="RoleClassLib/Equipment"/>
+    <RoleClass ChangeMode="state" Name="Conveyor" RefBaseClassPath="RoleClassLib/Equipment"/>
+    <RoleClass ChangeMode="state" Name="Buffer" RefBaseClassPath="RoleClassLib/Equipment"/>
+    <RoleClass ChangeMode="state" Name="QualityGate" RefBaseClassPath="RoleClassLib/Equipment"/>
+    <RoleClass ChangeMode="state" Name="Palletizer" RefBaseClassPath="RoleClassLib/Equipment"/>
+    <RoleClass ChangeMode="state" Name="SafetyDevice" RefBaseClassPath="RoleClassLib/Equipment"/>
+  </RoleClassLib>
+  <SystemUnitClassLib ChangeMode="state" Name="SystemUnitClassLib">
+    <SystemUnitClass ChangeMode="state" Name="Cell">
+      <Attribute ChangeMode="state" Name="cycleTime" Unit="s" AttributeDataType="xs:double" RefAttributeType="LineAttributeTypes/CycleTime">
+        <Value>42</Value>
+      </Attribute>
+    </SystemUnitClass>
+    <SystemUnitClass ChangeMode="state" Name="RobotModule" RefBaseClassPath="SystemUnitClassLib/Cell">
+      <Attribute ChangeMode="state" Name="payload" Unit="kg" AttributeDataType="xs:double" RefAttributeType="LineAttributeTypes/PayloadKg">
+        <Value>12</Value>
+      </Attribute>
+      <ExternalInterface ChangeMode="state" ID="robot-class-power" Name="Power" RefBaseClassPath="AutomationMLInterfaceClassLib/PowerPort"/>
+      <ExternalInterface ChangeMode="state" ID="robot-class-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <ExternalInterface ChangeMode="state" ID="robot-class-mat-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="robot-class-mat-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <SupportedRoleClass ChangeMode="state" RefRoleClassPath="RoleClassLib/Robot"/>
+    </SystemUnitClass>
+    <SystemUnitClass ChangeMode="state" Name="ConveyorModule" RefBaseClassPath="SystemUnitClassLib/Cell">
+      <ExternalInterface ChangeMode="state" ID="conv-class-mat-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="conv-class-mat-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="conv-class-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <SupportedRoleClass ChangeMode="state" RefRoleClassPath="RoleClassLib/Conveyor"/>
+    </SystemUnitClass>
+    <SystemUnitClass ChangeMode="state" Name="BufferModule" RefBaseClassPath="SystemUnitClassLib/Cell">
+      <ExternalInterface ChangeMode="state" ID="buffer-class-mat-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="buffer-class-mat-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <SupportedRoleClass ChangeMode="state" RefRoleClassPath="RoleClassLib/Buffer"/>
+    </SystemUnitClass>
+    <SystemUnitClass ChangeMode="state" Name="QualityGateModule" RefBaseClassPath="SystemUnitClassLib/Cell">
+      <ExternalInterface ChangeMode="state" ID="quality-class-mat-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="quality-class-mat-out" Name="MaterialOut" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="quality-class-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <SupportedRoleClass ChangeMode="state" RefRoleClassPath="RoleClassLib/QualityGate"/>
+    </SystemUnitClass>
+    <SystemUnitClass ChangeMode="state" Name="PalletizerModule" RefBaseClassPath="SystemUnitClassLib/Cell">
+      <ExternalInterface ChangeMode="state" ID="pallet-class-mat-in" Name="MaterialIn" RefBaseClassPath="AutomationMLInterfaceClassLib/MaterialPort"/>
+      <ExternalInterface ChangeMode="state" ID="pallet-class-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+      <SupportedRoleClass ChangeMode="state" RefRoleClassPath="RoleClassLib/Palletizer"/>
+    </SystemUnitClass>
+    <SystemUnitClass ChangeMode="state" Name="SafetyScannerModule" RefBaseClassPath="SystemUnitClassLib/Cell">
+      <ExternalInterface ChangeMode="state" ID="scanner-class-safety" Name="Safety" RefBaseClassPath="AutomationMLInterfaceClassLib/SafetyPort"/>
+      <ExternalInterface ChangeMode="state" ID="scanner-class-data" Name="Data" RefBaseClassPath="AutomationMLInterfaceClassLib/DataPort"/>
+      <SupportedRoleClass ChangeMode="state" RefRoleClassPath="RoleClassLib/SafetyDevice"/>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+  <AttributeTypeLib ChangeMode="state" Name="LineAttributeTypes">
+    <AttributeType ChangeMode="state" Name="CycleTime" Unit="s" AttributeDataType="xs:double"/>
+    <AttributeType ChangeMode="state" Name="PayloadKg" Unit="kg" AttributeDataType="xs:double"/>
+    <AttributeType ChangeMode="state" Name="Mode" AttributeDataType="xs:string"/>
+    <AttributeType ChangeMode="state" Name="Temperature" Unit="degC" AttributeDataType="xs:double"/>
+    <AttributeType ChangeMode="state" Name="QualityState" AttributeDataType="xs:string"/>
+  </AttributeTypeLib>
+</CAEXFile>
