@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX"
+          FileName="regression-source-documents.aml"
+          SchemaVersion="3.0">
+  <SourceDocumentInformation OriginName="Engineering tool A"
+                             OriginID="tool-a"
+                             OriginVersion="1.0"
+                             LastWritingDateTime="2026-08-17T10:00:00Z"
+                             OriginVendor="Vendor A"
+                             OriginVendorURL="https://a.example.invalid"
+                             OriginRelease="1.0"
+                             OriginProjectTitle="Project A"
+                             OriginProjectID="project-a"/>
+  <SourceDocumentInformation OriginName="Engineering tool B"
+                             OriginID="tool-b"
+                             OriginVersion="2.0"
+                             LastWritingDateTime="2026-08-17T11:00:00Z"
+                             OriginVendor="Vendor B"
+                             OriginVendorURL="https://b.example.invalid"
+                             OriginRelease="2.0"
+                             OriginProjectTitle="Project B"
+                             OriginProjectID="project-b"/>
+</CAEXFile>

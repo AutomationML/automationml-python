@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX"
+          FileName="regression-nested-classes.aml"
+          SchemaVersion="3.0">
+  <SourceDocumentInformation OriginName="Comparison fixture"
+                             OriginID="comparison-fixture"
+                             OriginVersion="1.0"
+                             LastWritingDateTime="2026-08-17T00:00:00Z"
+                             OriginVendor="AutomationML SDK"
+                             OriginVendorURL="https://example.invalid"
+                             OriginRelease="1.0"
+                             OriginProjectTitle="Mapper comparison"
+                             OriginProjectID="mapper-comparison"/>
+  <SystemUnitClassLib Name="MachineLib">
+    <SystemUnitClass Name="Machine" ID="class-machine">
+      <SystemUnitClass Name="PackagingMachine"
+        ID="class-packaging"
+        RefBaseClassPath="MachineLib/Machine">
+        <SystemUnitClass Name="Cartoner"
+          ID="class-cartoner"
+          RefBaseClassPath="MachineLib/Machine/PackagingMachine"/>
+      </SystemUnitClass>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+</CAEXFile>

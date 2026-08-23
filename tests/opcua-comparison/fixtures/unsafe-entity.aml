@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE CAEXFile [<!ENTITY external SYSTEM "file:///this-resource-must-never-be-read">]>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="unsafe-entity.aml" SchemaVersion="3.0">
+  <SuperiorStandardVersion>&external;</SuperiorStandardVersion>
+</CAEXFile>

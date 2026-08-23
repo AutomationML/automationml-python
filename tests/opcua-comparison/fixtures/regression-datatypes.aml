@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX"
+          FileName="regression-datatypes.aml"
+          SchemaVersion="3.0">
+  <SourceDocumentInformation OriginName="Comparison fixture"
+                             OriginID="comparison-fixture"
+                             OriginVersion="1.0"
+                             LastWritingDateTime="2026-08-17T00:00:00Z"
+                             OriginVendor="AutomationML SDK"
+                             OriginVendorURL="https://example.invalid"
+                             OriginRelease="1.0"
+                             OriginProjectTitle="Mapper comparison"
+                             OriginProjectID="mapper-comparison"/>
+  <InstanceHierarchy Name="Datatype cases">
+    <InternalElement Name="Asset" ID="asset-1">
+      <Attribute Name="identifier" AttributeDataType="xs:ID">
+        <Value>ASSET-1</Value>
+      </Attribute>
+      <Attribute Name="timestamp" AttributeDataType="xs:dateTime">
+        <Value>2026-08-17T12:30:00Z</Value>
+      </Attribute>
+      <Attribute Name="token" AttributeDataType="xs:token">
+        <Value>commissioned</Value>
+      </Attribute>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

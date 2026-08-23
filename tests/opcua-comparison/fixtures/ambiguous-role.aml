@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="ambiguous-role.aml" SchemaVersion="3.0">
+  <InstanceHierarchy Name="Plant">
+    <InternalElement Name="Motor" ID="ambiguous-motor">
+      <SupportedRoleClass RefRoleClassPath="Roles/Drive"/>
+    </InternalElement>
+  </InstanceHierarchy>
+  <RoleClassLib Name="Roles"><RoleClass Name="Drive"/></RoleClassLib>
+</CAEXFile>

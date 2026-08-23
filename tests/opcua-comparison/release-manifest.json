@@ -1,0 +1,2942 @@
+{
+  "schema_version": "1.0",
+  "name": "AutomationML / OPC UA strict-profile release comparison",
+  "baseline_commit": "e38653c1bc58ffc658595093e0a2d163a7ecebf7",
+  "publication_date": "2026-08-17",
+  "include_manifests": [
+    "phase1-manifest.json"
+  ],
+  "cases": [
+    {
+      "id": "AML-DOC-001",
+      "title": "Minimal valid CAEX 3.0 document",
+      "family": "document-header",
+      "source": "tests/opcua-comparison/fixtures/minimal-caex3.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "minimal-caex3.aml",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DOC-002",
+      "title": "Description and version use standard UA fields",
+      "family": "document-header",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "required_model_version": "1.2.3",
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "focused-profile.aml",
+            "documentation": "Strict implicit mapping corpus"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DOC-003",
+      "title": "Source-document records retain distinct identities",
+      "family": "document-header",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "SourceDocumentInformation_1"
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "SourceDocumentInformation_2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DOC-004",
+      "title": "External reference aliases and paths remain paired",
+      "family": "document-header",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "AMLExternalReferenceAlias_1",
+            "value": "external"
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "AMLExternalReferencePath_1",
+            "value": "external-classes.aml"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DOC-005",
+      "title": "Multiple and empty instance hierarchies remain distinct",
+      "family": "document-header",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Plant"
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "EmptyHierarchy"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DOC-006",
+      "title": "Unsupported lifecycle metadata fails closed",
+      "family": "document-header",
+      "source": "tests/opcua-comparison/fixtures/unsupported-lifecycle.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": [
+        "secure_xml",
+        "caex_xsd"
+      ],
+      "expected_rejection_category": "UNSUPPORTED_FEATURE"
+    },
+    {
+      "id": "AML-TREE-001",
+      "title": "Three nested InternalElement levels",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "LevelThree"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-002",
+      "title": "Repeated sibling names retain two identities",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Repeated",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-003",
+      "title": "All four AML library kinds are represented",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Connectors"
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "Roles"
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "Equipment"
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "Attributes"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-004",
+      "title": "Nested SystemUnitClass inheritance",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObjectType",
+            "display_name": "PackagingMachine",
+            "references": [
+              {
+                "reference_type": "HasSubtype",
+                "is_forward": false
+              }
+            ]
+          },
+          {
+            "node_class": "UAObjectType",
+            "display_name": "Cartoner",
+            "references": [
+              {
+                "reference_type": "HasSubtype",
+                "is_forward": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-005",
+      "title": "Nested RoleClass inheritance",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObjectType",
+            "display_name": "ConfiguredDrive",
+            "references": [
+              {
+                "reference_type": "HasSubtype",
+                "is_forward": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-006",
+      "title": "Nested InterfaceClass inheritance",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObjectType",
+            "display_name": "Signal",
+            "references": [
+              {
+                "reference_type": "HasSubtype",
+                "is_forward": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-007",
+      "title": "Nested AttributeType inheritance",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariableType",
+            "display_name": "Speed",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "references": [
+              {
+                "reference_type": "HasSubtype",
+                "is_forward": false
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-008",
+      "title": "Instance and interface type definitions come from ancestry",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Assembly",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "PortA",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-009",
+      "title": "Same class name in two libraries remains distinct",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObjectType",
+            "display_name": "Machine",
+            "count": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-TREE-010",
+      "title": "External alias and multilevel class path use a local proxy type",
+      "family": "hierarchy-class",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "AMLExternalClassPath",
+            "value": "external@Roles/Drive"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-001",
+      "title": "Boolean",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "booleanValue",
+            "attributes": {
+              "DataType": "Boolean"
+            },
+            "value": "true"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-002",
+      "title": "signed 8-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "signedByte",
+            "attributes": {
+              "DataType": "SByte"
+            },
+            "value": "-128"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-003",
+      "title": "unsigned 8-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "unsignedByte",
+            "attributes": {
+              "DataType": "Byte"
+            },
+            "value": "255"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-004",
+      "title": "signed 16-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "signedShort",
+            "attributes": {
+              "DataType": "Int16"
+            },
+            "value": "-32768"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-005",
+      "title": "unsigned 16-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "unsignedShort",
+            "attributes": {
+              "DataType": "UInt16"
+            },
+            "value": "65535"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-006",
+      "title": "signed 32-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "signedInt",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "-2147483648"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-007",
+      "title": "xs:integer canonical inverse",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "integerAlias",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "42"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-008",
+      "title": "unsigned 32-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "unsignedInt",
+            "attributes": {
+              "DataType": "UInt32"
+            },
+            "value": "4294967295"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-009",
+      "title": "signed 64-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "signedLong",
+            "attributes": {
+              "DataType": "Int64"
+            },
+            "value": "-9223372036854775808"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-010",
+      "title": "unsigned 64-bit boundary",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "unsignedLong",
+            "attributes": {
+              "DataType": "UInt64"
+            },
+            "value": "18446744073709551615"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-011",
+      "title": "xs:positiveInteger canonical inverse",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "positiveIntegerAlias",
+            "attributes": {
+              "DataType": "UInt64"
+            },
+            "value": "1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-012",
+      "title": "Float exponent value",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "floatValue",
+            "attributes": {
+              "DataType": "Float"
+            },
+            "value": "-1.25E2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-013",
+      "title": "Double exponent value",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "doubleValue",
+            "attributes": {
+              "DataType": "Double"
+            },
+            "value": "6.022E23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-014",
+      "title": "String value",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "stringValue",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "Mixer"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-015",
+      "title": "xs:ID aliases to String",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "idAlias",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "ASSET-1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-016",
+      "title": "xs:token aliases to String",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "tokenAlias",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "commissioned"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-017",
+      "title": "xs:anyURI aliases to String",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "uriAlias",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "urn:example:asset:1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-018",
+      "title": "xs:date canonical inverse",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "dateAlias",
+            "attributes": {
+              "DataType": "DateTime"
+            },
+            "value": "2026-08-17"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-019",
+      "title": "xs:dateTime value",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "dateTimeValue",
+            "attributes": {
+              "DataType": "DateTime"
+            },
+            "value": "2026-08-17T12:30:00Z"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-020",
+      "title": "base64 binary value",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "binaryValue",
+            "attributes": {
+              "DataType": "ByteString"
+            },
+            "value": "AQIDBA=="
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-DTYPE-021",
+      "title": "Unknown datatype fails before NodeSet emission",
+      "family": "datatype-matrix",
+      "source": "tests/opcua-comparison/fixtures/unsupported-datatype.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": [
+        "secure_xml",
+        "caex_xsd"
+      ],
+      "expected_rejection_category": "UNSUPPORTED_DATATYPE"
+    },
+    {
+      "id": "AML-ATTR-001",
+      "title": "Actual Value only",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "actualOnly",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "running"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-002",
+      "title": "DefaultValue only on a declaration",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "defaultOnly",
+            "attributes": {
+              "DataType": "Int32"
+            }
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "DefaultValue",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "1500"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-003",
+      "title": "Actual and DefaultValue remain independent",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/regression-attribute-value.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "exact",
+      "canonicalizations": [],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "state",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "running"
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "DefaultValue",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "idle"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-004",
+      "title": "DefaultValue datatype equals its owner datatype",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "DefaultValue",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "1500"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-005",
+      "title": "Nested attributes preserve containment",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "nestedChild",
+            "attributes": {
+              "DataType": "Boolean"
+            },
+            "value": "false"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-006",
+      "title": "RefAttributeType is represented by native type ancestry",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "typedSpeed",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-007",
+      "title": "Known unit remains a plain strict-profile Unit property",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "Unit",
+            "value": "m"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ATTR-008",
+      "title": "Non-standard unit remains a plain Unit property",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "Unit",
+            "value": "asset-code"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-SEM-001",
+      "title": "IRDI semantic reference uses HasDictionaryEntry",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "semanticIRDI",
+            "references": [
+              {
+                "reference_type": "HasDictionaryEntry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-SEM-002",
+      "title": "URI semantic reference uses HasDictionaryEntry",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "semanticURI",
+            "references": [
+              {
+                "reference_type": "HasDictionaryEntry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-SEM-003",
+      "title": "Multiple semantic references canonicalize deterministically",
+      "family": "attribute-semantics",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "semanticMultiple",
+            "references": [
+              {
+                "reference_type": "HasDictionaryEntry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-001",
+      "title": "InternalElement role edge reverses to RoleRequirements",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Assembly",
+            "references": [
+              {
+                "reference_type": "HasAMLRoleReference"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-002",
+      "title": "SystemUnitClass role edge reverses to SupportedRoleClass",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObjectType",
+          "display_name": "Cartoner",
+            "references": [
+              {
+                "reference_type": "HasAMLRoleReference"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-003",
+      "title": "Role path is inferred from library ancestry",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "RoleRequirements",
+            "references": [
+              {
+                "reference_type": "HasAMLRoleReference"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-004",
+      "title": "RoleRequirements payload is reified only when needed",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "RoleRequirements",
+            "documentation": "Configured drive requirement"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-005",
+      "title": "AttributeNameMapping fields remain paired",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "SystemUnitAttributeName",
+            "value": "typedSpeed"
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "RoleAttributeName",
+            "value": "setpoint"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-006",
+      "title": "InterfaceIDMapping fields remain paired",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "SystemUnitInterfaceID",
+            "value": "port-a"
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "RoleInterfaceID",
+            "value": "required-port"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-ROLE-007",
+      "title": "Ambiguous InternalElement SupportedRoleClass fails closed",
+      "family": "roles-mapping",
+      "source": "tests/opcua-comparison/fixtures/ambiguous-role.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": [
+        "secure_xml",
+        "caex_xsd"
+      ],
+      "expected_rejection_category": "AMBIGUOUS_ROLE"
+    },
+    {
+      "id": "AML-LINK-001",
+      "title": "Nested ExternalInterface has native type definition",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "NestedPort",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-LINK-002",
+      "title": "InternalLink is one directed native companion edge",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "PortA",
+            "references": [
+              {
+                "reference_type": "HasAMLInternalLink"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-LINK-003",
+      "title": "PartnerA ownership reconstructs ordered endpoints",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Assembly"
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "PortA"
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "PortB"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-LINK-004",
+      "title": "OPC-authored edge receives canonical link name and UUID",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "AML-LINK-005",
+      "title": "Cross-InternalElement endpoints survive roundtrip",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "PortA",
+            "references": [
+              {
+                "reference_type": "HasAMLInternalLink"
+              }
+            ]
+          },
+          {
+            "node_class": "UAObject",
+            "display_name": "PortB"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-LINK-006",
+      "title": "Parallel directed InternalLinks are rejected",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/parallel-links.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": [
+        "secure_xml",
+        "caex_xsd"
+      ],
+      "expected_rejection_category": "PARALLEL_INTERNAL_LINK"
+    },
+    {
+      "id": "AML-LINK-007",
+      "title": "Broken partner endpoint is rejected",
+      "family": "interfaces-links",
+      "source": "tests/opcua-comparison/fixtures/broken-link.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": [
+        "secure_xml",
+        "caex_xsd"
+      ],
+      "expected_rejection_category": "BROKEN_INTERNAL_LINK"
+    },
+    {
+      "id": "AML-CONSTRAINT-001",
+      "title": "Nominal constraint is a typed native node",
+      "family": "constraints-mirror-facet",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "Allowed modes",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition",
+                "target": "NominalScaledConstraint"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-CONSTRAINT-002",
+      "title": "Ordinal constraint is a typed native node",
+      "family": "constraints-mirror-facet",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "Operating range",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition",
+                "target": "OrdinalScaledConstraint"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-CONSTRAINT-003",
+      "title": "Unknown constraint uses a direct String value",
+      "family": "constraints-mirror-facet",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "Human rule",
+            "attributes": {
+              "DataType": "String"
+            },
+            "value": "approved by operator",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition",
+                "target": "UnknownConstraint"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-CONSTRAINT-004",
+      "title": "Ordinal min and max remain typed",
+      "family": "constraints-mirror-facet",
+      "source": "tests/opcua-comparison/fixtures/focused-profile.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "nominal_constraint_set",
+        "relationship_sets"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "RequiredMinValue",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "-20"
+          },
+          {
+            "node_class": "UAVariable",
+            "display_name": "RequiredMaxValue",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "100"
+          }
+        ]
+      }
+    },
+    {
+      "id": "AML-MIRROR-001",
+      "title": "Mirror relation has a stable semantic projection",
+      "family": "constraints-mirror-facet",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/12_MirrorObject.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "uuid_braces",
+        "xml_attribute_whitespace"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "AML-FACET-001",
+      "title": "Facet has a stable semantic projection",
+      "family": "constraints-mirror-facet",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/13_Facet.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": [
+        "datatype_aliases",
+        "uuid_braces",
+        "xml_attribute_whitespace"
+      ],
+      "oracles": [
+        "secure_xml",
+        "caex_xsd",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "UA-ORIGIN-001",
+      "title": "Minimal CAEXFileType semantic projection",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "ua-origin.aml",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-002",
+      "title": "Arbitrary document NodeIds do not change AML",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [
+        "remap_node_ids"
+      ],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": []
+      }
+    },
+    {
+      "id": "UA-ORIGIN-003",
+      "title": "Expanded NodeIds replace all alias uses",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [
+        "expand_alias_uses"
+      ],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": []
+      }
+    },
+    {
+      "id": "UA-ORIGIN-004",
+      "title": "Namespace indexes are remapped by expanded URI",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [
+        "remap_namespace_indexes"
+      ],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": []
+      }
+    },
+    {
+      "id": "UA-ORIGIN-005",
+      "title": "Reversed XML node order is semantic-neutral",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [
+        "reverse_node_order"
+      ],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": []
+      }
+    },
+    {
+      "id": "UA-ORIGIN-006",
+      "title": "Reversed reference order is semantic-neutral",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [
+        "reverse_reference_order"
+      ],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": []
+      }
+    },
+    {
+      "id": "UA-ORIGIN-007",
+      "title": "BrowseName wins over localized DisplayName",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [
+        "different_display_name"
+      ],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": []
+      }
+    },
+    {
+      "id": "UA-ORIGIN-008",
+      "title": "Typed Variable produces AML Value and datatype",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "temperature",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "42"
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-009",
+      "title": "Typed DefaultValue property produces AML DefaultValue",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "DefaultValue",
+            "attributes": {
+              "DataType": "Int32"
+            },
+            "value": "20"
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-010",
+      "title": "Native HasDictionaryEntry alone produces RefSemantic",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAVariable",
+            "display_name": "temperature",
+            "references": [
+              {
+                "reference_type": "HasDictionaryEntry"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-011",
+      "title": "SystemUnit type target produces RefBaseSystemUnitPath",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Motor",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-012",
+      "title": "Interface type target produces RefBaseClassPath",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "PortA",
+            "references": [
+              {
+                "reference_type": "HasTypeDefinition"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-013",
+      "title": "Role edge from InternalElement defaults to RoleRequirements",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Motor",
+            "references": [
+              {
+                "reference_type": "HasAMLRoleReference"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-014",
+      "title": "Role edge from SystemUnitClass means SupportedRoleClass",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObjectType",
+            "display_name": "MotorType",
+            "references": [
+              {
+                "reference_type": "HasAMLRoleReference"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-015",
+      "title": "Directed native link produces canonical AML InternalLink",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "expected_aml": "tests/opcua-comparison/fixtures/ua-origin-expected.aml",
+      "direction": "ua_to_aml_to_ua_to_aml",
+      "severity": "must",
+      "source_mutations": [],
+      "oracles": [
+        "secure_xml",
+        "nodeset_xsd",
+        "nodeset_semantics",
+        "expected_graph",
+        "canonical_aml",
+        "no_roundtrip_metadata"
+      ],
+      "expected": {
+        "forbid_shadow_names": true,
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "PortA",
+            "references": [
+              {
+                "reference_type": "HasAMLInternalLink"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "UA-ORIGIN-016",
+      "title": "Unknown AML containment component fails instead of disappearing",
+      "family": "ua-origin",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": [
+        "add_unknown_component"
+      ],
+      "oracles": [
+        "secure_xml"
+      ],
+      "expected_rejection_category": "UNSUPPORTED_FEATURE"
+    },
+    {
+      "id": "NEG-UA-001",
+      "title": "Duplicate NodeIds are rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["duplicate_node_id"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "DUPLICATE_NODE_ID"
+    },
+    {
+      "id": "NEG-UA-002",
+      "title": "Invalid NodeId syntax is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["invalid_node_id"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "INVALID_NODE_ID"
+    },
+    {
+      "id": "NEG-UA-003",
+      "title": "Missing document-local reference target is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["missing_local_target"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "UNRESOLVED_REFERENCE"
+    },
+    {
+      "id": "NEG-UA-004",
+      "title": "Competing TypeDefinitions are rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["multiple_type_definitions"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "MULTIPLE_TYPE_DEFINITIONS"
+    },
+    {
+      "id": "NEG-UA-005",
+      "title": "Cyclic class ancestry is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["class_ancestry_cycle"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "CLASS_ANCESTRY_CYCLE"
+    },
+    {
+      "id": "NEG-UA-006",
+      "title": "A component with multiple owners is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["multiple_component_owners"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "NON_TREE_COMPONENT"
+    },
+    {
+      "id": "NEG-UA-007",
+      "title": "Object carrying Variable-only fields is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["object_variable_fields"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "NODE_CLASS_SHAPE"
+    },
+    {
+      "id": "NEG-UA-008",
+      "title": "DefaultValue DataType mismatch is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["default_datatype_mismatch"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "DEFAULT_DATATYPE_MISMATCH"
+    },
+    {
+      "id": "NEG-AML-009",
+      "title": "Ambiguous role interpretation is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ambiguous-role.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "AMBIGUOUS_ROLE"
+    },
+    {
+      "id": "NEG-AML-010",
+      "title": "Parallel InternalLinks are rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/parallel-links.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "PARALLEL_INTERNAL_LINK"
+    },
+    {
+      "id": "NEG-UA-011",
+      "title": "Unknown OPC UA datatype is rejected",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/ua-origin-base.xml",
+      "direction": "ua_to_aml",
+      "severity": "critical",
+      "source_mutations": ["unknown_datatype"],
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "UNSUPPORTED_DATATYPE"
+    },
+    {
+      "id": "NEG-SEC-012",
+      "title": "DTD and external entity declarations are rejected before resolution",
+      "family": "negative-security",
+      "source": "tests/opcua-comparison/fixtures/unsafe-entity.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml"],
+      "expected_rejection_category": "UNSAFE_XML"
+    }
+  ]
+}

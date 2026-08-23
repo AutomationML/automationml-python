@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="parallel-links.aml" SchemaVersion="3.0">
+  <InstanceHierarchy Name="Plant">
+    <InternalElement Name="Owner" ID="parallel-owner">
+      <ExternalInterface Name="A" ID="parallel-a"/>
+      <InternalElement Name="Target" ID="parallel-target"><ExternalInterface Name="B" ID="parallel-b"/></InternalElement>
+      <InternalLink Name="first" ID="parallel-link-1" RefPartnerSideA="parallel-owner:A" RefPartnerSideB="parallel-target:B"/>
+      <InternalLink Name="second" ID="parallel-link-2" RefPartnerSideA="parallel-owner:A" RefPartnerSideB="parallel-target:B"/>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

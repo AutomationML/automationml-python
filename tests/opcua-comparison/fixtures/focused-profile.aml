@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX"
+          FileName="focused-profile.aml"
+          SchemaVersion="3.0">
+  <Description>Strict implicit mapping corpus</Description>
+  <Version>1.2.3</Version>
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SuperiorStandardVersion>IEC 62714</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="Authoring system A"
+                             OriginID="source-a"
+                             OriginVendor="Example A"
+                             OriginVendorURL="https://a.example.invalid"
+                             OriginVersion="1.0"
+                             OriginRelease="2026"
+                             LastWritingDateTime="2026-08-17T10:00:00Z"
+                             OriginProjectTitle="Comparison"
+                             OriginProjectID="project-a"/>
+  <SourceDocumentInformation OriginName="Authoring system B"
+                             OriginID="source-b"
+                             OriginVendor="Example B"
+                             OriginVendorURL="https://b.example.invalid"
+                             OriginVersion="2.0"
+                             OriginRelease="2026"
+                             LastWritingDateTime="2026-08-17T11:00:00Z"
+                             OriginProjectTitle="Comparison"
+                             OriginProjectID="project-b"/>
+  <ExternalReference Alias="external" Path="external-classes.aml"/>
+  <InstanceHierarchy Name="Plant" ID="plant-hierarchy">
+    <InternalElement Name="Assembly" ID="assembly-1" RefBaseSystemUnitPath="Equipment/Machine">
+      <Attribute Name="booleanValue" AttributeDataType="xs:boolean"><Value>true</Value></Attribute>
+      <Attribute Name="signedByte" AttributeDataType="xs:byte"><Value>-128</Value></Attribute>
+      <Attribute Name="unsignedByte" AttributeDataType="xs:unsignedByte"><Value>255</Value></Attribute>
+      <Attribute Name="signedShort" AttributeDataType="xs:short"><Value>-32768</Value></Attribute>
+      <Attribute Name="unsignedShort" AttributeDataType="xs:unsignedShort"><Value>65535</Value></Attribute>
+      <Attribute Name="signedInt" AttributeDataType="xs:int"><Value>-2147483648</Value></Attribute>
+      <Attribute Name="integerAlias" AttributeDataType="xs:integer"><Value>42</Value></Attribute>
+      <Attribute Name="unsignedInt" AttributeDataType="xs:unsignedInt"><Value>4294967295</Value></Attribute>
+      <Attribute Name="signedLong" AttributeDataType="xs:long"><Value>-9223372036854775808</Value></Attribute>
+      <Attribute Name="unsignedLong" AttributeDataType="xs:unsignedLong"><Value>18446744073709551615</Value></Attribute>
+      <Attribute Name="positiveIntegerAlias" AttributeDataType="xs:positiveInteger"><Value>1</Value></Attribute>
+      <Attribute Name="floatValue" AttributeDataType="xs:float"><Value>-1.25E2</Value></Attribute>
+      <Attribute Name="doubleValue" AttributeDataType="xs:double"><Value>6.022E23</Value></Attribute>
+      <Attribute Name="stringValue" AttributeDataType="xs:string"><Value>Mixer</Value></Attribute>
+      <Attribute Name="idAlias" AttributeDataType="xs:ID"><Value>ASSET-1</Value></Attribute>
+      <Attribute Name="tokenAlias" AttributeDataType="xs:token"><Value>commissioned</Value></Attribute>
+      <Attribute Name="uriAlias" AttributeDataType="xs:anyURI"><Value>urn:example:asset:1</Value></Attribute>
+      <Attribute Name="dateAlias" AttributeDataType="xs:date"><Value>2026-08-17</Value></Attribute>
+      <Attribute Name="dateTimeValue" AttributeDataType="xs:dateTime"><Value>2026-08-17T12:30:00Z</Value></Attribute>
+      <Attribute Name="binaryValue" AttributeDataType="xs:base64Binary"><Value>AQIDBA==</Value></Attribute>
+      <Attribute Name="actualOnly" AttributeDataType="xs:string"><Value>running</Value></Attribute>
+      <Attribute Name="defaultOnly" AttributeDataType="xs:int"><DefaultValue>1500</DefaultValue></Attribute>
+      <Attribute Name="actualAndDefault" AttributeDataType="xs:string">
+        <DefaultValue>idle</DefaultValue>
+        <Value>running</Value>
+      </Attribute>
+      <Attribute Name="unitKnown" AttributeDataType="xs:double" Unit="m"><Value>1.5</Value></Attribute>
+      <Attribute Name="unitCustom" AttributeDataType="xs:string" Unit="asset-code"><Value>A1</Value></Attribute>
+      <Attribute Name="typedSpeed" AttributeDataType="xs:int" RefAttributeType="Attributes/Speed"><Value>1200</Value></Attribute>
+      <Attribute Name="nestedParent" AttributeDataType="xs:string">
+        <Value>parent</Value>
+        <Attribute Name="nestedChild" AttributeDataType="xs:boolean"><Value>false</Value></Attribute>
+      </Attribute>
+      <Attribute Name="semanticIRDI" AttributeDataType="xs:string">
+        <Value>value</Value>
+        <RefSemantic CorrespondingAttributePath="0173-1#02-BAF016#005"/>
+      </Attribute>
+      <Attribute Name="semanticURI" AttributeDataType="xs:string">
+        <RefSemantic CorrespondingAttributePath="urn:example:semantic:temperature"/>
+      </Attribute>
+      <Attribute Name="semanticMultiple" AttributeDataType="xs:string">
+        <RefSemantic CorrespondingAttributePath="urn:example:semantic:b"/>
+        <RefSemantic CorrespondingAttributePath="urn:example:semantic:a"/>
+      </Attribute>
+      <Attribute Name="nominalConstraint" AttributeDataType="xs:string">
+        <Constraint Name="Allowed modes">
+          <NominalScaledType>
+            <RequiredValue>Out</RequiredValue>
+            <RequiredValue>In</RequiredValue>
+            <RequiredValue>InOut</RequiredValue>
+          </NominalScaledType>
+        </Constraint>
+      </Attribute>
+      <Attribute Name="ordinalConstraint" AttributeDataType="xs:int">
+        <Constraint Name="Operating range">
+          <OrdinalScaledType>
+            <RequiredMaxValue>100</RequiredMaxValue>
+            <RequiredValue>50</RequiredValue>
+            <RequiredMinValue>-20</RequiredMinValue>
+          </OrdinalScaledType>
+        </Constraint>
+      </Attribute>
+      <Attribute Name="unknownConstraint" AttributeDataType="xs:string">
+        <Constraint Name="Human rule">
+          <UnknownType><Requirements>approved by operator</Requirements></UnknownType>
+        </Constraint>
+      </Attribute>
+      <ExternalInterface Name="PortA" ID="port-a" RefBaseClassPath="Connectors/Port">
+        <ExternalInterface Name="NestedPort" ID="nested-port" RefBaseClassPath="Connectors/Port/Signal"/>
+      </ExternalInterface>
+      <InternalElement Name="Repeated" ID="child-a">
+        <InternalElement Name="LevelThree" ID="child-a-3"/>
+      </InternalElement>
+      <InternalElement Name="Repeated" ID="child-b">
+        <ExternalInterface Name="PortB" ID="port-b" RefBaseClassPath="Connectors/Port"/>
+      </InternalElement>
+      <InternalLink Name="InternalLink_625b6a52"
+                    ID="625b6a52-1294-5e87-b138-18189cdff917"
+                    RefPartnerSideA="assembly-1:PortA"
+                    RefPartnerSideB="child-b:PortB"/>
+      <RoleRequirements RefBaseRoleClassPath="Roles/Drive"/>
+      <RoleRequirements RefBaseRoleClassPath="Roles/ConfiguredDrive">
+        <Description>Configured drive requirement</Description>
+        <Version>1.0</Version>
+        <Attribute Name="setpoint" AttributeDataType="xs:int"><Value>1500</Value></Attribute>
+        <ExternalInterface Name="RequiredPort" ID="required-port" RefBaseClassPath="Connectors/Port/Signal"/>
+        <MappingObject>
+          <AttributeNameMapping SystemUnitAttributeName="typedSpeed" RoleAttributeName="setpoint"/>
+          <InterfaceIDMapping SystemUnitInterfaceID="port-a" RoleInterfaceID="required-port"/>
+        </MappingObject>
+      </RoleRequirements>
+    </InternalElement>
+  </InstanceHierarchy>
+  <InstanceHierarchy Name="EmptyHierarchy" ID="empty-hierarchy"/>
+  <InterfaceClassLib Name="Connectors" ID="interface-lib">
+    <InterfaceClass Name="Port" ID="port-class">
+      <InterfaceClass Name="Signal" ID="signal-class" RefBaseClassPath="Connectors/Port"/>
+    </InterfaceClass>
+  </InterfaceClassLib>
+  <RoleClassLib Name="Roles" ID="role-lib">
+    <RoleClass Name="Drive" ID="drive-role"/>
+    <RoleClass Name="ConfiguredDrive" ID="configured-drive-role" RefBaseClassPath="Roles/Drive"/>
+  </RoleClassLib>
+  <RoleClassLib Name="ExternalRoles" ID="external-role-lib">
+    <RoleClass Name="ExternalDrive" ID="external-drive-role" RefBaseClassPath="external@Roles/Drive"/>
+  </RoleClassLib>
+  <SystemUnitClassLib Name="Equipment" ID="equipment-lib">
+    <SystemUnitClass Name="Machine" ID="machine-class">
+      <SupportedRoleClass RefRoleClassPath="Roles/Drive"/>
+      <SystemUnitClass Name="PackagingMachine" ID="packaging-machine" RefBaseClassPath="Equipment/Machine">
+        <SystemUnitClass Name="Cartoner" ID="cartoner" RefBaseClassPath="Equipment/Machine/PackagingMachine">
+          <SupportedRoleClass RefRoleClassPath="Roles/Drive"/>
+        </SystemUnitClass>
+      </SystemUnitClass>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+  <SystemUnitClassLib Name="OtherEquipment" ID="other-equipment-lib">
+    <SystemUnitClass Name="Machine" ID="other-machine-class"/>
+  </SystemUnitClassLib>
+  <AttributeTypeLib Name="Attributes" ID="attribute-lib">
+    <AttributeType Name="Measurement" ID="measurement-type" AttributeDataType="xs:double">
+      <AttributeType Name="Speed" ID="speed-type" AttributeDataType="xs:int" RefAttributeType="Attributes/Measurement"/>
+    </AttributeType>
+  </AttributeTypeLib>
+</CAEXFile>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX"
+          FileName="regression-class-alias.aml"
+          SchemaVersion="3.0">
+  <SourceDocumentInformation OriginName="Comparison fixture"
+                             OriginID="comparison-fixture"
+                             OriginVersion="1.0"
+                             LastWritingDateTime="2026-08-17T00:00:00Z"
+                             OriginVendor="AutomationML SDK"
+                             OriginVendorURL="https://example.invalid"
+                             OriginRelease="1.0"
+                             OriginProjectTitle="Mapper comparison"
+                             OriginProjectID="mapper-comparison"/>
+  <ExternalReference Path="ConnectorLibrary.aml" Alias="ExternalAlias"/>
+  <InstanceHierarchy Name="Plant">
+    <InternalElement Name="Machine" ID="machine-1">
+      <ExternalInterface Name="Port" ID="port-1"
+        RefBaseClassPath="ExternalAlias@ConnectorLib/BaseConnector/PortConnector"/>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

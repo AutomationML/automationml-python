@@ -1,0 +1,1798 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="AutomationML / OPC UA strict-profile release comparison" tests="580" failures="120" skipped="338">
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-000" time="0.008859">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-000" time="0.059983">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-000" time="0.002659">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-000" time="0.058711">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-001" time="0.002759"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-001" time="0.002267">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-001" time="0.001744">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-001" time="0.038321">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-002" time="0.022408"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-002" time="0.015583">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-002" time="0.008053">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-002" time="0.068558">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-003" time="0.004211">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-003" time="0.003026">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-003" time="0.002131">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-003" time="0.038620">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-004" time="0.004694">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-004" time="0.003080">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-004" time="0.002356">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-004" time="0.044153">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-005" time="0.002855">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-005" time="0.002227">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-005" time="0.001647">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-005" time="0.039147">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-006" time="0.013959"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-006" time="0.009587">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-006" time="0.008215">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-006" time="0.062310">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-007" time="0.010812">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-007" time="0.005795">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-007" time="0.005437">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-007" time="0.058167">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-008" time="0.009184">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-008" time="0.005510">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-008" time="0.005158">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-008" time="0.044121">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-009" time="0.006584"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-009" time="0.003949">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-009" time="0.004751">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-009" time="0.060299">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit-legacy" name="UP-UNIT-010" time="0.002263">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit-legacy" name="UP-UNIT-010" time="0.008009">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit-legacy" name="UP-UNIT-010" time="0.009568">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit-legacy" name="UP-UNIT-010" time="0.061602">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-011" time="0.010145"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-011" time="0.008375">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-011" time="0.004609">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-011" time="0.041214">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-012" time="0.014279"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-012" time="0.007368">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-012" time="0.007346">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-012" time="0.047530">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-013" time="0.029853"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-013" time="0.016381">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-013" time="0.014688">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-013" time="0.074793">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-unit" name="UP-UNIT-014" time="0.026383"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-unit" name="UP-UNIT-014" time="0.009780">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-unit" name="UP-UNIT-014" time="0.010746">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-unit" name="UP-UNIT-014" time="0.076988">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-000" time="0.002020">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-000" time="0.012401">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-000" time="0.013160">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-000" time="0.076914">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-001" time="0.036677">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-001" time="0.029744">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-001" time="0.031516">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-001" time="0.106255">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-002" time="0.042778">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-002" time="0.055217">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-002" time="0.066212">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-002" time="0.129345">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-003" time="0.017674">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-003" time="0.327993">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-003" time="0.342121">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-003" time="0.616591">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-005" time="0.022750">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-005" time="0.417232">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-005" time="0.602619">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-005" time="0.656311">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application" name="UP-APP-006" time="0.005393"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application" name="UP-APP-006" time="0.005204">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application" name="UP-APP-006" time="0.005105">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application" name="UP-APP-006" time="0.051291">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application" name="UP-APP-007" time="0.004220"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application" name="UP-APP-007" time="0.003985">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application" name="UP-APP-007" time="0.003997">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application" name="UP-APP-007" time="0.051405">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application" name="UP-APP-008" time="0.008365"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application" name="UP-APP-008" time="0.005463">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application" name="UP-APP-008" time="0.006249">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application" name="UP-APP-008" time="0.070720">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application" name="UP-APP-009" time="0.021993"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application" name="UP-APP-009" time="0.016957">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application" name="UP-APP-009" time="0.021694">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application" name="UP-APP-009" time="0.099127">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-010" time="0.013810">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-010" time="0.057828">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-010" time="0.058075">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-010" time="0.149043">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-011" time="0.005174">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-011" time="0.046761">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-011" time="0.046660">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-011" time="0.129360">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-012" time="0.002447">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-012" time="0.008312">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-012" time="0.007448">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-012" time="0.062276">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application-legacy" name="UP-APP-013" time="0.002729">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application-legacy" name="UP-APP-013" time="0.009710">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application-legacy" name="UP-APP-013" time="0.011497">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application-legacy" name="UP-APP-013" time="0.063268">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-application" name="UP-APP-014" time="0.003652"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-application" name="UP-APP-014" time="0.004417">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-application" name="UP-APP-014" time="0.004778">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-application" name="UP-APP-014" time="0.051540">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-000" time="0.005425">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-000" time="0.008549">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-000" time="0.004471">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-000" time="0.006103">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-001" time="0.002682">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-001" time="0.002372">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-001" time="0.002410">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-001" time="0.003272">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-002" time="0.029268">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-002" time="0.029767">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-002" time="0.033842">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-002" time="0.034383">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-003" time="0.026783">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-003" time="0.021196">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-003" time="0.023447">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-003" time="0.024215">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-004" time="0.000000">
+    <skipped message="INVALID_FIXTURE"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-005" time="0.001889">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-005" time="0.002013">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-005" time="0.001476">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-005" time="0.001847">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.upstream-opc-observation" name="UP-OPC-006" time="0.002987">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RAW.upstream-opc-observation" name="UP-OPC-006" time="0.003456">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.upstream-opc-observation" name="UP-OPC-006" time="0.002989">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.upstream-opc-observation" name="UP-OPC-006" time="0.002378">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-NODEID-001" time="0.002727"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-NODEID-001" time="0.002653">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: NodeIds match forbidden 'ns=\\d+;ns=': ['ns=2;ns=2;i=2004', 'ns=2;ns=2;i=2005', 'ns=2;ns=2;i=2006']">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: NodeIds match forbidden 'ns=\\d+;ns=': ['ns=2;ns=2;i=2004', 'ns=2;ns=2;i=2005', 'ns=2;ns=2;i=2006']</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-NODEID-001" time="0.002744">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-NODEID-001" time="0.051312">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-REF-001" time="0.008144"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-REF-001" time="0.009669">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: forbidden reference types HasComponnent">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: forbidden reference types HasComponnent</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-REF-001" time="0.008746">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-REF-001" time="0.071295">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-MODEL-001" time="0.004723"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-MODEL-001" time="0.004596">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: a Model Version is absent or empty">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: a Model Version is absent or empty</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-MODEL-001" time="0.004540">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-MODEL-001" time="0.051467">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-DETERMINISM-001" time="0.004451"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-DETERMINISM-001" time="0.002373">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-08-17T03:44:15Z']">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-08-17T03:44:15Z']</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-DETERMINISM-001" time="0.005295">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-DETERMINISM-001" time="0.116431">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-DTYPE-001" time="0.004085"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-DTYPE-001" time="0.004719">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: UAVariable 'identifier' count is 0, expected 1">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: UAVariable 'identifier' count is 0, expected 1</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-DTYPE-001" time="0.004521">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-DTYPE-001" time="0.062347">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-DTYPE-002" time="0.003797"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-DTYPE-002" time="0.004080">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: UAVariable 'timestamp' count is 0, expected 1">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: UAVariable 'timestamp' count is 0, expected 1</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-DTYPE-002" time="0.004599">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-DTYPE-002" time="0.057473">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-DTYPE-003" time="0.003978"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-DTYPE-003" time="0.004750">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: UAVariable 'token' count is 0, expected 1">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: UAVariable 'token' count is 0, expected 1</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-DTYPE-003" time="0.004464">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-DTYPE-003" time="0.056684">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-CLASS-001" time="0.004614"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-CLASS-001" time="0.004707">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: NodeIds match forbidden '/': ['ConnectorLib/BaseConnector/PortConnector']">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: NodeIds match forbidden '/': ['ConnectorLib/BaseConnector/PortConnector']</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-CLASS-001" time="0.004474">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-CLASS-001" time="0.065258">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-IDENTITY-001" time="0.003696"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-IDENTITY-001" time="0.003582">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-IDENTITY-001" time="0.003047">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-IDENTITY-001" time="0.085210">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-CLASS-002" time="0.005595"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-CLASS-002" time="0.005821"/>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-CLASS-002" time="0.005819">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-CLASS-002" time="0.064371">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-ATTR-001" time="0.004279"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-ATTR-001" time="0.004654">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: UAVariable 'DefaultValue' count is 0, expected 1">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: UAVariable 'DefaultValue' count is 0, expected 1</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-ATTR-001" time="0.005218">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-ATTR-001" time="0.054454">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.known-defect" name="REG-ATTR-002" time="0.003444"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.known-defect" name="REG-ATTR-002" time="0.003893">
+    <failure type="EXPECTED_GRAPH" message="expected_graph: UAVariable 'state' count is 0, expected 1">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: FAIL — expected_graph: UAVariable 'state' count is 0, expected 1</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.known-defect" name="REG-ATTR-002" time="0.003964">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.known-defect" name="REG-ATTR-002" time="0.056037">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.document-header" name="AML-DOC-001" time="0.004445"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.document-header" name="AML-DOC-001" time="0.002749">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.document-header" name="AML-DOC-001" time="0.002123">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.document-header" name="AML-DOC-001" time="0.054903">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.document-header" name="AML-DOC-002" time="0.087343"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.document-header" name="AML-DOC-002" time="0.033671">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.document-header" name="AML-DOC-002" time="0.033000">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.document-header" name="AML-DOC-002" time="0.106497">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.document-header" name="AML-DOC-003" time="0.073097"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.document-header" name="AML-DOC-003" time="0.031797">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.document-header" name="AML-DOC-003" time="0.032439">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.document-header" name="AML-DOC-003" time="0.102298">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.document-header" name="AML-DOC-004" time="0.072659"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.document-header" name="AML-DOC-004" time="0.028801">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.document-header" name="AML-DOC-004" time="0.033993">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.document-header" name="AML-DOC-004" time="0.102251">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.document-header" name="AML-DOC-005" time="0.072839"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.document-header" name="AML-DOC-005" time="0.033077">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.document-header" name="AML-DOC-005" time="0.034371">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.document-header" name="AML-DOC-005" time="0.109366">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.document-header" name="AML-DOC-006" time="0.000366"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.document-header" name="AML-DOC-006" time="0.002612">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.document-header" name="AML-DOC-006" time="0.002327">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.document-header" name="AML-DOC-006" time="0.056470">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-001" time="0.070135"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-001" time="0.029612">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-001" time="0.033485">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-001" time="0.103497">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-002" time="0.072754"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-002" time="0.033117">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-002" time="0.034599">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-002" time="0.103866">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-003" time="0.069925"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-003" time="0.029737">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-003" time="0.030660">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-003" time="0.104086">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-004" time="0.069678"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-004" time="0.028213">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-004" time="0.042098">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-004" time="0.106684">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-005" time="0.067450"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-005" time="0.030298">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-005" time="0.030158">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-005" time="0.098549">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-006" time="0.068148"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-006" time="0.030292">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-006" time="0.031667">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-006" time="0.100913">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-007" time="0.068504"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-007" time="0.031016">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-007" time="0.029792">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-007" time="0.100036">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-008" time="0.071450"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-008" time="0.029925">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-008" time="0.028542">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-008" time="0.077822">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-009" time="0.051828"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-009" time="0.020482">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-009" time="0.020710">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-009" time="0.094150">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.hierarchy-class" name="AML-TREE-010" time="0.076940"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.hierarchy-class" name="AML-TREE-010" time="0.027923">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.hierarchy-class" name="AML-TREE-010" time="0.022823">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.hierarchy-class" name="AML-TREE-010" time="0.082923">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-001" time="0.044939"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-001" time="0.020402">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-001" time="0.024393">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-001" time="0.092926">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-002" time="0.057492"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-002" time="0.026994">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-002" time="0.024519">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-002" time="0.074756">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-003" time="0.048202"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-003" time="0.022773">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-003" time="0.022829">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-003" time="0.096198">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-004" time="0.057755"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-004" time="0.022021">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-004" time="0.022838">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-004" time="0.100157">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-005" time="0.073045"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-005" time="0.024504">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-005" time="0.030499">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-005" time="0.117871">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-006" time="0.059015"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-006" time="0.030626">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-006" time="0.035026">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-006" time="0.131967">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-007" time="0.146686"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-007" time="0.040206">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-007" time="0.040892">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-007" time="0.106090">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-008" time="0.078302"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-008" time="0.023849">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-008" time="0.023009">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-008" time="0.066615">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-009" time="0.047302"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-009" time="0.021752">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-009" time="0.022372">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-009" time="0.072613">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-010" time="0.052103"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-010" time="0.021088">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-010" time="0.021433">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-010" time="0.076648">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-011" time="0.087553"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-011" time="0.041947">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-011" time="0.047932">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-011" time="0.132306">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-012" time="0.047436"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-012" time="0.020557">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-012" time="0.021233">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-012" time="0.081301">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-013" time="0.047758"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-013" time="0.021721">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-013" time="0.021216">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-013" time="0.073184">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-014" time="0.047234"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-014" time="0.024426">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-014" time="0.022465">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-014" time="0.118858">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-015" time="0.476596"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-015" time="0.047009">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-015" time="0.044438">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-015" time="0.124280">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-016" time="0.104072"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-016" time="0.036604">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-016" time="0.033299">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-016" time="0.093958">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-017" time="0.101871"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-017" time="0.039249">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-017" time="0.048974">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-017" time="0.133732">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-018" time="0.085163"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-018" time="0.026039">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-018" time="0.025300">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-018" time="0.085550">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-019" time="0.064225"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-019" time="0.031678">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-019" time="0.032144">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-019" time="0.142176">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-020" time="0.076111"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-020" time="0.033193">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-020" time="0.032242">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-020" time="0.126069">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.datatype-matrix" name="AML-DTYPE-021" time="0.001423"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.datatype-matrix" name="AML-DTYPE-021" time="0.005525">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.datatype-matrix" name="AML-DTYPE-021" time="0.004603">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.datatype-matrix" name="AML-DTYPE-021" time="0.065560">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-001" time="0.055231"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-001" time="0.021261">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-001" time="0.041032">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-001" time="0.092674">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-002" time="0.054793"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-002" time="0.026600">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-002" time="0.028136">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-002" time="0.136101">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-003" time="0.008676"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-003" time="0.005239">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-003" time="0.006587">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-003" time="0.054654">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-004" time="0.073725"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-004" time="0.024492">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-004" time="0.036760">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-004" time="0.076862">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-005" time="0.059318"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-005" time="0.022530">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-005" time="0.027483">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-005" time="0.073032">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-006" time="0.050100"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-006" time="0.020754">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-006" time="0.021577">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-006" time="0.073984">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-007" time="0.045394"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-007" time="0.020486">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-007" time="0.020381">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-007" time="0.081112">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-ATTR-008" time="0.052388"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-ATTR-008" time="0.021078">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-ATTR-008" time="0.023362">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-ATTR-008" time="0.093831">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-SEM-001" time="0.047101"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-SEM-001" time="0.021725">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-SEM-001" time="0.022388">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-SEM-001" time="0.085272">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-SEM-002" time="0.199438"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-SEM-002" time="0.031129">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-SEM-002" time="0.024271">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-SEM-002" time="0.082383">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.attribute-semantics" name="AML-SEM-003" time="0.061710"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.attribute-semantics" name="AML-SEM-003" time="0.020621">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.attribute-semantics" name="AML-SEM-003" time="0.036270">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.attribute-semantics" name="AML-SEM-003" time="0.071101">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-001" time="0.049120"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-001" time="0.019465">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-001" time="0.023796">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-001" time="0.070997">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-002" time="0.047442"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-002" time="0.020003">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-002" time="0.022076">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-002" time="0.073430">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-003" time="0.050514"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-003" time="0.018943">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-003" time="0.024509">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-003" time="0.077507">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-004" time="0.045258"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-004" time="0.020515">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-004" time="0.021935">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-004" time="0.072083">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-005" time="0.048681"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-005" time="0.023225">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-005" time="0.025664">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-005" time="0.081354">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-006" time="0.049968"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-006" time="0.022222">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-006" time="0.021625">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-006" time="0.091152">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.roles-mapping" name="AML-ROLE-007" time="0.000814"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.roles-mapping" name="AML-ROLE-007" time="0.002515">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.roles-mapping" name="AML-ROLE-007" time="0.002247">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.roles-mapping" name="AML-ROLE-007" time="0.038390">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-001" time="0.049415"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-001" time="0.019614">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-001" time="0.021562">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-001" time="0.080415">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-002" time="0.048975"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-002" time="0.021996">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-002" time="0.022794">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-002" time="0.078191">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-003" time="0.048551"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-003" time="0.022570">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-003" time="0.026435">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-003" time="0.077618">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-004" time="0.026815"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-004" time="0.004662">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-004" time="0.003632">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-004" time="0.118064">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-005" time="0.083682"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-005" time="0.034250">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-005" time="0.036535">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-005" time="0.126161">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-006" time="0.001949"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-006" time="0.005093">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-006" time="0.005319">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-006" time="0.061221">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.interfaces-links" name="AML-LINK-007" time="0.002042"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.interfaces-links" name="AML-LINK-007" time="0.003391">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.interfaces-links" name="AML-LINK-007" time="0.003962">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.interfaces-links" name="AML-LINK-007" time="0.067265">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.constraints-mirror-facet" name="AML-CONSTRAINT-001" time="0.073342"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.constraints-mirror-facet" name="AML-CONSTRAINT-001" time="0.031398">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.constraints-mirror-facet" name="AML-CONSTRAINT-001" time="0.037040">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.constraints-mirror-facet" name="AML-CONSTRAINT-001" time="0.184094">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.constraints-mirror-facet" name="AML-CONSTRAINT-002" time="0.083849"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.constraints-mirror-facet" name="AML-CONSTRAINT-002" time="0.034468">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.constraints-mirror-facet" name="AML-CONSTRAINT-002" time="0.035288">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.constraints-mirror-facet" name="AML-CONSTRAINT-002" time="0.111840">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.constraints-mirror-facet" name="AML-CONSTRAINT-003" time="0.049884"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.constraints-mirror-facet" name="AML-CONSTRAINT-003" time="0.023501">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.constraints-mirror-facet" name="AML-CONSTRAINT-003" time="0.022479">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.constraints-mirror-facet" name="AML-CONSTRAINT-003" time="0.072198">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.constraints-mirror-facet" name="AML-CONSTRAINT-004" time="0.052958"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.constraints-mirror-facet" name="AML-CONSTRAINT-004" time="0.028737">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.constraints-mirror-facet" name="AML-CONSTRAINT-004" time="0.028293">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.constraints-mirror-facet" name="AML-CONSTRAINT-004" time="0.093029">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.constraints-mirror-facet" name="AML-MIRROR-001" time="0.047334"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.constraints-mirror-facet" name="AML-MIRROR-001" time="0.015094">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.constraints-mirror-facet" name="AML-MIRROR-001" time="0.017808">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.constraints-mirror-facet" name="AML-MIRROR-001" time="0.100603">
+    <skipped message="UNSUPPORTED"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.constraints-mirror-facet" name="AML-FACET-001" time="0.025918"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.constraints-mirror-facet" name="AML-FACET-001" time="0.010455">
+    <failure type="NODESET_SEMANTICS" message="nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: FAIL — nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.constraints-mirror-facet" name="AML-FACET-001" time="0.010636">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.constraints-mirror-facet" name="AML-FACET-001" time="0.063787">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-001" time="0.018224"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-001" time="0.003524">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-001" time="0.003855">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-001" time="0.061327">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-002" time="0.017334"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-002" time="0.003114">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-002" time="0.003099">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-002" time="0.079814">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-003" time="0.015719"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-003" time="0.003258">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-003" time="0.002788">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-003" time="0.063697">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-004" time="0.016008"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-004" time="0.003085">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-004" time="0.003847">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-004" time="0.066130">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-005" time="0.016254"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-005" time="0.003178">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-005" time="0.002887">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-005" time="0.070559">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-006" time="0.020814"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-006" time="0.003606">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-006" time="0.004520">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-006" time="0.104239">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-007" time="0.030677"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-007" time="0.005278">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-007" time="0.007629">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-007" time="0.087179">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-008" time="0.019287"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-008" time="0.004153">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-008" time="0.005789">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-008" time="0.087554">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-009" time="0.022533"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-009" time="0.003554">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-009" time="0.006361">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-009" time="0.082161">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-010" time="0.020095"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-010" time="0.006799">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-010" time="0.003348">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-010" time="0.072486">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-011" time="0.021472"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-011" time="0.004264">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-011" time="0.003417">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-011" time="0.096109">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-012" time="0.019628"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-012" time="0.005000">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-012" time="0.003445">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-012" time="0.081022">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-013" time="0.020598"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-013" time="0.005847">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-013" time="0.005020">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-013" time="0.077986">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-014" time="0.030317"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-014" time="0.003975">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-014" time="0.004321">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-014" time="0.077957">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-015" time="0.021409"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-015" time="0.003924">
+    <failure type="CANONICAL_AML" message="canonical_aml: first difference at /FileName">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+nodeset_xsd: PASS — official vendored UANodeSet XSD accepts the output
+nodeset_semantics: PASS — NodeIds, aliases, BrowseNames, and references are resolvable
+no_roundtrip_metadata: PASS — no embedded AML or forbidden mapper-private shadow nodes
+expected_graph: PASS — all independently declared graph facts hold
+caex_xsd: PASS — reverse result is well-formed CAEX
+canonical_aml: FAIL — canonical_aml: first difference at /FileName</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-015" time="0.004162">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-015" time="0.103071">
+    <skipped message="PASS"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.ua-origin" name="UA-ORIGIN-016" time="0.006138"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.ua-origin" name="UA-ORIGIN-016" time="0.002142">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.ua-origin" name="UA-ORIGIN-016" time="0.001533">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.ua-origin" name="UA-ORIGIN-016" time="0.003540">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-001" time="0.000906"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-001" time="0.002528">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-001" time="0.002576">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-001" time="0.000814">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-002" time="0.000625"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-002" time="0.001379">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-002" time="0.001350">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-002" time="0.000638">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-003" time="0.002171"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-003" time="0.001627">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-003" time="0.001910">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-003" time="0.002721">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-004" time="0.004435"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-004" time="0.002112">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-004" time="0.001568">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-004" time="0.003536">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-005" time="0.002460"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-005" time="0.001566">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-005" time="0.001387">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-005" time="0.001711">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-006" time="0.001643"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-006" time="0.001572">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-006" time="0.002083">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-006" time="0.002637">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-007" time="0.000667"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-007" time="0.002459">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-007" time="0.002420">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-007" time="0.001109">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-008" time="0.003704"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-008" time="0.002162">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-008" time="0.001624">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-008" time="0.004434">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-AML-009" time="0.001189"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-AML-009" time="0.002502">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-AML-009" time="0.002879">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-AML-009" time="0.045097">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-AML-010" time="0.001346"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-AML-010" time="0.002753">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-AML-010" time="0.002928">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-AML-010" time="0.050553">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-UA-011" time="0.003835"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-UA-011" time="0.002869">
+    <failure type="EXPECTED_REJECTION" message="expected_rejection: mapper accepted input that must be rejected">secure_xml: PASS — DTD/entity markup absent and no-network parser succeeded
+caex_xsd: PASS — reverse result is well-formed CAEX
+expected_rejection: FAIL — expected_rejection: mapper accepted input that must be rejected</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-UA-011" time="0.003648">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-UA-011" time="0.002943">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+  <testcase classname="opcua-comparison.PY-STRICT.negative-security" name="NEG-SEC-012" time="0.000024"/>
+  <testcase classname="opcua-comparison.XSLT-RAW.negative-security" name="NEG-SEC-012" time="0.000716">
+    <failure type="TRANSFORM_ERROR" message="upstream forward XSLT failed: SXXP0003: I/O error reported by XML parser processing null&#10;Caused by: \this-resource-must-never-be-read (Das System kann die angegebene Datei nicht finden)">engine: FAIL — upstream forward XSLT failed: SXXP0003: I/O error reported by XML parser processing null
+Caused by: \this-resource-must-never-be-read (Das System kann die angegebene Datei nicht finden)</failure>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-RUNNER.negative-security" name="NEG-SEC-012" time="0.000285">
+    <skipped message="FAIL"/>
+  </testcase>
+  <testcase classname="opcua-comparison.XSLT-PATCHED.negative-security" name="NEG-SEC-012" time="0.000012">
+    <skipped message="EXPECTED_REJECTION"/>
+  </testcase>
+</testsuite>

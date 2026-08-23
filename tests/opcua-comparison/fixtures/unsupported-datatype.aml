@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="unsupported-datatype.aml" SchemaVersion="3.0">
+  <InstanceHierarchy Name="Plant">
+    <InternalElement Name="Device" ID="unsupported-device">
+      <Attribute Name="decimalValue" AttributeDataType="xs:decimal"><Value>1.25</Value></Attribute>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

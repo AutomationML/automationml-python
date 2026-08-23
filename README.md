@@ -40,6 +40,110 @@ will be:
 python -m pip install automationml
 ```
 
+Install the optional OPC UA conversion runtime when UANodeSet export is needed:
+
+```bash
+python -m pip install "automationml[opcua]"
+```
+
+Install `automationml[opcua-xslt]` only when the retained Saxon/XSLT comparison
+engine is required.
+
+```python
+from automationml import CAEXFile
+
+document = CAEXFile.from_aml_xml(aml_xml)
+nodeset = document.to_opcua_nodeset()
+nodeset_xml = document.to_opcua_nodeset_xml()
+archival_nodeset = document.to_opcua_nodeset_xml(include_roundtrip=True)
+
+# The patched working-group XSLT is retained as a comparison engine.
+xslt_baseline = document.to_opcua_nodeset_xml(mapper="xslt")
+
+# Source-preserving only for exports that explicitly embed an AML payload.
+archival_recovery = CAEXFile.from_opcua_nodeset_xml(archival_nodeset)
+
+# The normal NodeSet uses the Python semantic reverse profile.
+semantic = CAEXFile.from_opcua_nodeset_xml(nodeset_xml)
+
+# The semantic path can also be selected explicitly for an app export.
+semantic = CAEXFile.from_opcua_nodeset_xml(
+    nodeset_xml,
+    prefer_embedded_source=False,
+)
+
+# Exercise and inspect both directions without source embedding.
+roundtrip = document.round_trip_opcua(publication_date="2026-08-17")
+recovered = roundtrip.assert_equivalent()
+
+# The lifecycle may start from an OPC-UA-authored graph as well.
+opcua_roundtrip = nodeset.round_trip_automationml(
+    publication_date="2026-08-17"
+)
+canonical_nodeset = opcua_roundtrip.assert_equivalent()
+```
+
+The default forward mapper builds a typed Pydantic OPC UA graph and validates
+the serialized UANodeSet without output repair. The strict profile covers file
+metadata, instance trees, attributes and datatypes, all four class-library
+kinds, inheritance/type relations, contextual roles and MappingObjects,
+interfaces, directed InternalLinks, constraints, mirrors, facets, and real OPC
+UA Part 19 dictionary-entry Objects. Unsupported or ambiguous features fail
+explicitly. The pinned, patched AutomationML/OPC Foundation XSLT remains
+available through `mapper="xslt"`; it requires the `opcua-xslt` extra. The
+Python semantic reverse maps supported OPC UA graphs to canonical AML without
+requiring an embedded source payload. This is a versioned AutomationML mapping
+profile, not a claim to convert arbitrary third-party NodeSets.
+
+The OPC UA authoring layer uses immutable Pydantic value objects and an explicit
+mutable `UANodeSetBuilder`. `UANodeSet.from_xml()` and `to_xml()` allow the
+supported graph to be inspected independently of either mapper. Forward and
+reverse conversion share validated datatype and contextual role-reference
+rules, including their documented canonical inverses. This prevents the two
+directions from silently growing separate lookup tables.
+
+The versioned [mapper comparison test plan](docs/opcua-mapper-comparison-test-plan.md)
+defines the independent oracles, 120-case minimum corpus, OPC-UA-origin cases,
+and publication gates used to compare the Python profile with the unmodified
+working-group XSLT. The companion
+[strict-implicit mapping profile](docs/opcua-strict-implicit-mapping.md)
+documents every induced and canonical reverse choice.
+
+The frozen release corpus declares 145 cases, of which 121 are scored. The
+current evidence is `PY-STRICT` 121/121 versus unmodified `XSLT-RAW` 1/121,
+with 30/30 versus 1/30 critical cases. Inspect the
+[release manifest](tests/opcua-comparison/release-manifest.json),
+[complete result matrix](docs/reports/opcua-release-comparison/report.md),
+[scale report](docs/reports/opcua-scale/report.md), and
+[expert-review checklist](docs/opcua-mapping-review-checklist.md).
+Regenerate the release JSON, JUnit, and Markdown evidence with:
+
+```bash
+python tools/compare_opcua_mappers.py \
+  --manifest tests/opcua-comparison/release-manifest.json \
+  --output-dir build/opcua-release
+
+python tools/benchmark_opcua_scale.py \
+  --repeats 1 \
+  --output-dir build/opcua-scale
+```
+
+Both roundtrip results expose `differences` as frozen Pydantic records. Each
+record has an RFC 6901-style JSON Pointer such as
+`/InstanceHierarchy/0/InternalElement/0/Attribute/0/Value`, a change kind, and
+the source/recovered values. `semantically_equivalent` is computed from this
+evidence rather than stored as an independently writable Boolean.
+
+```python
+from automationml.opcua_nodeset import UANodeSet
+
+graph = UANodeSet.from_xml(nodeset_xml)
+# Equivalent Python-first path, without an XML serialization step:
+graph = document.to_opcua_nodeset()
+file_node = graph.node("ns=1;s=CAEXFile")
+properties = graph.outgoing(file_node.node_id, "HasProperty")
+```
+
 ## Design stance
 
 - Python API: `snake_case` fields and small builder helpers.
@@ -149,6 +253,24 @@ and negative cases, plus a `manifest.json` with expected SDK validation issue
 counts. The SDK test suite reads these same files so the public examples stay
 locked to the validator.
 
+## Learning notebooks
+
+Three self-guided notebooks in `learning/` introduce AutomationML through the
+same public SDK APIs used by applications:
+
+1. Build a drive station progressively from concrete equipment to stable class
+   semantics.
+2. Round-trip one validated model through AML JSON and AML XML.
+3. Explore SystemUnitClass inheritance, interface materialization, semantic
+   warnings, repairs, and InternalLink partners.
+
+Install the local learning environment and open the notebooks with:
+
+```bash
+python -m pip install -e ".[learning]"
+jupyter lab learning
+```
+
 ## Development
 
 ```bash
@@ -170,6 +292,7 @@ python -m build
 - `tests/`: unit, round-trip, schema, and semantic validation tests.
 - `examples/validation-suite/`: catalog of valid, invalid, and warning-focused
   AML JSON/XML documents.
+- `learning/`: executable, self-guided AutomationML lessons.
 - `schemas/`: generated AML JSON Schema artifacts.
 - `docs/`: design and SDK documentation.
 - `tools/`: repository maintenance and generation utilities.

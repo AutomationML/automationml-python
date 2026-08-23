@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="broken-link.aml" SchemaVersion="3.0">
+  <InstanceHierarchy Name="Plant">
+    <InternalElement Name="Owner" ID="broken-owner">
+      <ExternalInterface Name="A" ID="broken-a"/>
+      <InternalLink Name="broken" ID="broken-link" RefPartnerSideA="broken-owner:A" RefPartnerSideB="missing-owner:Missing"/>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

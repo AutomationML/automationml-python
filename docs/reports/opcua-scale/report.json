@@ -1,0 +1,123 @@
+{
+  "generated": "2026-08-17",
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0"
+  },
+  "repeats": 1,
+  "cases": [
+    {
+      "id": "flat-1k-5k",
+      "requested_nodes": 990,
+      "requested_references": 4900,
+      "element_count": 490,
+      "depth": 0
+    },
+    {
+      "id": "flat-10k-50k",
+      "requested_nodes": 9900,
+      "requested_references": 49000,
+      "element_count": 4990,
+      "depth": 0
+    },
+    {
+      "id": "depth-64",
+      "requested_nodes": 125,
+      "requested_references": 250,
+      "element_count": 0,
+      "depth": 64
+    }
+  ],
+  "results": [
+    {
+      "case_id": "flat-1k-5k",
+      "engine": "PY-STRICT",
+      "status": "pass",
+      "cold_ms": 279.441,
+      "warm_median_ms": 322.412,
+      "reverse_ms": 332.929,
+      "peak_rss_bytes": 80195584,
+      "output_bytes": 929678,
+      "actual_nodes": 1000,
+      "actual_references": 5939,
+      "deterministic": true,
+      "roundtrip_equivalent": true,
+      "diagnostic": null
+    },
+    {
+      "case_id": "flat-10k-50k",
+      "engine": "PY-STRICT",
+      "status": "pass",
+      "cold_ms": 4101.152,
+      "warm_median_ms": 3891.172,
+      "reverse_ms": 5030.844,
+      "peak_rss_bytes": 279953408,
+      "output_bytes": 9340182,
+      "actual_nodes": 10000,
+      "actual_references": 59939,
+      "deterministic": true,
+      "roundtrip_equivalent": true,
+      "diagnostic": null
+    },
+    {
+      "case_id": "depth-64",
+      "engine": "PY-STRICT",
+      "status": "pass",
+      "cold_ms": 23.881,
+      "warm_median_ms": 18.471,
+      "reverse_ms": 23.433,
+      "peak_rss_bytes": 82968576,
+      "output_bytes": 79782,
+      "actual_nodes": 133,
+      "actual_references": 398,
+      "deterministic": true,
+      "roundtrip_equivalent": true,
+      "diagnostic": null
+    },
+    {
+      "case_id": "flat-1k-5k",
+      "engine": "XSLT-RAW",
+      "status": "measured",
+      "cold_ms": 583.698,
+      "warm_median_ms": 457.298,
+      "reverse_ms": 56.034,
+      "peak_rss_bytes": 226320384,
+      "output_bytes": 878837,
+      "actual_nodes": 999,
+      "actual_references": 4947,
+      "deterministic": true,
+      "roundtrip_equivalent": false,
+      "diagnostic": null
+    },
+    {
+      "case_id": "flat-10k-50k",
+      "engine": "XSLT-RAW",
+      "status": "measured",
+      "cold_ms": 4541.909,
+      "warm_median_ms": 4743.801,
+      "reverse_ms": 707.003,
+      "peak_rss_bytes": 427388928,
+      "output_bytes": 8744841,
+      "actual_nodes": 9999,
+      "actual_references": 49947,
+      "deterministic": false,
+      "roundtrip_equivalent": false,
+      "diagnostic": null
+    },
+    {
+      "case_id": "depth-64",
+      "engine": "XSLT-RAW",
+      "status": "measured",
+      "cold_ms": 70.689,
+      "warm_median_ms": 79.055,
+      "reverse_ms": 7.615,
+      "peak_rss_bytes": 414154752,
+      "output_bytes": 73501,
+      "actual_nodes": 133,
+      "actual_references": 268,
+      "deterministic": true,
+      "roundtrip_equivalent": false,
+      "diagnostic": null
+    }
+  ]
+}

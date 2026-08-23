@@ -1,0 +1,12 @@
+<CAEXFile FileName="3_IE_Attribute.aml" SchemaVersion="2.15">
+  <InstanceHierarchy Name="ManufacturingSystem">
+    <InternalElement Name="firstScrewdriver" ID="788eb291-f103-4fdc-aba0-4893b599f556">
+      <Attribute Name="New Attribute" AttributeDataType="xs:string" Unit="m">
+        <Description>thisisthedescription</Description>
+        <DefaultValue>DefaultValueTest</DefaultValue>
+        <Value>ValueTest</Value>
+        <RefSemantic CorrespondingAttributePath="dsadasdas" />
+      </Attribute>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

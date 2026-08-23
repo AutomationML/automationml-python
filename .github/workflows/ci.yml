@@ -76,3 +76,50 @@ jobs:
           name: automationml-python-package
           path: dist/
           if-no-files-found: error
+
+  opcua-acceptance:
+    name: OPC UA acceptance on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Install OPC UA evaluation dependencies
+        run: python -m pip install --upgrade pip ".[xml,opcua-evaluation]"
+
+      - name: Require the strict release corpus
+        run: >-
+          python tools/compare_opcua_mappers.py
+          --manifest tests/opcua-comparison/release-manifest.json
+          --output-dir build/opcua-release
+          --engine PY-STRICT
+          --require-all
+
+      - name: Run quick deterministic scale gates
+        run: >-
+          python tools/benchmark_opcua_scale.py
+          --quick
+          --engine PY-STRICT
+          --repeats 1
+          --output-dir build/opcua-scale
+
+      - name: Upload OPC UA evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: opcua-evidence-${{ matrix.os }}
+          path: |
+            build/opcua-release/
+            build/opcua-scale/
+          if-no-files-found: error

@@ -8,15 +8,17 @@ the canonical CAEX/AML names through Pydantic aliases, for example
 from __future__ import annotations
 
 import json
-from datetime import datetime
+from datetime import date, datetime
 from enum import Enum
-from typing import TYPE_CHECKING, Any, Self
+from typing import TYPE_CHECKING, Any, Literal, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from .exceptions import CAEXValidationError
 
 if TYPE_CHECKING:
+    from .opcua import OPCUARoundTripResult
+    from .opcua_nodeset import UANodeSet
     from .validation import CAEXIssue, ReferenceIndex
 
 
@@ -578,6 +580,62 @@ class CAEXFile(CAEXBasicObject):
 
         return dumps(self, **kwargs)
 
+    def to_opcua_nodeset_xml(
+        self,
+        *,
+        pretty: bool = True,
+        include_roundtrip: bool = False,
+        publication_date: date | datetime | str | None = None,
+        mapper: Literal["python", "xslt"] = "python",
+    ) -> str:
+        """Convert the document to an OPC UA UANodeSet XML document."""
+
+        from .opcua import document_to_nodeset
+
+        return document_to_nodeset(
+            self,
+            pretty=pretty,
+            include_roundtrip=include_roundtrip,
+            publication_date=publication_date,
+            mapper=mapper,
+        )
+
+    def to_opcua_nodeset(
+        self,
+        *,
+        publication_date: date | datetime | str | None = None,
+    ) -> UANodeSet:
+        """Build the validated Python OPC UA graph without serializing XML."""
+
+        from .opcua import document_to_nodeset_model
+
+        return document_to_nodeset_model(
+            self,
+            publication_date=publication_date,
+        )
+
+    def round_trip_opcua(
+        self,
+        *,
+        pretty: bool = True,
+        publication_date: date | datetime | str | None = None,
+        mapper: Literal["python", "xslt"] = "python",
+    ) -> OPCUARoundTripResult:
+        """Run and inspect a semantic AML -> OPC UA -> AML round trip.
+
+        The original AML is deliberately not embedded in the NodeSet. Call
+        ``result.assert_equivalent()`` when semantic preservation is required.
+        """
+
+        from .opcua import round_trip_document
+
+        return round_trip_document(
+            self,
+            pretty=pretty,
+            publication_date=publication_date,
+            mapper=mapper,
+        )
+
     @classmethod
     def from_aml_xml(cls, data: str | bytes) -> CAEXFile:
         """Parse CAEX XML into a JSON-first model."""
@@ -585,6 +643,33 @@ class CAEXFile(CAEXBasicObject):
         from .xml import loads
 
         return loads(data)
+
+    @classmethod
+    def from_opcua_nodeset_xml(
+        cls,
+        data: str | bytes,
+        *,
+        prefer_embedded_source: bool = True,
+    ) -> CAEXFile:
+        """Convert a UANodeSet through source recovery or semantic mapping."""
+
+        from .opcua import nodeset_to_document
+
+        return nodeset_to_document(
+            data,
+            prefer_embedded_source=prefer_embedded_source,
+        )
+
+    @classmethod
+    def from_opcua_nodeset(cls, nodeset: UANodeSet) -> CAEXFile:
+        """Map a typed OPC UA graph directly to canonical AutomationML."""
+
+        from .opcua import nodeset_to_document
+
+        return nodeset_to_document(
+            nodeset,
+            prefer_embedded_source=False,
+        )
 
 
 for model in (

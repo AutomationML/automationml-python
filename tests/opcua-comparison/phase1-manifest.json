@@ -1,0 +1,567 @@
+{
+  "schema_version": "1.0",
+  "name": "AutomationML / OPC UA mapper Phase 1 baseline",
+  "baseline_commit": "e38653c1bc58ffc658595093e0a2d163a7ecebf7",
+  "publication_date": "2026-08-17",
+  "cases": [
+    {
+      "id": "UP-UNIT-000",
+      "title": "Upstream empty CAEX 2.15 file",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/0_EmptyFile_V2.0.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-001",
+      "title": "Upstream empty CAEX 3.0 file",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/0_EmptyFile_V2.1.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-002",
+      "title": "Upstream AML base libraries",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/1_AMLBaseLibraries.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": ["datatype_aliases"],
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-003",
+      "title": "Upstream CAEX 2.15 InternalElement",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/2_IE.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-004",
+      "title": "Upstream CAEX 2.15 attribute",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/3_IE_Attribute.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-005",
+      "title": "Upstream CAEX 2.15 InstanceHierarchy",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/4_IH.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-006",
+      "title": "Upstream SystemUnitClass libraries",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/5_SUC.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-007",
+      "title": "Upstream CAEX 2.15 RoleClass libraries",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/6_RCL.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-008",
+      "title": "Upstream CAEX 2.15 InterfaceClass libraries",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/7_ICL.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-009",
+      "title": "Upstream AttributeType library",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/8_AMLAttributeLibrary.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": ["datatype_aliases"],
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-010",
+      "title": "Upstream CAEX 2.15 interfaces and InternalLink",
+      "family": "upstream-unit-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/9_ExtInt_IntLink.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-011",
+      "title": "Upstream RefSemantic",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/10_RefSemantic.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-012",
+      "title": "Upstream constraints",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/11_Constraints.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": ["nominal_constraint_set"],
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-013",
+      "title": "Upstream MirrorObject",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/12_MirrorObject.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": ["datatype_aliases", "uuid_braces", "xml_attribute_whitespace"],
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-UNIT-014",
+      "title": "Upstream Facet",
+      "family": "upstream-unit",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/13_Facet.aml",
+      "direction": "aml_to_ua_to_aml",
+      "severity": "must",
+      "equivalence": "canonical",
+      "canonicalizations": ["datatype_aliases", "uuid_braces", "xml_attribute_whitespace"],
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "canonical_aml", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+
+    {
+      "id": "UP-APP-000",
+      "title": "Upstream datatype application sample",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/aml2opcua_smallexample_datatypes.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-001",
+      "title": "Upstream manually translated base libraries",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AMLBaseLibraries_OldManuallyTranslatedVersion.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-002",
+      "title": "Upstream AR APC class libraries with spaces",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AR APC AllClassLibs V_1_2_1.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-003",
+      "title": "Upstream AR APC application with spaces",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AR APC Example.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-004",
+      "title": "Upstream malformed AR APC class libraries",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/ARAPCAllClassLibsV_1_2_1.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-005",
+      "title": "Upstream AR APC application",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/ARAPCExample.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-006",
+      "title": "Upstream BMI RoleClass library",
+      "family": "upstream-application",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AutomationMLBMIRoleClassLib.aml",
+      "direction": "aml_to_ua",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-007",
+      "title": "Upstream CMI RoleClass library",
+      "family": "upstream-application",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AutomationMLCMIRoleClassLib.aml",
+      "direction": "aml_to_ua",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-008",
+      "title": "Upstream DMI RoleClass library",
+      "family": "upstream-application",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AutomationMLDMIRoleClassLib.aml",
+      "direction": "aml_to_ua",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-009",
+      "title": "Upstream extended RoleClass library",
+      "family": "upstream-application",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/AutomationMLExtendedRoleClassLib.2.aml",
+      "direction": "aml_to_ua",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-010",
+      "title": "Upstream external data reference examples",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/BPR_005E_ExternalDataReference_Examples_Jul2016.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-011",
+      "title": "Upstream Part2 sample",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/Part2.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-012",
+      "title": "Upstream interfaces and InternalLink application",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/Test3_IH_IE_ExtInt.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-013",
+      "title": "Upstream topology application",
+      "family": "upstream-application-legacy",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/Topology_2021.aml",
+      "direction": "aml_to_ua",
+      "severity": "observation",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+    {
+      "id": "UP-APP-014",
+      "title": "Upstream ISA-106 RoleClass library",
+      "family": "upstream-application",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_AML/UserDefinedRoleClassLibISA106.aml",
+      "direction": "aml_to_ua",
+      "severity": "must",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "no_roundtrip_metadata"],
+      "expected": {"forbid_shadow_names": true}
+    },
+
+    {
+      "id": "UP-OPC-000",
+      "title": "Upstream AML base libraries NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/AML_Base_Libraries.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+    {
+      "id": "UP-OPC-001",
+      "title": "Upstream AML base types NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/Opc.Ua.AMLBaseTypes.NodeSet2.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+    {
+      "id": "UP-OPC-002",
+      "title": "Upstream AML libraries NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/Opc.Ua.AMLLibraries.NodeSet2.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+    {
+      "id": "UP-OPC-003",
+      "title": "Upstream PackML NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/Opc.Ua.PackML.NodeSet2.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+    {
+      "id": "UP-OPC-004",
+      "title": "Upstream interfaces and InternalLink NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/Test3_IH_IE_ExtInt.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+    {
+      "id": "UP-OPC-005",
+      "title": "Upstream InstanceHierarchy NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/Test3_IH.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+    {
+      "id": "UP-OPC-006",
+      "title": "Upstream topology NodeSet",
+      "family": "upstream-opc-observation",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/TestData_OPC/Topology_2021.xml",
+      "direction": "ua_to_aml",
+      "severity": "observation",
+      "oracles": ["secure_xml", "nodeset_xsd", "nodeset_semantics"]
+    },
+
+    {
+      "id": "REG-NODEID-001",
+      "title": "Required-value aliases contain one namespace qualifier",
+      "family": "known-defect",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/0_EmptyFile_V2.1.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "forbidden_node_id_patterns": ["ns=\\d+;ns="],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-REF-001",
+      "title": "Constraint components use HasComponent",
+      "family": "known-defect",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/11_Constraints.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "forbidden_reference_types": ["HasComponnent"],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-MODEL-001",
+      "title": "Every generated Model has a non-empty version",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-datatypes.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "require_nonempty_model_version": true,
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-DETERMINISM-001",
+      "title": "Caller-selected publication date and deterministic output",
+      "family": "known-defect",
+      "source": "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/0_EmptyFile_V2.1.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "deterministic", "no_roundtrip_metadata"],
+      "expected": {
+        "required_publication_date": "2026-08-17T00:00:00Z",
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-DTYPE-001",
+      "title": "xs:ID maps to OPC UA String",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-datatypes.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAVariable", "display_name": "identifier", "attributes": {"DataType": "String"}, "value": "ASSET-1"}
+        ],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-DTYPE-002",
+      "title": "xs:dateTime maps to OPC UA DateTime",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-datatypes.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAVariable", "display_name": "timestamp", "attributes": {"DataType": "DateTime"}, "value": "2026-08-17T12:30:00Z"}
+        ],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-DTYPE-003",
+      "title": "xs:token maps to OPC UA String rather than Guid",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-datatypes.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAVariable", "display_name": "token", "attributes": {"DataType": "String"}, "value": "commissioned"}
+        ],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-CLASS-001",
+      "title": "External class paths become valid native TypeDefinitions",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-class-alias.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {
+            "node_class": "UAObject",
+            "display_name": "Port",
+            "references": [
+              {"reference_type": "HasTypeDefinition"}
+            ]
+          }
+        ],
+        "forbidden_node_id_patterns": ["/"],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-IDENTITY-001",
+      "title": "Repeated source-document records remain distinct",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-source-documents.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "nodeset_semantics", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAVariable", "display_name": "SourceDocumentInformation_1"},
+          {"node_class": "UAVariable", "display_name": "SourceDocumentInformation_2"}
+        ],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-CLASS-002",
+      "title": "Nested classes retain inheritance and organization",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-nested-classes.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAObjectType", "display_name": "Machine", "references": [{"reference_type": "HasSubtype", "is_forward": false}]},
+          {"node_class": "UAObjectType", "display_name": "PackagingMachine", "references": [{"reference_type": "HasSubtype", "is_forward": false}]},
+          {"node_class": "UAObjectType", "display_name": "Cartoner", "references": [{"reference_type": "HasSubtype", "is_forward": false}]}
+        ],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-ATTR-001",
+      "title": "Actual Value and DefaultValue remain independent",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-attribute-value.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAVariable", "display_name": "state", "attributes": {"DataType": "String"}, "value": "running"},
+          {"node_class": "UAVariable", "display_name": "DefaultValue", "attributes": {"DataType": "String"}, "value": "idle"}
+        ],
+        "forbid_shadow_names": true
+      }
+    },
+    {
+      "id": "REG-ATTR-002",
+      "title": "Attribute description uses standard Documentation",
+      "family": "known-defect",
+      "source": "tests/opcua-comparison/fixtures/regression-attribute-value.aml",
+      "direction": "aml_to_ua",
+      "severity": "critical",
+      "oracles": ["secure_xml", "caex_xsd", "nodeset_xsd", "expected_graph", "no_roundtrip_metadata"],
+      "expected": {
+        "nodes": [
+          {"node_class": "UAVariable", "display_name": "state", "documentation": "Current operating state"}
+        ],
+        "forbid_shadow_names": true
+      }
+    }
+  ]
+}

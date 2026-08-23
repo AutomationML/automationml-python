@@ -1,0 +1,353 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
+  <NamespaceUris>
+    <Uri>http://opcfoundation.org/UA/AML/ua-origin.aml</Uri>
+    <Uri>http://opcfoundation.org/UA/AML/</Uri>
+    <Uri>http://opcfoundation.org/UA/Dictionary/URI</Uri>
+  </NamespaceUris>
+  <Models>
+    <Model ModelUri="http://opcfoundation.org/UA/AML/ua-origin.aml" Version="0.0.0" PublicationDate="2026-08-17T00:00:00Z">
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+      <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.00" PublicationDate="2026-06-25T00:00:00Z"/>
+    </Model>
+  </Models>
+  <Aliases>
+    <Alias Alias="Boolean">i=1</Alias>
+    <Alias Alias="SByte">i=2</Alias>
+    <Alias Alias="Byte">i=3</Alias>
+    <Alias Alias="Int16">i=4</Alias>
+    <Alias Alias="UInt16">i=5</Alias>
+    <Alias Alias="Int32">i=6</Alias>
+    <Alias Alias="UInt32">i=7</Alias>
+    <Alias Alias="Int64">i=8</Alias>
+    <Alias Alias="UInt64">i=9</Alias>
+    <Alias Alias="Float">i=10</Alias>
+    <Alias Alias="Double">i=11</Alias>
+    <Alias Alias="String">i=12</Alias>
+    <Alias Alias="DateTime">i=13</Alias>
+    <Alias Alias="ByteString">i=15</Alias>
+    <Alias Alias="HasComponent">i=47</Alias>
+    <Alias Alias="HasProperty">i=46</Alias>
+    <Alias Alias="Organizes">i=35</Alias>
+    <Alias Alias="HasSubtype">i=45</Alias>
+    <Alias Alias="HasTypeDefinition">i=40</Alias>
+    <Alias Alias="HasDictionaryEntry">i=17597</Alias>
+    <Alias Alias="UriDictionaryEntryType">i=17600</Alias>
+    <Alias Alias="BaseObjectType">i=58</Alias>
+    <Alias Alias="FolderType">i=61</Alias>
+    <Alias Alias="PropertyType">i=68</Alias>
+    <Alias Alias="BaseDataVariableType">i=63</Alias>
+    <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
+    <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
+    <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
+    <Alias Alias="AMLConstraintVariableType">ns=2;i=2000</Alias>
+    <Alias Alias="NominalScaledConstraint">ns=2;i=2001</Alias>
+    <Alias Alias="OrdinalScaledConstraint">ns=2;i=2002</Alias>
+    <Alias Alias="UnknownConstraint">ns=2;i=2003</Alias>
+    <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
+    <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
+  </Aliases>
+  <UAObject NodeId="ns=3;s=urn:example:temperature" BrowseName="3:urn:example:temperature" ParentNodeId="i=17594">
+    <DisplayName>urn:example:temperature</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">UriDictionaryEntryType</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">i=17594</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile" ParentNodeId="i=85">
+    <DisplayName>ua-origin.aml</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">i=85</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:file-name:463d709225eec4e4</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:schema-version:1fcf0a4a3ecd436d</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:folder:instance-hierarchies:9a5a2d2f648538f5</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:folder:interface-class-libs:0efd69aa8129f8f1</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:folder:role-class-libs:d070cab9a7411726</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:folder:system-unit-class-libs:23d8028aae3e2b14</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:file-name:463d709225eec4e4" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+    <DisplayName>FileName</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=CAEXFile</Reference>
+    </References>
+    <Value>
+      <uax:String>ua-origin.aml</uax:String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=aml:property:schema-version:1fcf0a4a3ecd436d" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+    <DisplayName>SchemaVersion</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=CAEXFile</Reference>
+    </References>
+    <Value>
+      <uax:String>3.0</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:folder:instance-hierarchies:9a5a2d2f648538f5" BrowseName="1:InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile">
+    <DisplayName>InstanceHierarchies</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:object:Plant:dbbc3e38945a1c3c</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=CAEXFile</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=aml:object:Plant:dbbc3e38945a1c3c" BrowseName="1:Plant" ParentNodeId="ns=1;s=aml:folder:instance-hierarchies:9a5a2d2f648538f5">
+    <DisplayName>Plant</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:36a2ef6644a94da5</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=aml:object:Motor:54496f6c1a21fbee</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:folder:instance-hierarchies:9a5a2d2f648538f5</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:36a2ef6644a94da5" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:Plant:dbbc3e38945a1c3c" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:Plant:dbbc3e38945a1c3c</Reference>
+    </References>
+    <Value>
+      <uax:String>{plant-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:object:Motor:54496f6c1a21fbee" BrowseName="1:Motor" ParentNodeId="ns=1;s=aml:object:Plant:dbbc3e38945a1c3c">
+    <DisplayName>Motor</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">ns=1;s=aml:system-class:MotorType%231:b93051add502fe6c</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:903f1a905c474e46</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=aml:attribute:temperature:4d82e1918aa56596</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=aml:object:PortA:a4be6dafd95df876</Reference>
+      <Reference ReferenceType="HasAMLRoleReference">ns=1;s=aml:role-class:Drive%231:c01b46685ba564de</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=aml:object:Device:a2b69bb0c81169d2</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=aml:object:Plant:dbbc3e38945a1c3c</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:903f1a905c474e46" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:Motor:54496f6c1a21fbee" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:Motor:54496f6c1a21fbee</Reference>
+    </References>
+    <Value>
+      <uax:String>{motor-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=aml:attribute:temperature:4d82e1918aa56596" BrowseName="1:temperature" DataType="Int32" ParentNodeId="ns=1;s=aml:object:Motor:54496f6c1a21fbee">
+    <DisplayName>temperature</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:default-value:184daa5db731753f</Reference>
+      <Reference ReferenceType="HasDictionaryEntry">ns=3;s=urn:example:temperature</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=aml:object:Motor:54496f6c1a21fbee</Reference>
+    </References>
+    <Value>
+      <uax:Int32>42</uax:Int32>
+    </Value>
+  </UAVariable>
+  <UAVariable NodeId="ns=1;s=aml:property:default-value:184daa5db731753f" BrowseName="1:DefaultValue" ParentNodeId="ns=1;s=aml:attribute:temperature:4d82e1918aa56596" DataType="Int32">
+    <DisplayName>DefaultValue</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">PropertyType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:attribute:temperature:4d82e1918aa56596</Reference>
+    </References>
+    <Value>
+      <uax:Int32>20</uax:Int32>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:object:PortA:a4be6dafd95df876" BrowseName="1:PortA" ParentNodeId="ns=1;s=aml:object:Motor:54496f6c1a21fbee">
+    <DisplayName>PortA</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">ns=1;s=aml:interface-class:Port%231:1d20475a3bb09d25</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:aec942f55e2fc0a5</Reference>
+      <Reference ReferenceType="HasAMLInternalLink">ns=1;s=aml:object:PortB:06de0e2ded51b7e1</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=aml:object:Motor:54496f6c1a21fbee</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:aec942f55e2fc0a5" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:PortA:a4be6dafd95df876" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:PortA:a4be6dafd95df876</Reference>
+    </References>
+    <Value>
+      <uax:String>{port-a-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:object:Device:a2b69bb0c81169d2" BrowseName="1:Device" ParentNodeId="ns=1;s=aml:object:Motor:54496f6c1a21fbee">
+    <DisplayName>Device</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:8b37c8ee2b231745</Reference>
+      <Reference ReferenceType="HasComponent">ns=1;s=aml:object:PortB:06de0e2ded51b7e1</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=aml:object:Motor:54496f6c1a21fbee</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:8b37c8ee2b231745" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:Device:a2b69bb0c81169d2" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:Device:a2b69bb0c81169d2</Reference>
+    </References>
+    <Value>
+      <uax:String>{device-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:object:PortB:06de0e2ded51b7e1" BrowseName="1:PortB" ParentNodeId="ns=1;s=aml:object:Device:a2b69bb0c81169d2">
+    <DisplayName>PortB</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">ns=1;s=aml:interface-class:Port%231:1d20475a3bb09d25</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:ace28a602f63ec1e</Reference>
+      <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=aml:object:Device:a2b69bb0c81169d2</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:ace28a602f63ec1e" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:PortB:06de0e2ded51b7e1" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:PortB:06de0e2ded51b7e1</Reference>
+    </References>
+    <Value>
+      <uax:String>{port-b-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:folder:interface-class-libs:0efd69aa8129f8f1" BrowseName="1:InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile">
+    <DisplayName>InterfaceClassLibs</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:object:Connectors:b7fb70e95cf6f8a7</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=CAEXFile</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=aml:object:Connectors:b7fb70e95cf6f8a7" BrowseName="1:Connectors" ParentNodeId="ns=1;s=aml:folder:interface-class-libs:0efd69aa8129f8f1">
+    <DisplayName>Connectors</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:03e116cd73924661</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:interface-class:Port%231:1d20475a3bb09d25</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:folder:interface-class-libs:0efd69aa8129f8f1</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:03e116cd73924661" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:Connectors:b7fb70e95cf6f8a7" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:Connectors:b7fb70e95cf6f8a7</Reference>
+    </References>
+    <Value>
+      <uax:String>{connectors-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObjectType NodeId="ns=1;s=aml:interface-class:Port%231:1d20475a3bb09d25" BrowseName="1:Port" IsAbstract="false">
+    <DisplayName>Port</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">BaseObjectType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:c99fb49db13f58a3</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:object:Connectors:b7fb70e95cf6f8a7</Reference>
+    </References>
+  </UAObjectType>
+  <UAVariable NodeId="ns=1;s=aml:property:id:c99fb49db13f58a3" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:interface-class:Port%231:1d20475a3bb09d25" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:interface-class:Port%231:1d20475a3bb09d25</Reference>
+    </References>
+    <Value>
+      <uax:String>{port-type-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:folder:role-class-libs:d070cab9a7411726" BrowseName="1:RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile">
+    <DisplayName>RoleClassLibs</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:object:Roles:5e493f9364f2e0bf</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=CAEXFile</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=aml:object:Roles:5e493f9364f2e0bf" BrowseName="1:Roles" ParentNodeId="ns=1;s=aml:folder:role-class-libs:d070cab9a7411726">
+    <DisplayName>Roles</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:c491218f655bfcfe</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:role-class:Drive%231:c01b46685ba564de</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:folder:role-class-libs:d070cab9a7411726</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:c491218f655bfcfe" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:Roles:5e493f9364f2e0bf" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:Roles:5e493f9364f2e0bf</Reference>
+    </References>
+    <Value>
+      <uax:String>{roles-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObjectType NodeId="ns=1;s=aml:role-class:Drive%231:c01b46685ba564de" BrowseName="1:Drive" IsAbstract="false">
+    <DisplayName>Drive</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">BaseObjectType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:f134d94ea9d884ae</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:object:Roles:5e493f9364f2e0bf</Reference>
+    </References>
+  </UAObjectType>
+  <UAVariable NodeId="ns=1;s=aml:property:id:f134d94ea9d884ae" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:role-class:Drive%231:c01b46685ba564de" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:role-class:Drive%231:c01b46685ba564de</Reference>
+    </References>
+    <Value>
+      <uax:String>{drive-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObject NodeId="ns=1;s=aml:folder:system-unit-class-libs:23d8028aae3e2b14" BrowseName="1:SystemUnitClassLibs" ParentNodeId="ns=1;s=CAEXFile">
+    <DisplayName>SystemUnitClassLibs</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:object:Equipment:1b0de779512bd92a</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=CAEXFile</Reference>
+    </References>
+  </UAObject>
+  <UAObject NodeId="ns=1;s=aml:object:Equipment:1b0de779512bd92a" BrowseName="1:Equipment" ParentNodeId="ns=1;s=aml:folder:system-unit-class-libs:23d8028aae3e2b14">
+    <DisplayName>Equipment</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">FolderType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:9d3b462091a2cd31</Reference>
+      <Reference ReferenceType="Organizes">ns=1;s=aml:system-class:MotorType%231:b93051add502fe6c</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:folder:system-unit-class-libs:23d8028aae3e2b14</Reference>
+    </References>
+  </UAObject>
+  <UAVariable NodeId="ns=1;s=aml:property:id:9d3b462091a2cd31" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:object:Equipment:1b0de779512bd92a" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:object:Equipment:1b0de779512bd92a</Reference>
+    </References>
+    <Value>
+      <uax:String>{equipment-ua}</uax:String>
+    </Value>
+  </UAVariable>
+  <UAObjectType NodeId="ns=1;s=aml:system-class:MotorType%231:b93051add502fe6c" BrowseName="1:MotorType" IsAbstract="false">
+    <DisplayName>MotorType</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">CAEXObjectType</Reference>
+      <Reference ReferenceType="HasProperty">ns=1;s=aml:property:id:f08913baf8e2566a</Reference>
+      <Reference ReferenceType="HasAMLRoleReference">ns=1;s=aml:role-class:Drive%231:c01b46685ba564de</Reference>
+      <Reference ReferenceType="Organizes" IsForward="false">ns=1;s=aml:object:Equipment:1b0de779512bd92a</Reference>
+    </References>
+  </UAObjectType>
+  <UAVariable NodeId="ns=1;s=aml:property:id:f08913baf8e2566a" BrowseName="1:AML_ID" ParentNodeId="ns=1;s=aml:system-class:MotorType%231:b93051add502fe6c" DataType="String">
+    <DisplayName>AML_ID</DisplayName>
+    <References>
+      <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      <Reference ReferenceType="HasProperty" IsForward="false">ns=1;s=aml:system-class:MotorType%231:b93051add502fe6c</Reference>
+    </References>
+    <Value>
+      <uax:String>{motor-type-ua}</uax:String>
+    </Value>
+  </UAVariable>
+</UANodeSet>

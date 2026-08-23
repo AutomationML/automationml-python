@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="ua-origin.aml" SchemaVersion="3.0">
+  <InstanceHierarchy Name="Plant" ID="plant-ua">
+    <InternalElement Name="Motor" ID="motor-ua" RefBaseSystemUnitPath="Equipment/MotorType">
+      <Attribute Name="temperature" AttributeDataType="xs:int">
+        <DefaultValue>20</DefaultValue>
+        <Value>42</Value>
+        <RefSemantic CorrespondingAttributePath="urn:example:temperature"/>
+      </Attribute>
+      <ExternalInterface Name="PortA" ID="port-a-ua" RefBaseClassPath="Connectors/Port"/>
+      <InternalElement Name="Device" ID="device-ua">
+        <ExternalInterface Name="PortB" ID="port-b-ua" RefBaseClassPath="Connectors/Port"/>
+      </InternalElement>
+      <InternalLink Name="InternalLink_e854fb3b"
+                    ID="e854fb3b-1533-5cbe-820d-c12ebe0c9111"
+                    RefPartnerSideA="motor-ua:PortA"
+                    RefPartnerSideB="device-ua:PortB"/>
+      <RoleRequirements RefBaseRoleClassPath="Roles/Drive"/>
+    </InternalElement>
+  </InstanceHierarchy>
+  <InterfaceClassLib Name="Connectors" ID="connectors-ua">
+    <InterfaceClass Name="Port" ID="port-type-ua"/>
+  </InterfaceClassLib>
+  <RoleClassLib Name="Roles" ID="roles-ua">
+    <RoleClass Name="Drive" ID="drive-ua"/>
+  </RoleClassLib>
+  <SystemUnitClassLib Name="Equipment" ID="equipment-ua">
+    <SystemUnitClass Name="MotorType" ID="motor-type-ua">
+      <SupportedRoleClass RefRoleClassPath="Roles/Drive"/>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+</CAEXFile>

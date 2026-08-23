@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="unsupported-lifecycle.aml" SchemaVersion="3.0">
+  <Revision>
+    <RevisionDate>2026-08-17T00:00:00Z</RevisionDate>
+    <OldVersion>1.0</OldVersion>
+    <NewVersion>1.1</NewVersion>
+    <AuthorName>Comparison author</AuthorName>
+  </Revision>
+</CAEXFile>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX" FileName="minimal-caex3.aml" SchemaVersion="3.0">
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="Comparison fixture"
+                             OriginID="minimal"
+                             OriginVendor="AutomationML SDK"
+                             OriginVendorURL="https://example.invalid"
+                             OriginVersion="1.0"
+                             OriginRelease="1.0"
+                             LastWritingDateTime="2026-08-17T00:00:00Z"
+                             OriginProjectTitle="Comparison"
+                             OriginProjectID="minimal"/>
+</CAEXFile>

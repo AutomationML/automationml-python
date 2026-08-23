@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CAEXFile xmlns="http://www.dke.de/CAEX"
+          FileName="regression-attribute-value.aml"
+          SchemaVersion="3.0">
+  <SourceDocumentInformation OriginName="Comparison fixture"
+                             OriginID="comparison-fixture"
+                             OriginVersion="1.0"
+                             LastWritingDateTime="2026-08-17T00:00:00Z"
+                             OriginVendor="AutomationML SDK"
+                             OriginVendorURL="https://example.invalid"
+                             OriginRelease="1.0"
+                             OriginProjectTitle="Mapper comparison"
+                             OriginProjectID="mapper-comparison"/>
+  <InstanceHierarchy Name="Plant">
+    <InternalElement Name="Machine" ID="machine-1">
+      <Attribute Name="state" AttributeDataType="xs:string">
+        <Description>Current operating state</Description>
+        <DefaultValue>idle</DefaultValue>
+        <Value>running</Value>
+      </Attribute>
+    </InternalElement>
+  </InstanceHierarchy>
+</CAEXFile>

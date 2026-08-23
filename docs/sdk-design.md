@@ -63,3 +63,61 @@ doc.assert_caex_valid(strict_xsd=True)
 
 That split lets migration projects load real-world files first, then ratchet up
 conformance when producing association-grade artifacts.
+
+## OPC UA roundtripping contract
+
+OPC UA conversion follows the same Python-first design:
+
+- `UANode`, `UAReference`, `UAScalarValue`, `UAModel`, and `UANodeSet` are
+  frozen Pydantic value objects with forbidden extra fields and shape checks.
+- Repeated values are tuples and aliases are exposed as an immutable mapping,
+  so a validated graph cannot be invalidated by mutating a nested collection.
+- `UANodeSetBuilder` is the deliberate mutable boundary. It detects duplicate
+  NodeIds when they are added and revalidates the complete graph at `build()`.
+- `UANodeSet.from_xml()` and `to_xml()` provide a strict adapter for the subset
+  used by the AutomationML mapping. Unsupported NodeClasses fail explicitly.
+- `CAEXFile.to_opcua_nodeset()` returns that Pydantic graph directly; callers
+  only use `to_opcua_nodeset_xml()` when XML is actually the boundary format.
+- Forward and reverse converters use the same frozen `AMLUAMappingProfile`.
+  Each many-to-one datatype rule declares its canonical AML inverse. Contextual
+  role edges declare their AutomationML owner and reverse relationship.
+
+The user-facing roundtrip operation never proves itself with embedded source
+data:
+
+```python
+result = document.round_trip_opcua(publication_date="2026-08-17")
+
+if result.semantically_equivalent:
+    recovered = result.assert_equivalent()
+else:
+    print(result.source_document)
+    print(result.recovered_document)
+```
+
+`OPCUARoundTripResult` intentionally retains the source model, generated
+NodeSet XML, and reconstructed model. A Boolean alone would make a failed or
+canonicalized mapping impossible to investigate.
+
+The OPC UA side is an equal entry point:
+
+```python
+nodeset = UANodeSet.from_xml(opcua_xml)
+document = nodeset.to_automationml()
+result = nodeset.round_trip_automationml(publication_date="2026-08-17")
+canonical_nodeset = result.assert_equivalent()
+```
+
+`UANodeSetRoundTripResult` verifies the semantic projection
+`UA -> AML -> UA -> AML`. NodeIds, aliases, namespace prefixes, and XML order
+may be canonicalized, so raw XML equality is deliberately not the criterion.
+Tests replace all generated document NodeIds with OPC-UA-authored identifiers
+and prove that reconstruction does not depend on the mapper's NodeId layout.
+
+Both result types contain frozen `RoundTripDifference` records addressed by
+JSON Pointer. Their `semantically_equivalent` field is computed from the empty
+or non-empty difference tuple; callers cannot supply a contradictory Boolean.
+
+Shared Python code does not make a non-injective standard mapping invertible.
+Such cases must have a documented canonical inverse in the profile or fail as
+ambiguous. This is the meaning of the strict-implicit policy.
