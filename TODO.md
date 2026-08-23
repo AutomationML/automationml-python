@@ -1,29 +1,28 @@
 # TODO
 
-## Commit the pending OPC UA mapper work
+## Domain-expert sign-off on the OPC UA mapping oracle
 
-The working tree has a large amount of finished, tested work that has never
-been committed to git: the entire Python OPC UA <-> AutomationML bidirectional
-mapper (`src/automationml/opcua*.py`), its test suites, the 145-case mapper
-comparison corpus, the governance docs (mapping profile decision, integration
-audit, research report, comparison test plan, review checklist), and CI/repo
-governance files. `git status --short` in this repo shows the full list.
+`docs/opcua-mapping-review-checklist.md` is still awaiting independent
+domain-expert signatures on the AutomationML/OPC UA mapping rules
+(`strict-implicit-v1`). The automated corpus is green (see
+`docs/reports/opcua-release-comparison/report.md`), but a green test only
+proves consistency with the declared oracle - it does not prove the oracle
+represents the standards communities' intended semantics. Get that review
+done before treating the mapping profile as final.
 
-Blocked on: this machine has no git author identity configured
-(`user.name` / `user.email`), so `git commit` fails with "Author identity
-unknown". Set it (locally, in this repo, is enough - no need for `--global`)
-before committing:
+## Next mapping increments (from `docs/opcua-python-mapper-research.md`)
 
-```powershell
-git config user.name "Your Name"
-git config user.email "you@example.com"
-```
+1. Resolve the InternalLink direction/profile question, then implement its
+   native edge and canonical AML reconstruction.
+2. Map attribute constraints with typed Python models and tests.
+3. Replace plain `Unit` with standard `EngineeringUnits` where a UNECE
+   mapping is available.
+4. Import generated NodeSets into `asyncua` as an independent
+   interoperability check.
+5. Run the complete upstream fixture set and maintain a capability matrix
+   (Python pass / canonical difference / deferred / upstream-invalid).
 
-Once that's set, everything currently in the working tree was reviewed (no
-secrets, no unexpected binaries, `.gitignore` change is just adding
-`.ipynb_checkpoints/`) and is ready to `git add -A && git commit`. This is a
-**local commit only** - nothing here pushes to GitHub or any remote; that's
-a separate decision for whenever you're ready.
+---
 
-Also still open: `docs/opcua-mapping-review-checklist.md` is awaiting
-independent domain-expert sign-off on the mapping oracle itself.
+_Commit history: the full Python OPC UA mapper, its tests, corpus, and
+governance docs were committed on 2026-08-23 (`a30181d`)._
