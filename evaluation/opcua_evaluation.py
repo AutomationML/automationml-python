@@ -4,6 +4,11 @@ This module deliberately sits beside, rather than inside, the mapping code. It
 uses its own XML parsing, schema validation, NodeId checks, and graph-fact
 oracles so a candidate mapper cannot validate itself. The public runtime does
 not import this module.
+
+It therefore lives outside ``src/`` and is not part of the distributed wheel:
+it is development evidence tooling, not SDK API. ``conftest.py`` puts this
+directory on ``sys.path`` for the test suite, and the scripts in ``tools/``
+bootstrap it explicitly.
 """
 
 from __future__ import annotations
@@ -15,6 +20,8 @@ import re
 import sys
 import time
 from collections import Counter
+from functools import lru_cache
+from importlib.resources import as_file, files
 from datetime import UTC, datetime
 from enum import StrEnum
 from pathlib import Path
@@ -23,8 +30,9 @@ from typing import Any
 from lxml import etree
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
-from .models import CAEXFile
-from .opcua import (
+from automationml.models import CAEXFile
+from automationml.opcua import (
+    REVERSE_MAPPING_VERSION,
     OPCUAConversionError,
     aml_xml_to_nodeset,
     nodeset_to_document,
@@ -36,6 +44,12 @@ CAEX_NS = "http://www.dke.de/CAEX"
 ROUNDTRIP_NS = "urn:automationml:opcua:nodeset-roundtrip:1"
 FIXED_PUBLICATION_DATE = "2026-08-17"
 UPSTREAM_COMMIT = "e38653c1bc58ffc658595093e0a2d163a7ecebf7"
+UPSTREAM_REPOSITORY = "https://github.com/AutomationML/AML-UA-XSLT"
+MAPPING_PATCH_VERSION = "automationml-xslt-v3"
+
+# The patched working-group stylesheets are comparison material, not SDK API,
+# so they live here rather than in the distributed package.
+PATCHED_XSLT_ROOT = Path(__file__).resolve().parent / "resources" / "xslt"
 
 _UA = {"ua": UA_NODESET_NS}
 _UNSAFE_XML = re.compile(br"<!\s*(?:DOCTYPE|ENTITY)\b", re.IGNORECASE)
@@ -353,10 +367,135 @@ class _TransformFailure(ValueError):
     pass
 
 
+@lru_cache(maxsize=1)
+def _ua_nodeset_schema() -> etree.XMLSchema:
+    """The official UANodeSet XSD, as the SDK's forward path also applies it."""
+
+    path = files("automationml") / "resources" / "opcua" / "UANodeSet.xsd"
+    with as_file(path) as resolved:
+        return etree.XMLSchema(etree.parse(str(resolved)))
+
+
+@lru_cache(maxsize=1)
+def _patched_session() -> _SaxonSession:
+    return _SaxonSession(PATCHED_XSLT_ROOT, PATCHED_XSLT_ROOT)
+
+
+def patched_xslt_nodeset_element(
+    aml_xml: bytes,
+    *,
+    publication_date: str = FIXED_PUBLICATION_DATE,
+) -> etree._Element:
+    """Raw output of the patched working-group stylesheet, without repairs.
+
+    This is the engine the SDK used to expose as ``mapper="xslt"``. It is
+    comparison material rather than SDK API, so it lives in the evaluation
+    harness and the shipped package no longer carries it.
+    """
+
+    # The SDK applied these guards before handing anything to the stylesheet.
+    # They must stay in front of the transform: Saxon will otherwise try to
+    # resolve a declared external entity, which is the exact behaviour the
+    # negative-security corpus exists to forbid.
+    if _UNSAFE_XML.search(aml_xml):
+        raise OPCUAConversionError("DTD and entity declarations are not accepted.")
+    try:
+        probe = etree.fromstring(
+            aml_xml,
+            parser=etree.XMLParser(
+                resolve_entities=False, load_dtd=False, no_network=True
+            ),
+        )
+    except etree.XMLSyntaxError as exc:
+        raise OPCUAConversionError(f"Invalid AutomationML XML: {exc}") from exc
+    if etree.QName(probe).localname != "CAEXFile":
+        raise OPCUAConversionError(
+            f"Expected AutomationML root 'CAEXFile', got "
+            f"{etree.QName(probe).localname!r}."
+        )
+
+    # The SDK normalized CAEX 2.15 to 3.0 before running either mapper, so the
+    # stylesheet sees the supported model rather than a legacy write path. The
+    # corpus carries legacy fixtures, so this normalization is load-bearing.
+    if b'SchemaVersion="2.15"' in aml_xml or b"SchemaVersion='2.15'" in aml_xml:
+        from automationml.legacy import import_aml_xml
+
+        imported = import_aml_xml(aml_xml)
+        aml_xml = imported.document.to_aml_xml(pretty=False).encode("utf-8")
+    transformed = _patched_session().forward_patched(
+        aml_xml, publication_date=publication_date
+    )
+    parser = etree.XMLParser(
+        resolve_entities=False,
+        load_dtd=False,
+        no_network=True,
+        remove_blank_text=True,
+        strip_cdata=False,
+    )
+    root = etree.fromstring(transformed.encode("utf-8"), parser=parser)
+    name = etree.QName(root)
+    if name.namespace != UA_NODESET_NS or name.localname != "UANodeSet":
+        raise _TransformFailure("patched forward XSLT did not return a UANodeSet root")
+    return root
+
+
+def patched_xslt_nodeset_xml(
+    aml_xml: bytes,
+    *,
+    publication_date: str = FIXED_PUBLICATION_DATE,
+    pretty: bool = True,
+) -> str:
+    """The patched stylesheet's NodeSet with AML-UA-XSLT provenance metadata.
+
+    Mirrors the wrapper the SDK previously applied to ``mapper="xslt"``: the
+    generated mapping is never rewritten, only annotated and schema checked.
+    """
+
+    root = patched_xslt_nodeset_element(aml_xml, publication_date=publication_date)
+    _add_patched_xslt_metadata(root)
+    etree.cleanup_namespaces(root)
+    schema = _ua_nodeset_schema()
+    if not schema.validate(root):
+        error = schema.error_log.last_error
+        raise _TransformFailure(
+            f"patched XSLT NodeSet failed its XML Schema: {error or 'unknown error'}"
+        )
+    return etree.tostring(
+        root, encoding="UTF-8", xml_declaration=True, pretty_print=pretty
+    ).decode("utf-8")
+
+
+def _add_patched_xslt_metadata(root: etree._Element) -> None:
+    qname = lambda local: f"{{{UA_NODESET_NS}}}{local}"  # noqa: E731
+    extensions = root.find(qname("Extensions"))
+    if extensions is None:
+        extensions = etree.Element(qname("Extensions"))
+        header_names = {"NamespaceUris", "ServerUris", "Models", "Aliases"}
+        insertion_index = 0
+        for index, child in enumerate(root):
+            if isinstance(child.tag, str) and etree.QName(child).localname in header_names:
+                insertion_index = index + 1
+        root.insert(insertion_index, extensions)
+
+    extension = etree.SubElement(extensions, qname("Extension"))
+    metadata = etree.SubElement(
+        extension,
+        f"{{{ROUNDTRIP_NS}}}AutomationMLExport",
+        nsmap={"amlrt": ROUNDTRIP_NS},
+    )
+    metadata.set("mapping", "AML-UA-XSLT")
+    metadata.set("mappingRepository", UPSTREAM_REPOSITORY)
+    metadata.set("mappingCommit", UPSTREAM_COMMIT)
+    metadata.set("mappingPatch", MAPPING_PATCH_VERSION)
+    metadata.set("reverseMapping", REVERSE_MAPPING_VERSION)
+    metadata.set("validation", "automationml-python-v1")
+    metadata.set("roundTrip", "none")
+
+
 class _SaxonSession:
     """Own one Saxon processor so the exact stylesheets compile once per run."""
 
-    def __init__(self, vendor_root: Path) -> None:
+    def __init__(self, vendor_root: Path, patched_root: Path = PATCHED_XSLT_ROOT) -> None:
         try:
             from saxonche import PySaxonProcessor
         except ImportError as exc:  # pragma: no cover - dependency profile test
@@ -364,7 +503,9 @@ class _SaxonSession:
         self._processor = PySaxonProcessor(license=False)
         self._xslt = self._processor.new_xslt30_processor()
         self._vendor_root = vendor_root
+        self._patched_root = patched_root
         self._forward: Any | None = None
+        self._forward_patched: Any | None = None
         self._reverse: Any | None = None
 
     @property
@@ -386,6 +527,26 @@ class _SaxonSession:
             raise _TransformFailure(f"upstream forward XSLT failed: {exc}") from exc
         if not result:
             raise _TransformFailure("upstream forward XSLT returned no XML")
+        return result
+
+    def forward_patched(self, source: bytes, *, publication_date: str) -> str:
+        """Run the patched stylesheet that the SDK used to expose as mapper='xslt'."""
+
+        try:
+            if self._forward_patched is None:
+                self._forward_patched = self._xslt.compile_stylesheet(
+                    stylesheet_file=str(self._patched_root / "AML2Nodeset.xslt")
+                )
+            self._forward_patched.set_parameter(
+                "publication-date",
+                self._processor.make_string_value(publication_date),
+            )
+            node = self._processor.parse_xml(xml_text=source.decode("utf-8-sig"))
+            result = self._forward_patched.transform_to_string(xdm_node=node)
+        except Exception as exc:
+            raise _TransformFailure(f"patched forward XSLT failed: {exc}") from exc
+        if not result:
+            raise _TransformFailure("patched forward XSLT returned no XML")
         return result
 
     def reverse(self, source: bytes) -> str:
@@ -780,14 +941,10 @@ class ComparisonRunner:
                 source,
                 include_roundtrip=False,
                 publication_date=publication_date,
-                mapper="python",
             )
         if engine == ComparisonEngine.XSLT_PATCHED:
-            return aml_xml_to_nodeset(
-                source,
-                include_roundtrip=False,
-                publication_date=publication_date,
-                mapper="xslt",
+            return patched_xslt_nodeset_xml(
+                source, publication_date=publication_date
             )
         raw = self._saxon_session().forward(source)
         if engine == ComparisonEngine.XSLT_RUNNER:

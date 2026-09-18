@@ -265,13 +265,6 @@ class _PythonMapper:
             unsupported.append("CAEXFile Copyright")
         if self.document.source_object_information:
             unsupported.append("CAEXFile SourceObjectInformation")
-        if any(
-            information.aml_version is not None
-            or information.document_versions is not None
-            or bool(information.model_extra)
-            for information in self.document.additional_information
-        ):
-            unsupported.append("structured CAEXFile AdditionalInformation")
         if unsupported:
             raise PythonMappingUnsupported(
                 "Python OPC UA strict profile does not yet support "
@@ -1568,9 +1561,9 @@ def _source_document_xml(source: SourceDocumentInformation) -> str:
 
 
 def _additional_information_xml(information: AdditionalInformation) -> str:
-    element = ET.Element("AdditionalInformation")
-    element.text = information.value
-    return ET.tostring(element, encoding="unicode", short_empty_elements=True)
+    from .xml import dumps_additional_information
+
+    return dumps_additional_information(information)
 
 
 def _dictionary_projection(value: str) -> tuple[str, str] | None:

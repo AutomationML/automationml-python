@@ -5,7 +5,7 @@ from lxml import etree
 import pytest
 
 from automationml.opcua import aml_xml_to_nodeset
-from automationml.opcua_evaluation import (
+from opcua_evaluation import (
     CaseOutcome,
     ComparisonEngine,
     ComparisonManifest,
@@ -15,6 +15,7 @@ from automationml.opcua_evaluation import (
     UPSTREAM_SOURCE_HASHES,
     _OracleFailure,
     _assert_expected_graph,
+    patched_xslt_nodeset_xml,
 )
 
 
@@ -53,12 +54,16 @@ def _display_node(root: etree._Element, display_name: str) -> etree._Element:
 def _candidate_root(case_id: str, mapper: str = "python") -> etree._Element:
     case = _case(case_id)
     source = (REPO / case.source).read_bytes()
-    xml = aml_xml_to_nodeset(
-        source,
-        include_roundtrip=False,
-        publication_date="2026-08-17",
-        mapper=mapper,
-    )
+    if mapper == "xslt":
+        # The patched stylesheet is comparison material and now lives in the
+        # harness rather than the SDK, so defect mutants source it from there.
+        xml = patched_xslt_nodeset_xml(source, publication_date="2026-08-17")
+    else:
+        xml = aml_xml_to_nodeset(
+            source,
+            include_roundtrip=False,
+            publication_date="2026-08-17",
+        )
     return etree.fromstring(xml.encode("utf-8"))
 
 

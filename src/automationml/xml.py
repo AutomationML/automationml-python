@@ -46,6 +46,8 @@ from .models import (
     TextElement,
     UnknownType,
     AdditionalInformation,
+    XmlExtensionNode,
+    XmlExtensionPayload,
 )
 
 CAEX_NS = "http://www.dke.de/CAEX"
@@ -243,7 +245,7 @@ def dump(
 def loads(data: str | bytes) -> CAEXFile:
     """Parse CAEX XML into a CAEXFile model."""
 
-    root = ET.fromstring(data)
+    root = parse_xml_element(data)
     if _local_name(root.tag) != "CAEXFile":
         raise ValueError(f"Expected CAEXFile root element, got {_local_name(root.tag)!r}.")
     payload = _element_to_data(root, CAEXFile)
@@ -264,6 +266,24 @@ def _model_to_element(
     include_default_change_mode: bool,
 ) -> ET.Element:
     element = ET.Element(_qname(tag))
+
+    if isinstance(model, AdditionalInformation):
+        if model.change_mode != "state" or include_default_change_mode:
+            element.set("ChangeMode", _xml_scalar(model.change_mode))
+        if model.xml is not None:
+            for name, value in model.xml.attributes.items():
+                if name == "ChangeMode":
+                    continue
+                element.set(name, value)
+        if model.aml_version is not None:
+            element.set("AutomationMLVersion", model.aml_version)
+        if model.document_versions is not None:
+            element.set("DocumentVersions", model.document_versions)
+        element.text = model.value
+        if model.xml is not None:
+            for child in model.xml.children:
+                element.append(_extension_to_element(child))
+        return element
 
     for field_name in _field_names_for(model, XML_ATTRIBUTE_FIELDS):
         value = getattr(model, field_name)
@@ -329,10 +349,41 @@ def _value_to_element(
 def _element_to_data(element: ET.Element, model_cls: type[AmlModel]) -> dict[str, Any]:
     data: dict[str, Any] = {}
 
-    for field_name in _field_names_for(model_cls, XML_ATTRIBUTE_FIELDS):
+    attribute_fields = _field_names_for(model_cls, XML_ATTRIBUTE_FIELDS)
+    for field_name in attribute_fields:
         alias = _alias(model_cls, field_name)
         if alias in element.attrib:
             data[alias] = element.attrib[alias]
+
+    if issubclass(model_cls, AdditionalInformation):
+        data["value"] = _extension_text(element.text) or ""
+        if "AutomationMLVersion" in element.attrib:
+            data["AutomationMLVersion"] = element.attrib["AutomationMLVersion"]
+        if "DocumentVersions" in element.attrib:
+            data["DocumentVersions"] = element.attrib["DocumentVersions"]
+        extension_attributes = {
+            name: value
+            for name, value in element.attrib.items()
+            if name not in {"ChangeMode", "AutomationMLVersion", "DocumentVersions"}
+        }
+        extension_children = [_extension_to_data(child) for child in element]
+        if extension_attributes or extension_children:
+            data["$xml"] = XmlExtensionPayload(
+                attributes=extension_attributes,
+                children=extension_children,
+            ).to_aml_dict(prune_empty=False)
+        return data
+
+    allowed_attributes = {_alias(model_cls, name) for name in attribute_fields}
+    if issubclass(model_cls, CAEXFile):
+        allowed_attributes.add(f"{{{XSI_NS}}}schemaLocation")
+    unknown_attributes = set(element.attrib) - allowed_attributes
+    if unknown_attributes:
+        names = ", ".join(sorted(unknown_attributes))
+        raise ValueError(
+            f"Unknown CAEX attribute(s) {names} on {model_cls.__name__}; "
+            "extension XML is only allowed inside AdditionalInformation."
+        )
 
     if issubclass(model_cls, TextElement):
         data["value"] = element.text or ""
@@ -343,7 +394,11 @@ def _element_to_data(element: ET.Element, model_cls: type[AmlModel]) -> dict[str
         tag = _local_name(child.tag)
         field_name = child_fields.get(tag)
         if field_name is None:
-            continue
+            raise ValueError(
+                f"Unknown CAEX element {child.tag!r} inside "
+                f"{model_cls.__name__}; extension XML is only allowed inside "
+                "AdditionalInformation."
+            )
         field = model_cls.model_fields[field_name]
         alias = field.alias or field_name
         child_model = CHILD_MODEL_BY_FIELD.get(field_name)
@@ -411,3 +466,69 @@ def _local_name(tag: str) -> str:
     if "}" in tag:
         return tag.rsplit("}", 1)[1]
     return tag
+
+
+def _extension_to_data(element: ET.Element) -> XmlExtensionNode:
+    return XmlExtensionNode(
+        name=element.tag,
+        attributes=dict(element.attrib),
+        text=_extension_text(element.text),
+        tail=_extension_text(element.tail),
+        children=[_extension_to_data(child) for child in element],
+    )
+
+
+def _extension_text(value: str | None) -> str | None:
+    """Discard formatting-only whitespace while retaining mixed XML content."""
+
+    if value is None or not value.strip():
+        return None
+    return value
+
+
+def _extension_to_element(node: XmlExtensionNode) -> ET.Element:
+    element = ET.Element(node.name, node.attributes)
+    element.text = node.text
+    element.tail = node.tail
+    for child in node.children:
+        element.append(_extension_to_element(child))
+    return element
+
+
+def _reject_unsafe_xml(data: str | bytes) -> None:
+    raw = data.encode("utf-8") if isinstance(data, str) else data
+    lowered = raw.lower()
+    if b"<!doctype" in lowered or b"<!entity" in lowered:
+        raise ValueError("DTD and entity declarations are not allowed in AML XML.")
+
+
+def parse_xml_element(data: str | bytes) -> ET.Element:
+    """Parse one XML root with the SDK's shared DTD/entity policy."""
+
+    _reject_unsafe_xml(data)
+    return ET.fromstring(data)
+
+
+def dumps_additional_information(information: AdditionalInformation) -> str:
+    """Serialize one extension-safe AdditionalInformation fragment."""
+
+    return ET.tostring(
+        _model_to_element(
+            information,
+            "AdditionalInformation",
+            include_default_change_mode=False,
+        ),
+        encoding="unicode",
+        short_empty_elements=True,
+    )
+
+
+def loads_additional_information(data: str | bytes) -> AdditionalInformation:
+    """Parse one extension-safe AdditionalInformation fragment."""
+
+    element = parse_xml_element(data)
+    if _local_name(element.tag) != "AdditionalInformation":
+        raise ValueError("Expected AdditionalInformation XML fragment")
+    return AdditionalInformation.model_validate(
+        _element_to_data(element, AdditionalInformation)
+    )

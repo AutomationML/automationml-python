@@ -1,7 +1,7 @@
 """AutomationML and OPC UA UANodeSet conversion.
 
-The default forward path is a typed Python mapper.  The pinned, patched
-AutomationML/OPC Foundation XSLT remains available as an explicit comparison
+The forward path is a typed Python mapper.  The pinned, patched
+AutomationML/OPC Foundation XSLT is retained as a development comparison
 engine while the Python coverage is expanded and evaluated.
 """
 
@@ -33,13 +33,7 @@ from .opcua_nodeset import UANodeSet
 
 UA_NODESET_NS = "http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
 ROUNDTRIP_NS = "urn:automationml:opcua:nodeset-roundtrip:1"
-UPSTREAM_REPOSITORY = "https://github.com/AutomationML/AML-UA-XSLT"
-UPSTREAM_COMMIT = "e38653c1bc58ffc658595093e0a2d163a7ecebf7"
-MAPPING_PATCH_VERSION = "automationml-xslt-v3"
 REVERSE_MAPPING_VERSION = "automationml-python-semantic-v3"
-PYTHON_MAPPER = "python"
-XSLT_MAPPER = "xslt"
-ForwardMapper = Literal["python", "xslt"]
 
 IRDI_DICTIONARY_URI = "http://opcfoundation.org/UA/Dictionary/IRDI"
 URI_DICTIONARY_URI = "http://opcfoundation.org/UA/Dictionary/URI"
@@ -121,7 +115,6 @@ class _RoundTripResult(BaseModel):
     model_config = ConfigDict(extra="forbid", frozen=True)
 
     differences: tuple[RoundTripDifference, ...]
-    mapper: ForwardMapper
     mapping_profile: str
 
     @computed_field
@@ -179,7 +172,6 @@ def document_to_nodeset(
     pretty: bool = True,
     include_roundtrip: bool = False,
     publication_date: date | datetime | str | None = None,
-    mapper: ForwardMapper = PYTHON_MAPPER,
 ) -> str:
     """Convert a CAEX document to an OPC UA UANodeSet XML document."""
 
@@ -189,22 +181,13 @@ def document_to_nodeset(
     )
     aml_bytes = aml_xml.encode("utf-8")
     publication_date_text = _publication_date_text(publication_date)
-    if mapper == PYTHON_MAPPER:
-        root = _map_document_to_nodeset_python(
-            document,
-            publication_date=publication_date_text,
-        )
-    elif mapper == XSLT_MAPPER:
-        root = _transform_aml_to_nodeset(
-            aml_bytes,
-            publication_date=publication_date_text,
-        )
-    else:  # pragma: no cover - Literal catches typed callers.
-        raise OPCUAConversionError(f"Unknown OPC UA forward mapper {mapper!r}.")
+    root = _map_document_to_nodeset_python(
+        document,
+        publication_date=publication_date_text,
+    )
     return _finish_forward_mapping(
         root,
         aml_bytes=aml_bytes,
-        mapper=mapper,
         pretty=pretty,
         include_roundtrip=include_roundtrip,
     )
@@ -248,7 +231,6 @@ def round_trip_document(
     *,
     pretty: bool = True,
     publication_date: date | datetime | str | None = None,
-    mapper: ForwardMapper = PYTHON_MAPPER,
 ) -> OPCUARoundTripResult:
     """Exercise both semantic mappings without embedding the source AML.
 
@@ -263,7 +245,6 @@ def round_trip_document(
         pretty=pretty,
         include_roundtrip=False,
         publication_date=publication_date,
-        mapper=mapper,
     )
     recovered = nodeset_to_document(
         nodeset_xml,
@@ -271,11 +252,8 @@ def round_trip_document(
     )
     return OPCUARoundTripResult(
         differences=compare_aml_semantics(document, recovered),
-        mapper=mapper,
         mapping_profile=(
             f"{DEFAULT_MAPPING_PROFILE.name}-v{DEFAULT_MAPPING_PROFILE.version}"
-            if mapper == PYTHON_MAPPER
-            else REVERSE_MAPPING_VERSION
         ),
         source_document=document,
         nodeset=UANodeSet.from_xml(nodeset_xml),
@@ -289,7 +267,6 @@ def round_trip_nodeset(
     *,
     pretty: bool = True,
     publication_date: date | datetime | str | None = None,
-    mapper: ForwardMapper = PYTHON_MAPPER,
 ) -> UANodeSetRoundTripResult:
     """Exercise an OPC-UA-origin semantic round trip without source recovery.
 
@@ -315,7 +292,6 @@ def round_trip_nodeset(
         pretty=pretty,
         include_roundtrip=False,
         publication_date=publication_date,
-        mapper=mapper,
     )
     regenerated_nodeset = UANodeSet.from_xml(regenerated_xml)
     verification_document = nodeset_to_document(
@@ -324,11 +300,8 @@ def round_trip_nodeset(
     )
     return UANodeSetRoundTripResult(
         differences=compare_aml_semantics(document, verification_document),
-        mapper=mapper,
         mapping_profile=(
             f"{DEFAULT_MAPPING_PROFILE.name}-v{DEFAULT_MAPPING_PROFILE.version}"
-            if mapper == PYTHON_MAPPER
-            else REVERSE_MAPPING_VERSION
         ),
         source_nodeset=source_nodeset,
         document=document,
@@ -343,73 +316,19 @@ def _compare_json_values(
     recovered: JsonValue,
     path: str = "",
 ) -> tuple[RoundTripDifference, ...]:
-    differences: list[RoundTripDifference] = []
-    if isinstance(source, dict) and isinstance(recovered, dict):
-        for key in sorted(source.keys() | recovered.keys()):
-            child_path = f"{path}/{_json_pointer_segment(key)}"
-            if key not in source:
-                differences.append(
-                    RoundTripDifference(
-                        path=child_path,
-                        kind="added",
-                        recovered_value=recovered[key],
-                    )
-                )
-            elif key not in recovered:
-                differences.append(
-                    RoundTripDifference(
-                        path=child_path,
-                        kind="removed",
-                        source_value=source[key],
-                    )
-                )
-            else:
-                differences.extend(
-                    _compare_json_values(
-                        source[key],
-                        recovered[key],
-                        child_path,
-                    )
-                )
-        return tuple(differences)
-    if isinstance(source, list) and isinstance(recovered, list):
-        for position in range(max(len(source), len(recovered))):
-            child_path = f"{path}/{position}"
-            if position >= len(source):
-                differences.append(
-                    RoundTripDifference(
-                        path=child_path,
-                        kind="added",
-                        recovered_value=recovered[position],
-                    )
-                )
-            elif position >= len(recovered):
-                differences.append(
-                    RoundTripDifference(
-                        path=child_path,
-                        kind="removed",
-                        source_value=source[position],
-                    )
-                )
-            else:
-                differences.extend(
-                    _compare_json_values(
-                        source[position],
-                        recovered[position],
-                        child_path,
-                    )
-                )
-        return tuple(differences)
-    if type(source) is not type(recovered) or source != recovered:
-        differences.append(
-            RoundTripDifference(
-                path=path or "/",
-                kind="changed",
-                source_value=source,
-                recovered_value=recovered,
-            )
+    from .changes import diff_payloads
+
+    return tuple(
+        RoundTripDifference(
+            path=(f"{path}{operation.path}" or "/"),
+            kind={"add": "added", "remove": "removed", "replace": "changed"}[
+                operation.op
+            ],
+            source_value=operation.before,
+            recovered_value=operation.after,
         )
-    return tuple(differences)
+        for operation in diff_payloads(source, recovered)
+    )
 
 
 def _json_pointer_segment(value: str) -> str:
@@ -422,38 +341,36 @@ def aml_xml_to_nodeset(
     pretty: bool = True,
     include_roundtrip: bool = False,
     publication_date: date | datetime | str | None = None,
-    mapper: ForwardMapper = PYTHON_MAPPER,
 ) -> str:
-    """Convert CAEX XML with the Python mapper or explicit XSLT baseline."""
+    """Convert CAEX XML to an OPC UA UANodeSet with the Python mapper."""
 
     aml_bytes = _xml_bytes(aml_xml)
     _reject_unsafe_xml(aml_bytes)
     _assert_root(aml_bytes, "CAEXFile", "AutomationML")
-    publication_date_text = _publication_date_text(publication_date)
-    if mapper == PYTHON_MAPPER:
-        from .models import CAEXFile
+    # The public SDK accepts CAEX 2.15 only as an import source. Normalize it
+    # before mapping so the resulting NodeSet consistently represents the
+    # supported CAEX 3.0 model rather than reviving a legacy write path.
+    if b'SchemaVersion="2.15"' in aml_bytes or b"SchemaVersion='2.15'" in aml_bytes:
+        from .legacy import import_aml_xml
 
-        try:
-            document = CAEXFile.from_aml_xml(aml_bytes)
-        except ValueError as exc:
-            raise OPCUAConversionError(
-                f"AutomationML could not be loaded for Python OPC UA mapping: {exc}"
-            ) from exc
-        root = _map_document_to_nodeset_python(
-            document,
-            publication_date=publication_date_text,
-        )
-    elif mapper == XSLT_MAPPER:
-        root = _transform_aml_to_nodeset(
-            aml_bytes,
-            publication_date=publication_date_text,
-        )
-    else:  # pragma: no cover - Literal catches typed callers.
-        raise OPCUAConversionError(f"Unknown OPC UA forward mapper {mapper!r}.")
+        imported = import_aml_xml(aml_bytes)
+        aml_bytes = imported.document.to_aml_xml(pretty=False).encode("utf-8")
+    publication_date_text = _publication_date_text(publication_date)
+    from .models import CAEXFile
+
+    try:
+        document = CAEXFile.from_aml_xml(aml_bytes)
+    except ValueError as exc:
+        raise OPCUAConversionError(
+            f"AutomationML could not be loaded for Python OPC UA mapping: {exc}"
+        ) from exc
+    root = _map_document_to_nodeset_python(
+        document,
+        publication_date=publication_date_text,
+    )
     return _finish_forward_mapping(
         root,
         aml_bytes=aml_bytes,
-        mapper=mapper,
         pretty=pretty,
         include_roundtrip=include_roundtrip,
     )
@@ -463,14 +380,12 @@ def _finish_forward_mapping(
     root: etree._Element,
     *,
     aml_bytes: bytes,
-    mapper: ForwardMapper,
     pretty: bool,
     include_roundtrip: bool,
 ) -> str:
     _add_conversion_metadata(
         root,
         aml_bytes=aml_bytes if include_roundtrip else None,
-        mapper=mapper,
     )
     etree.cleanup_namespaces(root)
     _validate_nodeset(root)
@@ -945,7 +860,10 @@ def _semantic_nodeset_to_document(root: etree._Element) -> CAEXFile:
         ]
 
     try:
-        return CAEXFile.model_validate(payload)
+        document = CAEXFile.model_validate(payload)
+        from .legacy import upgrade_legacy_model
+
+        return upgrade_legacy_model(document)
     except ValueError as exc:
         raise OPCUAConversionError(
             f"Semantic OPC UA reverse mapping produced invalid CAEX data: {exc}"
@@ -3174,7 +3092,7 @@ def _source_document_payload(xml_fragment: str) -> dict[str, str]:
     return dict(fragment.attrib)
 
 
-def _additional_information_payload(xml_fragment: str) -> dict[str, str]:
+def _additional_information_payload(xml_fragment: str) -> dict[str, object]:
     fragment_bytes = xml_fragment.encode("utf-8")
     _reject_unsafe_xml(fragment_bytes)
     try:
@@ -3183,7 +3101,17 @@ def _additional_information_payload(xml_fragment: str) -> dict[str, str]:
         return {"value": xml_fragment}
     if etree.QName(fragment).localname != "AdditionalInformation":
         return {"value": xml_fragment}
-    return {"value": fragment.text or ""}
+    from .xml import loads_additional_information
+
+    try:
+        return loads_additional_information(xml_fragment).to_aml_dict(
+            include_change_mode=True,
+            prune_empty=False,
+        )
+    except ValueError as exc:
+        raise OPCUAConversionError(
+            f"Invalid mapped AdditionalInformation fragment: {exc}"
+        ) from exc
 
 
 def _canonical_aml_data_type(
@@ -3276,50 +3204,10 @@ def _map_document_to_nodeset_python(
     ).to_etree()
 
 
-def _transform_aml_to_nodeset(
-    aml_bytes: bytes,
-    *,
-    publication_date: str,
-) -> etree._Element:
-    """Run the patched stylesheet without modifying its generated NodeSet."""
-
-    try:
-        from saxonche import PySaxonProcessor
-    except ImportError as exc:  # pragma: no cover - exercised without the extra.
-        raise OPCUAConversionError(
-            "OPC UA conversion requires the optional 'opcua' dependencies. "
-            "Install automationml[opcua]."
-        ) from exc
-
-    try:
-        with PySaxonProcessor(license=False) as processor:
-            executable = processor.new_xslt30_processor().compile_stylesheet(
-                stylesheet_file=str(_resource_path("AML2Nodeset.xslt"))
-            )
-            executable.set_parameter(
-                "publication-date",
-                processor.make_string_value(publication_date),
-            )
-            source = processor.parse_xml(xml_text=aml_bytes.decode("utf-8-sig"))
-            transformed = executable.transform_to_string(xdm_node=source)
-    except Exception as exc:
-        raise OPCUAConversionError(f"AML-UA-XSLT conversion failed: {exc}") from exc
-
-    if not transformed:
-        raise OPCUAConversionError("AML-UA-XSLT conversion returned no UANodeSet XML.")
-
-    root = _parse_xml(transformed)
-    name = etree.QName(root)
-    if name.namespace != UA_NODESET_NS or name.localname != "UANodeSet":
-        raise OPCUAConversionError("AML-UA-XSLT did not return a UANodeSet root.")
-    return root
-
-
 def _add_conversion_metadata(
     root: etree._Element,
     *,
     aml_bytes: bytes | None,
-    mapper: ForwardMapper,
 ) -> None:
     extensions = root.find(_qname("Extensions"))
     if extensions is None:
@@ -3337,20 +3225,14 @@ def _add_conversion_metadata(
         f"{{{ROUNDTRIP_NS}}}AutomationMLExport",
         nsmap={"amlrt": ROUNDTRIP_NS},
     )
-    if mapper == XSLT_MAPPER:
-        metadata.set("mapping", "AML-UA-XSLT")
-        metadata.set("mappingRepository", UPSTREAM_REPOSITORY)
-        metadata.set("mappingCommit", UPSTREAM_COMMIT)
-        metadata.set("mappingPatch", MAPPING_PATCH_VERSION)
-    else:
-        from .opcua_python import PYTHON_MAPPING_VERSION
+    from .opcua_python import PYTHON_MAPPING_VERSION
 
-        metadata.set("mapping", "automationml-python")
-        metadata.set("mappingVersion", PYTHON_MAPPING_VERSION)
-        metadata.set(
-            "mappingProfile",
-            f"{DEFAULT_MAPPING_PROFILE.name}-v{DEFAULT_MAPPING_PROFILE.version}",
-        )
+    metadata.set("mapping", "automationml-python")
+    metadata.set("mappingVersion", PYTHON_MAPPING_VERSION)
+    metadata.set(
+        "mappingProfile",
+        f"{DEFAULT_MAPPING_PROFILE.name}-v{DEFAULT_MAPPING_PROFILE.version}",
+    )
     metadata.set("reverseMapping", REVERSE_MAPPING_VERSION)
     metadata.set("validation", "automationml-python-v1")
     metadata.set("roundTrip", "embedded" if aml_bytes is not None else "none")

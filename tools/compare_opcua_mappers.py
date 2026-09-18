@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from pathlib import Path
 
-from automationml.opcua_evaluation import (
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "evaluation"))
+
+from opcua_evaluation import (
     PASS_OUTCOMES,
     CaseOutcome,
     ComparisonEngine,

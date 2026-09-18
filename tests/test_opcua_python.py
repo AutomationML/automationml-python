@@ -95,7 +95,6 @@ def test_python_mvp_round_trips_simple_fixtures_without_embedded_aml(fixture_nam
 
     nodeset = aml_xml_to_nodeset(
         source,
-        mapper="python",
         include_roundtrip=False,
         publication_date="2026-08-17",
     )
@@ -212,7 +211,6 @@ def test_python_mvp_uses_plain_typed_default_value_and_unit_properties():
     root = etree.fromstring(
         aml_xml_to_nodeset(
             source,
-            mapper="python",
             include_roundtrip=False,
             publication_date="2026-08-17",
         ).encode()
@@ -365,7 +363,6 @@ def test_python_mvp_uses_native_role_edge_with_contextual_reverse_rule():
     )
 
     nodeset = document.to_opcua_nodeset_xml(
-        mapper="python",
         include_roundtrip=False,
         publication_date="2026-08-17",
     )

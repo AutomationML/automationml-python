@@ -73,8 +73,38 @@ class _ClassMemberExpectation:
     ref_base_class_path: str | None = None
 
 
+def canonical_id(value: str) -> str:
+    """Return the comparison key for a CAEX ``ID``.
+
+    AML tooling (notably the AutomationML Editor) writes GUID IDs wrapped in
+    braces (``{0f3c...}``) while other producers and CAEX 3.0 references often
+    omit them. Both spellings identify the same object. The SDK keeps every ID
+    exactly as authored, so documents round-trip unchanged, and uses this key
+    only when *comparing* or *looking up* IDs.
+    """
+
+    stripped = value.strip()
+    if len(stripped) >= 2 and stripped[0] == "{" and stripped[-1] == "}":
+        return stripped[1:-1].strip()
+    return stripped
+
+
+def canonical_partner_reference(value: str) -> str:
+    """Canonicalize an InternalLink partner (``ID`` or ``ID:InterfaceName``)."""
+
+    owner, separator, interface = value.partition(":")
+    if separator:
+        return f"{canonical_id(owner)}:{interface}"
+    return canonical_id(owner)
+
+
 class ReferenceIndex:
-    """Index of AML paths and IDs that can be referenced inside a CAEX file."""
+    """Index of AML paths and IDs that can be referenced inside a CAEX file.
+
+    ``ids`` is keyed by the IDs exactly as written. Lookups through
+    :meth:`resolve_id` / :meth:`targets_for_id` ignore optional GUID braces,
+    see :func:`canonical_id`.
+    """
 
     def __init__(self) -> None:
         self.system_unit_class_paths: dict[str, list[ReferenceTarget]] = {}
@@ -82,6 +112,7 @@ class ReferenceIndex:
         self.interface_class_paths: dict[str, list[ReferenceTarget]] = {}
         self.attribute_type_paths: dict[str, list[ReferenceTarget]] = {}
         self.ids: dict[str, list[ReferenceTarget]] = {}
+        self._ids_by_canonical: dict[str, list[ReferenceTarget]] = {}
 
     @classmethod
     def from_document(cls, document: CAEXFile) -> ReferenceIndex:
@@ -103,8 +134,13 @@ class ReferenceIndex:
     def resolve_attribute_type(self, path: str) -> ReferenceTarget | None:
         return _single_target(self.attribute_type_paths.get(path))
 
+    def targets_for_id(self, id_value: str) -> list[ReferenceTarget]:
+        """Return every object whose ID matches, ignoring optional braces."""
+
+        return list(self._ids_by_canonical.get(canonical_id(id_value), ()))
+
     def resolve_id(self, id_value: str) -> ReferenceTarget | None:
-        return _single_target(self.ids.get(id_value))
+        return _single_target(self._ids_by_canonical.get(canonical_id(id_value)))
 
     def duplicate_issues(self) -> list[CAEXIssue]:
         """Return issues for duplicate IDs and duplicate class paths."""
@@ -138,10 +174,11 @@ class ReferenceIndex:
                 target_kind="AttributeType",
             )
         )
-        for id_value, targets in self.ids.items():
+        for targets in self._ids_by_canonical.values():
             if len(targets) <= 1:
                 continue
             for target in targets:
+                id_value = target.id or ""
                 issues.append(
                     CAEXIssue(
                         severity="error",
@@ -458,6 +495,7 @@ class ReferenceIndex:
             obj=obj,
         )
         self.ids.setdefault(id_value, []).append(target)
+        self._ids_by_canonical.setdefault(canonical_id(id_value), []).append(target)
 
     def _duplicate_path_issues(
         self,
@@ -1094,7 +1132,7 @@ def _validate_internal_link(
         ("RefPartnerSideA", item.ref_partner_side_a),
         ("RefPartnerSideB", item.ref_partner_side_b),
     ):
-        if value in partner_references:
+        if canonical_partner_reference(value) in partner_references:
             continue
         issues.append(
             CAEXIssue(
@@ -1116,14 +1154,14 @@ def _validate_internal_link(
 
 def _external_interface_partner_references(owner: SystemUnitClass) -> set[str]:
     references = {
-        interface.id
+        canonical_id(interface.id)
         for interface in owner.external_interfaces
         if interface.id is not None
     }
     for element in owner.internal_elements:
         if element.id is not None:
             references.update(
-                f"{element.id}:{interface.name}"
+                f"{canonical_id(element.id)}:{interface.name}"
                 for interface in element.external_interfaces
             )
         references.update(_external_interface_partner_references(element))

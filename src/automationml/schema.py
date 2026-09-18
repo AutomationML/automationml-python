@@ -34,9 +34,10 @@ def write_schema(path: str | Path) -> None:
 
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    target.write_text(
-        json.dumps(caex_json_schema(), indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
+    target.write_bytes(
+        (json.dumps(caex_json_schema(), indent=2, ensure_ascii=False) + "\n").encode(
+            "utf-8"
+        )
     )
 
 

@@ -427,7 +427,6 @@ class UANodeSet(_NodeSetModel):
         *,
         pretty: bool = True,
         publication_date: date | datetime | str | None = None,
-        mapper: Literal["python", "xslt"] = "python",
     ) -> UANodeSetRoundTripResult:
         """Run and inspect an OPC UA -> AML -> OPC UA semantic round trip."""
 
@@ -437,7 +436,6 @@ class UANodeSet(_NodeSetModel):
             self,
             pretty=pretty,
             publication_date=publication_date,
-            mapper=mapper,
         )
 
     def to_etree(self) -> etree._Element:

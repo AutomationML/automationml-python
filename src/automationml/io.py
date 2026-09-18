@@ -7,7 +7,6 @@ from pathlib import Path
 
 from .models import CAEXFile
 from .xml import dump as dump_xml
-from .xml import load as load_xml
 
 
 def load_json(path: str | Path) -> CAEXFile:
@@ -15,6 +14,13 @@ def load_json(path: str | Path) -> CAEXFile:
 
     with open(path, encoding="utf-8") as handle:
         return CAEXFile.model_validate(json.load(handle))
+
+
+def load_xml(path: str | Path) -> CAEXFile:
+    """Load CAEX XML, automatically upgrading CAEX 2.15 input."""
+
+    with open(path, "rb") as handle:
+        return CAEXFile.from_aml_xml(handle.read())
 
 
 def dump_json(

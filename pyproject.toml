@@ -29,7 +29,8 @@ classifiers = [
   "Topic :: Software Development :: Libraries"
 ]
 dependencies = [
-  "pydantic>=2.7,<3"
+  "pydantic>=2.7,<3",
+  "xmlschema>=3.4,<5"
 ]
 
 [project.optional-dependencies]
@@ -39,9 +40,8 @@ xml = [
 opcua = [
   "lxml>=5.2,<7"
 ]
-opcua-xslt = [
-  "lxml>=5.2,<7",
-  "saxonche>=12.5,<13"
+rdf = [
+  "rdflib>=7.0,<8"
 ]
 opcua-evaluation = [
   "asyncua>=2.0.1,<3",
@@ -63,6 +63,7 @@ dev = [
   "lxml>=5.2,<7",
   "psutil>=7,<8",
   "pytest>=8.2",
+  "rdflib>=7.0,<8",
   "saxonche>=12.5,<13",
   "xmlschema>=3.4"
 ]

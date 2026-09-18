@@ -140,7 +140,7 @@
           "default": "state",
           "description": "Optional CAEX change state."
         },
-        "aml_version": {
+        "AutomationMLVersion": {
           "anyOf": [
             {
               "type": "string"
@@ -151,10 +151,21 @@
           ],
           "default": null
         },
-        "document_versions": {
+        "DocumentVersions": {
           "anyOf": [
             {
               "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "$xml": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/XmlExtensionPayload"
             },
             {
               "type": "null"
@@ -2603,6 +2614,72 @@
             }
           ],
           "default": null
+        }
+      },
+      "type": "object"
+    },
+    "XmlExtensionNode": {
+      "additionalProperties": false,
+      "description": "Namespace-aware XML element stored inside ``AdditionalInformation``.\n\nNames use ElementTree's expanded-name form (``{namespace}local``). ``text``\nis the content before the first child and every child's ``tail`` is the\ncontent immediately following that child, which preserves mixed-content\nordering without preserving insignificant lexical formatting.",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Attributes": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "Text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "Tail": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "Children": {
+          "items": {
+            "$ref": "#/$defs/XmlExtensionNode"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "Name"
+      ],
+      "type": "object"
+    },
+    "XmlExtensionPayload": {
+      "additionalProperties": false,
+      "description": "Non-trivial XML content carried by ``AdditionalInformation``.",
+      "properties": {
+        "Attributes": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "Children": {
+          "items": {
+            "$ref": "#/$defs/XmlExtensionNode"
+          },
+          "type": "array"
         }
       },
       "type": "object"

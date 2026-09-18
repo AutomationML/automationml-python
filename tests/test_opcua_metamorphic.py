@@ -9,7 +9,7 @@ from lxml import etree
 
 from automationml import CAEXFile
 from automationml.opcua import aml_xml_to_nodeset, nodeset_to_document
-from automationml.opcua_evaluation import (
+from opcua_evaluation import (
     SourceMutationName,
     UA_NODESET_NS,
     _apply_source_mutations,
@@ -291,7 +291,6 @@ def test_metamorphic_8_ua_origin_idempotence(
     first_aml = nodeset_to_document(source, prefer_embedded_source=False)
     regenerated = aml_xml_to_nodeset(
         first_aml.to_aml_xml(),
-        mapper="python",
         include_roundtrip=False,
         publication_date="2026-08-17",
     )

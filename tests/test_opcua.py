@@ -10,10 +10,17 @@ from automationml.opcua import (
     OPCUAConversionError,
     ROUNDTRIP_NS,
     UA_NODESET_NS,
-    _transform_aml_to_nodeset,
     _validate_nodeset,
     aml_xml_to_nodeset,
     nodeset_to_aml_xml,
+)
+
+# The patched working-group stylesheet is comparison material rather than SDK
+# API, so it is produced by the evaluation harness. These tests use it as an
+# independent NodeSet producer to exercise the SDK's semantic reverse mapping.
+from opcua_evaluation import (
+    patched_xslt_nodeset_element,
+    patched_xslt_nodeset_xml,
 )
 
 
@@ -39,7 +46,20 @@ def _raw_nodeset(document: CAEXFile, publication_date: str = "2026-08-16"):
         pretty=False,
         include_default_change_mode=True,
     )
-    return _transform_aml_to_nodeset(
+    return patched_xslt_nodeset_element(
+        aml_xml.encode(),
+        publication_date=publication_date,
+    )
+
+
+def _xslt_nodeset(document: CAEXFile, publication_date: str = "2026-08-16") -> str:
+    """The annotated patched-XSLT NodeSet the SDK used to expose as mapper='xslt'."""
+
+    aml_xml = document.to_aml_xml(
+        pretty=False,
+        include_default_change_mode=True,
+    )
+    return patched_xslt_nodeset_xml(
         aml_xml.encode(),
         publication_date=publication_date,
     )
@@ -72,15 +92,10 @@ def test_forward_stylesheet_is_deterministic_for_a_fixed_publication_date():
     assert first == second
 
 
-def test_sdk_wrapper_adds_metadata_without_rewriting_xslt_mapping():
+def test_xslt_wrapper_adds_metadata_without_rewriting_xslt_mapping():
     raw = _raw_nodeset(_document())
     wrapped = etree.fromstring(
-        _document()
-        .to_opcua_nodeset_xml(
-            publication_date="2026-08-16",
-            mapper="xslt",
-        )
-        .encode(),
+        _xslt_nodeset(_document()).encode(),
         parser=etree.XMLParser(remove_blank_text=True),
     )
     metadata = wrapped.xpath(
@@ -156,11 +171,7 @@ def test_semantic_enrichment_uses_part19_and_canonicalizes_ref_semantics():
         }
     )
 
-    nodeset = document.to_opcua_nodeset_xml(
-        include_roundtrip=False,
-        publication_date="2026-08-16",
-        mapper="xslt",
-    )
+    nodeset = _xslt_nodeset(document, "2026-08-16")
     root = etree.fromstring(nodeset.encode())
     attribute = root.xpath(
         "./ua:UAVariable[ua:DisplayName='temperature']",
@@ -236,11 +247,7 @@ def test_semantic_reverse_accepts_native_only_part19_dictionary_reference():
         }
     )
     root = etree.fromstring(
-        document.to_opcua_nodeset_xml(
-            include_roundtrip=False,
-            publication_date="2026-08-16",
-            mapper="xslt",
-        ).encode()
+        _xslt_nodeset(document, "2026-08-16").encode()
     )
     attribute = root.xpath(
         "./ua:UAVariable[ua:DisplayName='temperature']",
@@ -336,11 +343,7 @@ def test_semantic_reverse_round_trips_internal_links_role_mappings_and_external_
         }
     )
 
-    nodeset = document.to_opcua_nodeset_xml(
-        include_roundtrip=False,
-        publication_date="2026-08-16",
-        mapper="xslt",
-    )
+    nodeset = _xslt_nodeset(document, "2026-08-16")
     root = etree.fromstring(nodeset.encode())
 
     assert root.xpath(
@@ -365,11 +368,8 @@ def test_semantic_reverse_round_trips_internal_links_role_mappings_and_external_
 def test_semantic_reverse_round_trips_official_internal_link_fixture():
     aml = (REVERSE_FIXTURES / "9_ExtInt_IntLink.aml").read_bytes()
     expected = CAEXFile.from_aml_xml(aml).to_aml_dict()
-    nodeset = aml_xml_to_nodeset(
-        aml,
-        include_roundtrip=False,
-        publication_date="2026-08-16",
-        mapper="xslt",
+    nodeset = patched_xslt_nodeset_xml(
+        aml, publication_date="2026-08-16"
     )
 
     recovered = CAEXFile.from_opcua_nodeset_xml(nodeset).to_aml_dict()
@@ -397,11 +397,7 @@ def test_semantic_reverse_preserves_lexical_ids_and_change_modes():
     payload["RoleClassLib"][0]["ChangeMode"] = "change"
     document = CAEXFile.model_validate(payload)
 
-    nodeset = document.to_opcua_nodeset_xml(
-        include_roundtrip=False,
-        publication_date="2026-08-16",
-        mapper="xslt",
-    )
+    nodeset = _xslt_nodeset(document, "2026-08-16")
 
     assert CAEXFile.from_opcua_nodeset_xml(nodeset).to_aml_dict() == (
         document.to_aml_dict()
@@ -423,11 +419,8 @@ def test_semantic_reverse_preserves_lexical_ids_and_change_modes():
 def test_semantic_reverse_matches_easier_upstream_fixtures(fixture_name: str):
     aml = (REVERSE_FIXTURES / fixture_name).read_bytes()
     expected = CAEXFile.from_aml_xml(aml)
-    nodeset = aml_xml_to_nodeset(
-        aml,
-        include_roundtrip=False,
-        publication_date="2026-08-16",
-        mapper="xslt",
+    nodeset = patched_xslt_nodeset_xml(
+        aml, publication_date="2026-08-16"
     )
 
     recovered = CAEXFile.from_opcua_nodeset_xml(nodeset)
@@ -451,7 +444,7 @@ def test_semantic_reverse_serializes_reconstructed_aml_xml():
 
 def test_forward_stylesheet_preserves_reversible_attribute_metadata():
     aml = (REVERSE_FIXTURES / "3_IE_Attribute.aml").read_bytes()
-    root = _transform_aml_to_nodeset(aml, publication_date="2026-08-16")
+    root = patched_xslt_nodeset_element(aml, publication_date="2026-08-16")
     _validate_nodeset(root)
 
     attribute = root.xpath(
@@ -558,11 +551,7 @@ def test_semantic_reverse_preserves_exact_datatype_and_default_value_semantics()
             ],
         }
     )
-    nodeset = document.to_opcua_nodeset_xml(
-        include_roundtrip=False,
-        publication_date="2026-08-16",
-        mapper="xslt",
-    )
+    nodeset = _xslt_nodeset(document, "2026-08-16")
     root = etree.fromstring(nodeset.encode())
     identifier = root.xpath(
         "./ua:UAVariable[ua:DisplayName='identifier']",
@@ -723,7 +712,7 @@ def test_aliased_class_path_is_resolved_by_stylesheet():
     </CAEXFile>
     """
 
-    root = _transform_aml_to_nodeset(aml, publication_date="2026-08-16")
+    root = patched_xslt_nodeset_element(aml, publication_date="2026-08-16")
     _validate_nodeset(root)
     targets = root.xpath(
         ".//ua:UAObject[ua:DisplayName='Port']/ua:References/"

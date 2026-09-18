@@ -10,15 +10,22 @@ from __future__ import annotations
 import json
 from datetime import date, datetime
 from enum import Enum
-from typing import TYPE_CHECKING, Any, Literal, Self
+from typing import TYPE_CHECKING, Any, Callable, Self
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from .exceptions import CAEXValidationError
 
 if TYPE_CHECKING:
+    from rdflib import Graph
+
     from .opcua import OPCUARoundTripResult
     from .opcua_nodeset import UANodeSet
+    from .changes import DocumentEdit
+    from .legacy import AMLImportResult
+    from .query import CAEXQuery
+    from .rdf import RDFRoundTripResult
+    from .rdf_mapping import RDFMappingProfile
     from .validation import CAEXIssue, ReferenceIndex
 
 
@@ -130,6 +137,29 @@ class TextElement(AmlModel):
     )
 
 
+class XmlExtensionNode(AmlModel):
+    """Namespace-aware XML element stored inside ``AdditionalInformation``.
+
+    Names use ElementTree's expanded-name form (``{namespace}local``). ``text``
+    is the content before the first child and every child's ``tail`` is the
+    content immediately following that child, which preserves mixed-content
+    ordering without preserving insignificant lexical formatting.
+    """
+
+    name: str = Field(alias="Name")
+    attributes: dict[str, str] = Field(default_factory=dict, alias="Attributes")
+    text: str | None = Field(default=None, alias="Text")
+    tail: str | None = Field(default=None, alias="Tail")
+    children: list[XmlExtensionNode] = Field(default_factory=list, alias="Children")
+
+
+class XmlExtensionPayload(AmlModel):
+    """Non-trivial XML content carried by ``AdditionalInformation``."""
+
+    attributes: dict[str, str] = Field(default_factory=dict, alias="Attributes")
+    children: list[XmlExtensionNode] = Field(default_factory=list, alias="Children")
+
+
 class AdditionalInformation(TextElement):
     """Auxiliary object information.
 
@@ -144,8 +174,9 @@ class AdditionalInformation(TextElement):
         use_enum_values=True,
     )
 
-    aml_version: str | None = Field(default=None, alias="aml_version")
-    document_versions: str | None = Field(default=None, alias="document_versions")
+    aml_version: str | None = Field(default=None, alias="AutomationMLVersion")
+    document_versions: str | None = Field(default=None, alias="DocumentVersions")
+    xml: XmlExtensionPayload | None = Field(default=None, alias="$xml")
 
 
 class SourceObjectInformation(TextElement):
@@ -547,6 +578,40 @@ class CAEXFile(CAEXBasicObject):
 
         return ReferenceIndex.from_document(self)
 
+    def query(self, *, externals: dict[str, CAEXFile] | None = None) -> CAEXQuery:
+        """Build a fresh immutable query snapshot for this document."""
+
+        from .query import CAEXQuery
+
+        return CAEXQuery.from_document(self, externals=externals)
+
+    def instantiate_system_unit_class(
+        self,
+        path: str,
+        *,
+        name: str,
+        id: str | None = None,
+        id_factory: Callable[[], str] | None = None,
+    ) -> InternalElement:
+        """Materialize a SystemUnitClass and its inheritance as an instance."""
+
+        from .instantiation import instantiate_system_unit_class
+
+        return instantiate_system_unit_class(
+            self,
+            path,
+            name=name,
+            id=id,
+            id_factory=id_factory,
+        )
+
+    def edit(self) -> DocumentEdit:
+        """Create a non-mutating transactional edit context."""
+
+        from .changes import DocumentEdit
+
+        return DocumentEdit(self)
+
     def caex_validation_issues(
         self,
         *,
@@ -586,7 +651,6 @@ class CAEXFile(CAEXBasicObject):
         pretty: bool = True,
         include_roundtrip: bool = False,
         publication_date: date | datetime | str | None = None,
-        mapper: Literal["python", "xslt"] = "python",
     ) -> str:
         """Convert the document to an OPC UA UANodeSet XML document."""
 
@@ -597,7 +661,6 @@ class CAEXFile(CAEXBasicObject):
             pretty=pretty,
             include_roundtrip=include_roundtrip,
             publication_date=publication_date,
-            mapper=mapper,
         )
 
     def to_opcua_nodeset(
@@ -619,7 +682,6 @@ class CAEXFile(CAEXBasicObject):
         *,
         pretty: bool = True,
         publication_date: date | datetime | str | None = None,
-        mapper: Literal["python", "xslt"] = "python",
     ) -> OPCUARoundTripResult:
         """Run and inspect a semantic AML -> OPC UA -> AML round trip.
 
@@ -633,16 +695,23 @@ class CAEXFile(CAEXBasicObject):
             self,
             pretty=pretty,
             publication_date=publication_date,
-            mapper=mapper,
         )
 
     @classmethod
     def from_aml_xml(cls, data: str | bytes) -> CAEXFile:
-        """Parse CAEX XML into a JSON-first model."""
+        """Parse CAEX XML, automatically upgrading CAEX 2.15 to CAEX 3.0."""
 
-        from .xml import loads
+        from .legacy import import_aml_xml
 
-        return loads(data)
+        return import_aml_xml(data, warn_legacy=True).document
+
+    @classmethod
+    def import_aml_xml(cls, data: str | bytes) -> AMLImportResult:
+        """Parse AML XML and return import or legacy-migration diagnostics."""
+
+        from .legacy import import_aml_xml
+
+        return import_aml_xml(data)
 
     @classmethod
     def from_opcua_nodeset_xml(
@@ -671,8 +740,78 @@ class CAEXFile(CAEXBasicObject):
             prefer_embedded_source=False,
         )
 
+    def to_rdf_graph(
+        self,
+        *,
+        profile: RDFMappingProfile | None = None,
+    ) -> Graph:
+        """Build the validated Python RDF graph without serializing Turtle."""
+
+        from .rdf import DEFAULT_MAPPING_PROFILE, document_to_rdf_graph
+
+        return document_to_rdf_graph(self, profile=profile or DEFAULT_MAPPING_PROFILE)
+
+    def to_ttl(
+        self,
+        *,
+        profile: RDFMappingProfile | None = None,
+    ) -> str:
+        """Convert the document to Turtle (RDF) text.
+
+        This is the Python replacement for the legacy ``AML2TTL.xslt``
+        export; see ``docs/rdf-mapping-audit.md`` for why. The default
+        profile reproduces the legacy stylesheet's target namespace.
+        """
+
+        from .rdf import DEFAULT_MAPPING_PROFILE, document_to_ttl
+
+        return document_to_ttl(self, profile=profile or DEFAULT_MAPPING_PROFILE)
+
+    def round_trip_ttl(
+        self,
+        *,
+        profile: RDFMappingProfile | None = None,
+    ) -> RDFRoundTripResult:
+        """Run and inspect a semantic AML -> Turtle -> AML round trip.
+
+        Call ``result.assert_equivalent()`` when semantic preservation is
+        required; ``result.differences`` gives JSON-Pointer-addressed detail
+        when it is not.
+        """
+
+        from .rdf import DEFAULT_MAPPING_PROFILE, round_trip_ttl
+
+        return round_trip_ttl(self, profile=profile or DEFAULT_MAPPING_PROFILE)
+
+    @classmethod
+    def from_ttl(
+        cls,
+        data: str | bytes,
+        *,
+        profile: RDFMappingProfile | None = None,
+    ) -> CAEXFile:
+        """Parse Turtle text produced by this profile back into a CAEX document."""
+
+        from .rdf import DEFAULT_MAPPING_PROFILE, ttl_to_document
+
+        return ttl_to_document(data, profile=profile or DEFAULT_MAPPING_PROFILE)
+
+    @classmethod
+    def from_rdf_graph(
+        cls,
+        graph: Graph,
+        *,
+        profile: RDFMappingProfile | None = None,
+    ) -> CAEXFile:
+        """Reconstruct a CAEX document from an already-parsed RDF graph."""
+
+        from .rdf import DEFAULT_MAPPING_PROFILE, rdf_graph_to_document
+
+        return rdf_graph_to_document(graph, profile=profile or DEFAULT_MAPPING_PROFILE)
+
 
 for model in (
+    XmlExtensionNode,
     Attribute,
     AttributeType,
     InterfaceClass,

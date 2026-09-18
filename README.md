@@ -46,9 +46,6 @@ Install the optional OPC UA conversion runtime when UANodeSet export is needed:
 python -m pip install "automationml[opcua]"
 ```
 
-Install `automationml[opcua-xslt]` only when the retained Saxon/XSLT comparison
-engine is required.
-
 ```python
 from automationml import CAEXFile
 
@@ -56,9 +53,6 @@ document = CAEXFile.from_aml_xml(aml_xml)
 nodeset = document.to_opcua_nodeset()
 nodeset_xml = document.to_opcua_nodeset_xml()
 archival_nodeset = document.to_opcua_nodeset_xml(include_roundtrip=True)
-
-# The patched working-group XSLT is retained as a comparison engine.
-xslt_baseline = document.to_opcua_nodeset_xml(mapper="xslt")
 
 # Source-preserving only for exports that explicitly embed an AML payload.
 archival_recovery = CAEXFile.from_opcua_nodeset_xml(archival_nodeset)
@@ -89,8 +83,11 @@ metadata, instance trees, attributes and datatypes, all four class-library
 kinds, inheritance/type relations, contextual roles and MappingObjects,
 interfaces, directed InternalLinks, constraints, mirrors, facets, and real OPC
 UA Part 19 dictionary-entry Objects. Unsupported or ambiguous features fail
-explicitly. The pinned, patched AutomationML/OPC Foundation XSLT remains
-available through `mapper="xslt"`; it requires the `opcua-xslt` extra. The
+explicitly. The pinned, patched AutomationML/OPC Foundation XSLT is retained as
+a development comparison engine in `evaluation/`, not as SDK API: it scores
+1/121 against the Python mapper's 121/121, so it is evidence rather than a
+conversion path anyone should ship. The SDK reads NodeSets produced by that
+stylesheet like any other supported graph. The
 Python semantic reverse maps supported OPC UA graphs to canonical AML without
 requiring an embedded source payload. This is a versioned AutomationML mapping
 profile, not a claim to convert arbitrary third-party NodeSets.
@@ -223,6 +220,33 @@ The JSON output stays compact and canonical:
   ]
 }
 ```
+
+## Core authoring platform
+
+Beyond the basic model and serializers, the SDK now provides extension-safe
+`AdditionalInformation` XML, immutable ID/path and reverse-reference queries,
+SystemUnitClass instantiation, automatic CAEX 2.15 import, reversible change
+sets and copy-on-write edit transactions, atomic policy-driven merging, and a
+filesystem-confined external-reference resolver.
+
+```python
+from automationml import CAEXFile, FileSystemResolver, diff_documents
+
+imported = CAEXFile.import_aml_xml(source_xml)
+document = imported.document
+motor = document.query().find_by_path("Equipment/Motor")
+instance = document.instantiate_system_unit_class("Equipment/Motor", name="M1")
+
+edit = document.edit()
+with edit as working:
+    working.instance_hierarchies[0].internal_elements.append(instance)
+updated = edit.result.document
+assert edit.result.inverse.apply(updated).to_aml_dict() == document.to_aml_dict()
+```
+
+See the [core-platform API guide](docs/core-platform.md) for lookup semantics,
+migration diagnostics, conflict policies, transaction guarantees, and external
+reference security rules.
 
 ## Generate the JSON Schema
 

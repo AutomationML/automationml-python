@@ -12,11 +12,11 @@
     "License.txt": "5e7dcaed9c919e408039d268a1835dc6758545bd9f96269112917864712f69c0"
   },
   "environment": {
-    "generated_at": "2026-08-17T12:28:21.406696Z",
-    "platform": "Windows-10-10.0.26200-SP0",
-    "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
-    "pydantic": "2.13.4",
-    "lxml": "6.1.1",
+    "generated_at": "2026-09-18T21:38:58.691790Z",
+    "platform": "Linux-6.18.44-fc-v33-x86_64-with-glibc2.39",
+    "python": "3.11.15 (main, Mar  3 2026, 09:26:23) [GCC 13.3.0]",
+    "pydantic": "2.13.5",
+    "lxml": "6.1.3",
     "saxonche": "12.10.0"
   },
   "results": [
@@ -27,7 +27,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 10.703399999329122,
+      "duration_ms": 145.01447799989364,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -57,7 +57,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "18c71e9fea9b0e4d5f896f23b2fef5ad83acbac416d12605db40ab7d6809a727",
+      "output_sha256": "22162d3967c3bacfb40d34b7e515cfda8d982298eb0dff1676bea1d6109cc025",
       "artifact": null
     },
     {
@@ -67,7 +67,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 64.0242000008584,
+      "duration_ms": 73.15626800004793,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -87,7 +87,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "1a003c3bff477b70a5b42195ec2ec077a58129590c767a3b50914c9e013b0d1c",
+      "output_sha256": "7e6153594f2eac3c7a7b8ab69b01d337a69189b68227bc7e5c5386b51ebaa85a",
       "artifact": null
     },
     {
@@ -97,7 +97,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.2274999994115205,
+      "duration_ms": 3.5017780000998755,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -117,7 +117,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "af8d7ec1ba182dd3d8ce0fb14ca8aba7c0476909b00ac611cf40b17ed14f5c23",
+      "output_sha256": "1bfed3b10f6319a128bd5821749270781a90129a6cdbf2d11b29568f47a9df37",
       "artifact": null
     },
     {
@@ -127,7 +127,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 62.03520000053686,
+      "duration_ms": 91.81137799998851,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -157,7 +157,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "49b1cef8cfd5296c2e7c36f8db795a9a010d163a41c0e47c3e42240e5e988eb9",
+      "output_sha256": "26cfd6712a39d5a3dd60663eb1fef84bea6a08c872ac9b0d84e00f52e24c39ca",
       "artifact": null
     },
     {
@@ -167,7 +167,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 3.0340000012074597,
+      "duration_ms": 3.7436029999753373,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -197,7 +197,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "06bcdf6baae1b96f1707a04b3ab63ea593c2fb6835a23358ee9f7a5aa23edaac",
+      "output_sha256": "04a57b035ce948e93632bb15356fa51f4c3b9b254c2b03f93661d715f11ccc0f",
       "artifact": null
     },
     {
@@ -207,7 +207,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 1.8363000017416198,
+      "duration_ms": 2.481173999967723,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -227,7 +227,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "a98578622aed3adb7c5e903f0a49a68e13ba39464834f55cad763a8a3a4c7af8",
+      "output_sha256": "99200b3c46fd1260ed1e3efdc27114b3f5d3800e8b26f3a6c6a6c7ba4c9a2a80",
       "artifact": null
     },
     {
@@ -237,7 +237,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 1.4959000000089873,
+      "duration_ms": 3.2637670000212893,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -257,7 +257,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "4b8c287b1d60f6b9a7eff2566eaf5692c48f7222c7f7e581a3a70e2b9dc8d25d",
+      "output_sha256": "f6cff2a8103011098ef8115148fd39b65afed20ac3f2301503b98230954f5a96",
       "artifact": null
     },
     {
@@ -267,7 +267,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 38.09469999941939,
+      "duration_ms": 4.6063820000199485,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -307,7 +307,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "CANONICAL_PASS",
-      "duration_ms": 20.134200000029523,
+      "duration_ms": 21.13014799999746,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -337,7 +337,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "89fe5c2b892cacc10350fe5aea2e43145f69bd5f566b82c5675a89ecbf92dcc3",
+      "output_sha256": "9309f3c4f518a8e532c872e576d2c27108c0d822a1f9fe3781044e8b272ec965",
       "artifact": null
     },
     {
@@ -347,7 +347,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 13.673199999175267,
+      "duration_ms": 11.922830999992584,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -367,7 +367,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "64db42e0b8d41167e09d032c16de949bcec87a023823052eab6c756f1ec0270e",
+      "output_sha256": "5ce216f87320c170528994b54436a3ff476639a9f8ec013fdf2e20d4538baa01",
       "artifact": null
     },
     {
@@ -377,7 +377,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 7.818700001735124,
+      "duration_ms": 13.25975199995355,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -397,7 +397,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "603e406e3dcd630dcb06a8859c32098911b3ac8bc25411b70ea0b595666a4455",
+      "output_sha256": "731d0f09bbc0f06d4bfcc9b861cd0817d05c904a6789c57f4441f127e8271d0e",
       "artifact": null
     },
     {
@@ -407,7 +407,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 73.30430000001797,
+      "duration_ms": 29.993266000019503,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -442,7 +442,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 3.4539999996923143,
+      "duration_ms": 6.82824199998322,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -472,7 +472,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "531f666234c70c95b8207a65f48216b4bc09db0120a2adf3845479756300dc19",
+      "output_sha256": "3ba3ec62e7f3c08ec93f0a3c72abfc9934b40172bc06e728a801362f2e43daad",
       "artifact": null
     },
     {
@@ -482,7 +482,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.3047999984555645,
+      "duration_ms": 3.0342479999490024,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -502,7 +502,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "6acbab04755cd78febd1f49452b588264d1273f488ac46b1ee1c126478f0e9da",
+      "output_sha256": "caf74a23774c7a11fb93cc1a7abdfda754c9e9fef670feb79a27dd5a41320444",
       "artifact": null
     },
     {
@@ -512,7 +512,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.2613000001001637,
+      "duration_ms": 3.0098439999619586,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -532,7 +532,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "9799d61b5e0420ead80468101b7e1033f20a1dc8f0965a0b6a8dcf8160a25eff",
+      "output_sha256": "3840d7a4f55333c8113294543152ede30e606521a7e2828b24331f4fcfbfcafc",
       "artifact": null
     },
     {
@@ -542,7 +542,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 40.86250000000291,
+      "duration_ms": 9.295279999946615,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -572,7 +572,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "bc6ee7765dac667f94b86e48d53f5c81050d2e5797d2b2ff53a4e72dd3064210",
+      "output_sha256": "ef9873f4a59b1c657b754a5bf7f0ae5d912c866c17c72634f7d34fe2e1969cfb",
       "artifact": null
     },
     {
@@ -582,7 +582,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 4.903500001091743,
+      "duration_ms": 7.5837519999595315,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -612,7 +612,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "f9b59d859bfaac750393fbbea8a62ba8502835a8b7f241d09759d4c061c87f88",
+      "output_sha256": "e93908bae799cc4a040acd4412b94d31102b3222312b43f28767ca67faf0e6bd",
       "artifact": null
     },
     {
@@ -622,7 +622,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.541600000971812,
+      "duration_ms": 3.40734999997494,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -642,7 +642,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "6e1c35862838b779e5f236888c87a4e7ce29cb16e7ff24eb61ba00a94f7c41b1",
+      "output_sha256": "20ab2b0e8d5f508f18160e98fcf05b934a196b95821d91be20bd6ba29756011a",
       "artifact": null
     },
     {
@@ -652,7 +652,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.79930000033346,
+      "duration_ms": 3.3677159999569994,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -672,7 +672,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "e8cce86f99c7391b541ff947dc1e170334971f0ac62d64fc3434e6b530729725",
+      "output_sha256": "5d4d61add712bf01bd8f01b341e5fc973382d50068127a409362bead2c9641d9",
       "artifact": null
     },
     {
@@ -682,7 +682,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 46.21690000021772,
+      "duration_ms": 6.672744000070452,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -707,7 +707,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue, AMLUnit",
-      "output_sha256": "d1b09a3da063b41b4192798efe561a0da52a71206a7cdfbd138ba8ecca7f4cb9",
+      "output_sha256": "3705bb0b400ccc7d54e5f30c28272233dc6b1d2dcc13442b81d0af8d48049d1e",
       "artifact": null
     },
     {
@@ -717,7 +717,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 2.2914000001037493,
+      "duration_ms": 4.176593999886791,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -747,7 +747,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "f956a6394db8fc874d7b54f2024d7065446103b64a7182164f40f2945594feac",
+      "output_sha256": "bd2c3385ecd1989e15f91bbd455b54c9b576932c7076a06946583b99a37853ff",
       "artifact": null
     },
     {
@@ -757,7 +757,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.1558999997068895,
+      "duration_ms": 2.0098389999247956,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -777,7 +777,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "e1adfd466c7c12bfecfcd6ba166d1c3592e7e7db7f42e7777e11b7eebf3ffb07",
+      "output_sha256": "b5811380b9d98b359f236381f8aea7c9d271fbd136f6bf7b01a7eecea3fb7086",
       "artifact": null
     },
     {
@@ -787,7 +787,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 1.9747000005736481,
+      "duration_ms": 2.1650969999882363,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -807,7 +807,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "a91cfae68cf7f2b22810da99385945e277f0a9b8b60dda11ca1fb28e2ccf85c7",
+      "output_sha256": "7e02cf37e0178a1d0da89300109a188c65d89e37fa8315bbcec70e10db5b88cc",
       "artifact": null
     },
     {
@@ -817,7 +817,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 43.6331999990216,
+      "duration_ms": 5.983997999919666,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -847,7 +847,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "683f06e69f3cc7cc39e2b4eff78b8b082576e48ff5f2213931e4ea21914b6924",
+      "output_sha256": "1c2f79a52ee0246d2862a20ab7f8c227e3cbc8d22cb421843f5f5cd6746d6776",
       "artifact": null
     },
     {
@@ -857,7 +857,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 13.591900000392343,
+      "duration_ms": 12.093821000007665,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -887,7 +887,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "9c74a36a9cab0f04caee132ad9c29d292cc87c48428aeb4adae39a31a789e04b",
+      "output_sha256": "b9b453631560ae0bf7961485b029326237db95628a5b24c22faec0630354b84a",
       "artifact": null
     },
     {
@@ -897,7 +897,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 7.472999999663443,
+      "duration_ms": 9.48527599996396,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -917,7 +917,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "54d37debeb2a6d659e289671501d792d53eb5640a7b75e1c4c143f0490ce472f",
+      "output_sha256": "26a9095277f78ac1425a71ce673d846045bc3193ac77f1db4f9c4d60c4944d0a",
       "artifact": null
     },
     {
@@ -927,7 +927,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 9.306199999628006,
+      "duration_ms": 9.982723000007354,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -947,7 +947,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "147315a86a59763fa1c7dcf9ad6a52f78d4894e1049a1faf75fb6076de118c5a",
+      "output_sha256": "1ee03eb376e1ace41caa657c1f64e7ed2049521802f59dde409fb50391d20f8b",
       "artifact": null
     },
     {
@@ -957,7 +957,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 51.66789999930188,
+      "duration_ms": 39.25825999999688,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -992,7 +992,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 9.364800000184914,
+      "duration_ms": 18.106972999930804,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1022,7 +1022,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "58b0f3f0ea5f5f75b33a6ae6fe00b877810b623023d3b44b0a9e20223912ef2f",
+      "output_sha256": "e0119fcded26851ee509e0fd8d8ad4da9cba679323e23c483629af3a6248bd37",
       "artifact": null
     },
     {
@@ -1032,7 +1032,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 5.592600000454695,
+      "duration_ms": 6.965817000036623,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1052,7 +1052,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "d35646d150e3b71e68bbb9bd2ae7b111011d437c3d8fd9b07948f525aa5f823f",
+      "output_sha256": "f1f9d91536e899639111285bbcbe58d48974d9a977065c51ddd9fc7a629ed6e4",
       "artifact": null
     },
     {
@@ -1062,7 +1062,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 6.189399999129819,
+      "duration_ms": 6.7844440000044415,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1082,7 +1082,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "4bc80cd14e9be117cfc1c902e216830123d01dce45a3ce6fbcd7dca0e96da08c",
+      "output_sha256": "97454dd44ba2044c5df63c84949bdcdde8adcf1baa6f386a5a5bb8c1a06e03b3",
       "artifact": null
     },
     {
@@ -1092,7 +1092,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 59.83170000035898,
+      "duration_ms": 14.061668000067584,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1117,7 +1117,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue, AMLUnit",
-      "output_sha256": "3a52fe4f586b04706d8325395f5da924fef9a1256866d8f758a487e599983f9c",
+      "output_sha256": "dd62ce5c4892c3155ae3ab2aec19c4b45e925c9eb244476478a575ee6aceeb81",
       "artifact": null
     },
     {
@@ -1127,7 +1127,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 10.02399999924819,
+      "duration_ms": 14.133296000068185,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1157,7 +1157,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "710e991980a6d772d8bce2c1c2434e760cdfeaa87f41e32bfb9acb02e166b864",
+      "output_sha256": "a676abd9eddd2698dbed5f645db9157c8df882742e7942331c02e07399ca4964",
       "artifact": null
     },
     {
@@ -1167,7 +1167,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 5.988700000671088,
+      "duration_ms": 6.794515000024148,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1187,7 +1187,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "4af0bcb062adf27f907bdabb9bc28eb50694d5c6765918f68464226b47fe3e03",
+      "output_sha256": "d03459dd29e84116ef6c03eabdf5011693af59d6faf1e8759c1869e272f0a2b9",
       "artifact": null
     },
     {
@@ -1197,7 +1197,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 4.955899999913527,
+      "duration_ms": 7.023890999903415,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1217,7 +1217,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "749b6550f7f83a311b41ddfde2ee0d8f60e3e27f26429b4665fdd9a5f3d77677",
+      "output_sha256": "f52142c2688ed6f16a71d9cb8ec4a9d1d9a575087c663684a8506266a60be93b",
       "artifact": null
     },
     {
@@ -1227,7 +1227,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 49.60380000011355,
+      "duration_ms": 15.41569799996978,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1252,7 +1252,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue, AMLUnit",
-      "output_sha256": "1038432f0e6d4f649373dad16eebe4b4e0d549ee2604cc383f655fe4276c32af",
+      "output_sha256": "c3b65ef832cb6ecc2df3e6b38af158b649ba70862999bc19f716de46bb6f6ba1",
       "artifact": null
     },
     {
@@ -1262,7 +1262,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "CANONICAL_PASS",
-      "duration_ms": 8.526700001311838,
+      "duration_ms": 7.902883000042493,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1292,7 +1292,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "ffc76ef93453c79516e4afb0cd4aca5785d4808558de6c8b15195fd448c95234",
+      "output_sha256": "0a8d8dd7aca392fe04bb45f83ce735b0035c79f4085a323541af93c78cd36197",
       "artifact": null
     },
     {
@@ -1302,7 +1302,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 4.169300000285148,
+      "duration_ms": 4.979163000029985,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1322,7 +1322,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "094763061ee019af128718e816da0442b156abf3fe75ef7bd5e2c7ec69dadefc",
+      "output_sha256": "ad86bc5f8eee386ffdc8dd4779dca3bfc0f8bfd627fa56e514a583e3cfe349f0",
       "artifact": null
     },
     {
@@ -1332,7 +1332,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 14.448100000663544,
+      "duration_ms": 5.121102999964933,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1352,7 +1352,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "61dea545f7e66568697a8c031ad16d886a0516f0c7b87f4d153262c028130915",
+      "output_sha256": "0ee530872d8565e39a6c2ecc729b8750e3161707ed37c0d95480ec282d8b1907",
       "artifact": null
     },
     {
@@ -1362,7 +1362,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 44.699099998979364,
+      "duration_ms": 6.56049899998834,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1397,87 +1397,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 1.9797999993897974,
-      "evidence": [
-        {
-          "oracle": "mapping",
-          "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
-        }
-      ],
-      "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
-      "output_sha256": null,
-      "artifact": null
-    },
-    {
-      "case_id": "UP-UNIT-010",
-      "engine": "XSLT-RAW",
-      "family": "upstream-unit-legacy",
-      "severity": "observation",
-      "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 9.560099999362137,
-      "evidence": [
-        {
-          "oracle": "secure_xml",
-          "passed": true,
-          "detail": "DTD/entity markup absent and no-network parser succeeded"
-        },
-        {
-          "oracle": "nodeset_xsd",
-          "passed": true,
-          "detail": "official vendored UANodeSet XSD accepts the output"
-        },
-        {
-          "oracle": "nodeset_semantics",
-          "passed": false,
-          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
-        }
-      ],
-      "diagnostic_category": "NODESET_SEMANTICS",
-      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "f15c0883eb72be267f4d0348d72590e3aa9315eb6eb701559df87e8a522f8deb",
-      "artifact": null
-    },
-    {
-      "case_id": "UP-UNIT-010",
-      "engine": "XSLT-RUNNER",
-      "family": "upstream-unit-legacy",
-      "severity": "observation",
-      "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 11.445500000263564,
-      "evidence": [
-        {
-          "oracle": "secure_xml",
-          "passed": true,
-          "detail": "DTD/entity markup absent and no-network parser succeeded"
-        },
-        {
-          "oracle": "nodeset_xsd",
-          "passed": true,
-          "detail": "official vendored UANodeSet XSD accepts the output"
-        },
-        {
-          "oracle": "nodeset_semantics",
-          "passed": false,
-          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
-        }
-      ],
-      "diagnostic_category": "NODESET_SEMANTICS",
-      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "601f07c2a0ae299ea8f1730c85bbf12b48b318fc17230e1c33cb14bd468e1fa1",
-      "artifact": null
-    },
-    {
-      "case_id": "UP-UNIT-010",
-      "engine": "XSLT-PATCHED",
-      "family": "upstream-unit-legacy",
-      "severity": "observation",
-      "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 93.57129999989411,
+      "duration_ms": 23.196482000003016,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1502,22 +1422,82 @@
         {
           "oracle": "canonical_aml",
           "passed": false,
-          "detail": "canonical_aml: first difference at /AdditionalInformation/1/value"
+          "detail": "canonical_aml: first difference at /InstanceHierarchy/0/InternalElement/0/Attribute/0/AttributeDataType"
         }
       ],
       "diagnostic_category": "CANONICAL_AML",
-      "diagnostic": "canonical_aml: first difference at /AdditionalInformation/1/value",
-      "output_sha256": "f65df48629dde6556c113d142dd9808d943b8ae588c7db19cd6ea323e9d6064d",
+      "diagnostic": "canonical_aml: first difference at /InstanceHierarchy/0/InternalElement/0/Attribute/0/AttributeDataType",
+      "output_sha256": "13bd7a22346e08c7c7afc397587904a52fbae81cce36a2491c9dda740880378d",
       "artifact": null
     },
     {
-      "case_id": "UP-UNIT-011",
-      "engine": "PY-STRICT",
-      "family": "upstream-unit",
-      "severity": "must",
-      "scored": true,
+      "case_id": "UP-UNIT-010",
+      "engine": "XSLT-RAW",
+      "family": "upstream-unit-legacy",
+      "severity": "observation",
+      "scored": false,
+      "outcome": "FAIL",
+      "duration_ms": 15.831885000011425,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": false,
+          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
+        }
+      ],
+      "diagnostic_category": "NODESET_SEMANTICS",
+      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
+      "output_sha256": "1617f3b3a42d6070234c5d4575bf5511e616c6e71a62d7e0ad1b3a3d00e83845",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-UNIT-010",
+      "engine": "XSLT-RUNNER",
+      "family": "upstream-unit-legacy",
+      "severity": "observation",
+      "scored": false,
+      "outcome": "FAIL",
+      "duration_ms": 10.849972999949387,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": false,
+          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
+        }
+      ],
+      "diagnostic_category": "NODESET_SEMANTICS",
+      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
+      "output_sha256": "4d4c7bea4e39aff4b0617f00c1f9083d06873c1ca0d069af37c5ed3b11dbd6f8",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-UNIT-010",
+      "engine": "XSLT-PATCHED",
+      "family": "upstream-unit-legacy",
+      "severity": "observation",
+      "scored": false,
       "outcome": "PASS",
-      "duration_ms": 8.075300000200514,
+      "duration_ms": 39.810801000044194,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1547,7 +1527,47 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "7462fd73e61eac97ebf566fa00262fb09cbd7fcfe7b9a9bd5f7eee799f102a6f",
+      "output_sha256": "89c237d9914671d8feec26c1f18e1cc9bfc5b199e9fd73047c2ced607bbba173",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-UNIT-011",
+      "engine": "PY-STRICT",
+      "family": "upstream-unit",
+      "severity": "must",
+      "scored": true,
+      "outcome": "PASS",
+      "duration_ms": 10.39344200000869,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": true,
+          "detail": "NodeIds, aliases, BrowseNames, and references are resolvable"
+        },
+        {
+          "oracle": "no_roundtrip_metadata",
+          "passed": true,
+          "detail": "no embedded AML or forbidden mapper-private shadow nodes"
+        },
+        {
+          "oracle": "canonical_aml",
+          "passed": true,
+          "detail": "source and recovered canonical CAEX models are equal"
+        }
+      ],
+      "diagnostic_category": null,
+      "diagnostic": null,
+      "output_sha256": "bf76a5702c846c02d4e08eb92273c945edfd66bf0648a7ab7ce9a4c166430210",
       "artifact": null
     },
     {
@@ -1557,7 +1577,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 5.118299999594456,
+      "duration_ms": 6.353543000045647,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1577,7 +1597,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "7b63d37a94463b648854e4c1813e12b403cb83ef67e89413ed9eedc09892bd22",
+      "output_sha256": "fd5a292fe01f8d367e56ea29aa1454f30c513142bc1dec71c3cfdf4f3ef07354",
       "artifact": null
     },
     {
@@ -1587,7 +1607,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 7.076500000039232,
+      "duration_ms": 6.186084000091796,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1607,7 +1627,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "be81d53283c39e1b6b547948e8f33e892f613918f27774443b56dd3b2a7cde2c",
+      "output_sha256": "c917c6528df1761188c18237d9c18afbb8533f4ae22ec72648eb0fc0a10fe7f8",
       "artifact": null
     },
     {
@@ -1617,7 +1637,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 48.67819999890344,
+      "duration_ms": 9.204671999896163,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1652,7 +1672,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "CANONICAL_PASS",
-      "duration_ms": 19.39679999850341,
+      "duration_ms": 14.721745999963787,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1682,7 +1702,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "5d4c5f616572b3e0e6a0183a63497f1eb6080e77ffd1761a22bb6e445097c5db",
+      "output_sha256": "114aa0279708529fa96cc2b0fb0a61bf4865316ecf7f410b44e2edfa6bcb15c6",
       "artifact": null
     },
     {
@@ -1692,7 +1712,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 9.257699999579927,
+      "duration_ms": 9.260831000005965,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1712,7 +1732,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "79df845115f98f67f6262bd54d7bca53792ae2f3657b470a2b7e6394a154278a",
+      "output_sha256": "de5587adc0b65a116032ce004c84092e1e70aca18c9b0c11cc958be73a651730",
       "artifact": null
     },
     {
@@ -1722,7 +1742,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 8.205900001485134,
+      "duration_ms": 9.402413999964665,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1742,7 +1762,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "1888953077536d05de84e60b8885b1e984bcb221e9283506be368c267ddf5368",
+      "output_sha256": "6e2c8f36346bbbea6669c5290f3a1498b60d8b94d545d88677269c2b4fed0599",
       "artifact": null
     },
     {
@@ -1752,7 +1772,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 74.7241999997641,
+      "duration_ms": 18.22150399993916,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1787,7 +1807,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "CANONICAL_PASS",
-      "duration_ms": 51.43730000054347,
+      "duration_ms": 30.013855999982297,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1817,7 +1837,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "c269465a6e996ec5d44a72f051aa97986b22ecb2bbe0d761dbe753d64661c2e9",
+      "output_sha256": "7411d2bcaa5a9502082c666fbf61d143d7eb07baa5fda0f00cfec42aba1d0583",
       "artifact": null
     },
     {
@@ -1827,7 +1847,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 16.203999999561347,
+      "duration_ms": 20.55071000006592,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1847,7 +1867,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "cef96f178c47a500137c9bf68217676c2dde3344829fc5ee8882fb7e62ddf113",
+      "output_sha256": "5b4857cfced5a254bfdaee9607c9c607b31a56a26f95d1c1f7b94ae95ec959e0",
       "artifact": null
     },
     {
@@ -1857,7 +1877,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 23.562300000776304,
+      "duration_ms": 19.148429999972905,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1877,7 +1897,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "667a6a8fb3b35971a46a13c49ab20b578dae0403c2f34ed2653eebccc5d823e2",
+      "output_sha256": "0a4cef50f66564e0203223cc800af323c3074eafae7a897a5608e269e197f62c",
       "artifact": null
     },
     {
@@ -1887,7 +1907,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 106.4409999999043,
+      "duration_ms": 43.55245100009597,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1927,7 +1947,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "CANONICAL_PASS",
-      "duration_ms": 31.984399998691515,
+      "duration_ms": 27.995092999958615,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1957,7 +1977,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "c889bfff094a21d41f03f719f7943b1c2607c1216efc4f16dc4646f886af06ff",
+      "output_sha256": "393dbdb1670e7472488ba9c1439dcee350954444a4c366ad687e15236b49c5c1",
       "artifact": null
     },
     {
@@ -1967,7 +1987,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 11.85299999997369,
+      "duration_ms": 14.925957000059498,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -1987,7 +2007,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "fb516c15b9d54def30c8b19954e2e8d0bffcec82e2876b7b2c0ed462ec5aa688",
+      "output_sha256": "7ce303f724eec8d78371c0c835fd3e8bb5419b2cbd8b3ddb3ce051b93224b981",
       "artifact": null
     },
     {
@@ -1997,7 +2017,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 13.093799998387112,
+      "duration_ms": 20.604444000014155,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2017,7 +2037,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "ab2888e7b26b7729e112b62bfae1312156aea26fd8d1fabeb3981b639be66607",
+      "output_sha256": "c873791b290922d61bc2258c8a8203d457b8e6a17db1502fbd329b99889de34b",
       "artifact": null
     },
     {
@@ -2027,7 +2047,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 65.90589999905205,
+      "duration_ms": 29.26522899997508,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2061,18 +2081,33 @@
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 1.4788999997108476,
+      "outcome": "PASS",
+      "duration_ms": 19.92199799997252,
       "evidence": [
         {
-          "oracle": "mapping",
-          "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": true,
+          "detail": "NodeIds, aliases, BrowseNames, and references are resolvable"
+        },
+        {
+          "oracle": "no_roundtrip_metadata",
+          "passed": true,
+          "detail": "no embedded AML or forbidden mapper-private shadow nodes"
         }
       ],
-      "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
-      "output_sha256": null,
+      "diagnostic_category": null,
+      "diagnostic": null,
+      "output_sha256": "957275c4575a34dbde49f5035223eeec9e8330461238c52d6484c66b6a59b95e",
       "artifact": null
     },
     {
@@ -2082,7 +2117,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 21.88890000070387,
+      "duration_ms": 19.49646999992183,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2102,7 +2137,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "f64838f98ab765c227053c3d85cfd8073c5523917c67d7f345f6ed6da40f9209",
+      "output_sha256": "39a145ba9e8c65af8a25789a0f5ccd2bee601e662277a2929039a5992c9d7352",
       "artifact": null
     },
     {
@@ -2112,7 +2147,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 14.953399999285466,
+      "duration_ms": 17.51457800003209,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2132,7 +2167,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "f84155fe70a5b63bd92a5568c830a73dac848be51b23ccf60e1dd9459241b439",
+      "output_sha256": "70890edc95f82961b2aed562443a8a885f72280440a47791648beeab4bc844a6",
       "artifact": null
     },
     {
@@ -2142,7 +2177,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 60.20429999989574,
+      "duration_ms": 43.82226899997477,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2167,7 +2202,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue, AMLUnit",
-      "output_sha256": "732b3d1c9fe25a8210f3f29aad1cbfb153eff19b878a2075a09ec5a1afa0b2b5",
+      "output_sha256": "8e1c8dbf98f594988395144f89e03ef642fa8c27a7f041078d60ccee97840598",
       "artifact": null
     },
     {
@@ -2177,7 +2212,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 17.165199998999014,
+      "duration_ms": 55.55446599998959,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2202,7 +2237,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "19a5c6c2a5388057d9180e4e42e7fe706084b8f4646e3d46b9e21ae3aea2f1c9",
+      "output_sha256": "fb1b898eb0c8b189a8ee202d69f776ff5aebd3a1d2a0b54e18588325ea199594",
       "artifact": null
     },
     {
@@ -2212,7 +2247,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 30.40099999998347,
+      "duration_ms": 44.32717199995295,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2232,7 +2267,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "315c9c4fbe3cbdfce6d3de02066181838b070fa2db73375f90229780df59eefc",
+      "output_sha256": "cb4c7e713ac230d06fe776e326f4495120beceed290e7f5e10355a2af0f2d857",
       "artifact": null
     },
     {
@@ -2242,7 +2277,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 32.79400000064925,
+      "duration_ms": 41.06330899992372,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2262,7 +2297,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "88e0462c1f69815f17a2ece91b8560a9ab76c55bf59628de4aea4839ed6d5436",
+      "output_sha256": "f423e9e20ef2ade769da2676e328c6a1c3ed075db7b07d1c1ee8ef4119d056b7",
       "artifact": null
     },
     {
@@ -2272,7 +2307,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 87.66240000113612,
+      "duration_ms": 88.39767399990706,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2297,7 +2332,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType",
-      "output_sha256": "a7862cd045ccce94401982dacbbab059cbdf92492fca083486e6ae0186c2860c",
+      "output_sha256": "62c288ebc9d9cae4f9e42df119c2a105f7a0b1ec01118910d50fa62ef4ac569e",
       "artifact": null
     },
     {
@@ -2307,7 +2342,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 27.350700000170036,
+      "duration_ms": 68.49548299999242,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2332,7 +2367,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "3f06ef888aa762487c804a35b48821ad3b1c4c08398c3b16a3f5fd95e289ee85",
+      "output_sha256": "2e029f1434ecaf91d660245f23c1e667cf68549c9052e22a57a72e9d570e61d6",
       "artifact": null
     },
     {
@@ -2342,7 +2377,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 58.10550000023795,
+      "duration_ms": 75.0171859999682,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2362,7 +2397,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "f46acff2123be5bf7e6386867287fc43e19c61542b03f7dfdbcef1d44f5d305e",
+      "output_sha256": "9f2e571f9b406a768f498cf04f3f8eda26a24d25db35921ee01c8f2a814c15d6",
       "artifact": null
     },
     {
@@ -2372,7 +2407,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 57.62899999899673,
+      "duration_ms": 73.41890200007128,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2392,7 +2427,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "01dbd9de37cec1c06777a1de1c9974166ff3dee576cdecba38f957db1bb3a0f7",
+      "output_sha256": "c28ca57dadcd173afdc7ff92a390a20e124aa775499e3fb8013919b412531ad1",
       "artifact": null
     },
     {
@@ -2402,7 +2437,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 161.8441000009625,
+      "duration_ms": 180.45806100008122,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2427,7 +2462,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue",
-      "output_sha256": "1a448c3f02b8546284ccea2e07b9d0c3bf6fe1318a139839baaef172dc1ae8a8",
+      "output_sha256": "81f6ac33b28936b5a505325c034c36c373e5bb8f8f6d7f5f5e162dc154c1587b",
       "artifact": null
     },
     {
@@ -2437,16 +2472,16 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 21.52159999968717,
+      "duration_ms": 293.31092200004605,
       "evidence": [
         {
           "oracle": "mapping",
           "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
+          "detail": "Python OPC UA mapping failed: Class target 'AutomationMLInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector' uses unknown ExternalReference alias 'AutomationMLInterfaceClassLib'."
         }
       ],
       "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
+      "diagnostic": "Python OPC UA mapping failed: Class target 'AutomationMLInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector' uses unknown ExternalReference alias 'AutomationMLInterfaceClassLib'.",
       "output_sha256": null,
       "artifact": null
     },
@@ -2457,7 +2492,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 318.12279999940074,
+      "duration_ms": 380.99171200008186,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2477,7 +2512,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "7829f1bec47d8af1f2a44bc0826af90320eeae3a1ed29a7c7f4275bc72d50f84",
+      "output_sha256": "c60ebd2f92e14e3d7363e093377bd500473d10c12d479b34f20a955b521a2fd1",
       "artifact": null
     },
     {
@@ -2487,7 +2522,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 320.9669000007125,
+      "duration_ms": 387.03914600000644,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2507,7 +2542,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "3567d870b6da097da8266c609529fed8ca29ff9da283b0ca561ea8d166db99ec",
+      "output_sha256": "8c9eb40f3956b23e7ef4f6fce7758b9f8837395fd0db951bbf6ef7fd026ae130",
       "artifact": null
     },
     {
@@ -2517,7 +2552,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 591.18110000054,
+      "duration_ms": 1305.4491799999823,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2542,7 +2577,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue",
-      "output_sha256": "52b019f36336f53c134cf310253108d73609bbc356df37d69c72bd329cf5a0f4",
+      "output_sha256": "6bdbcc45ac8cd268b566534d73d388cbe53c10260db282cba0dd26f8866656ba",
       "artifact": null
     },
     {
@@ -2632,16 +2667,16 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 18.896600000516628,
+      "duration_ms": 196.03564400006235,
       "evidence": [
         {
           "oracle": "mapping",
           "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
+          "detail": "Python OPC UA mapping failed: AML partner reference 'CF760500-2833-470B-9412-460CE5C1B4B2:Channel_DI_Channel 1' resolves to more than one ExternalInterface."
         }
       ],
       "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
+      "diagnostic": "Python OPC UA mapping failed: AML partner reference 'CF760500-2833-470B-9412-460CE5C1B4B2:Channel_DI_Channel 1' resolves to more than one ExternalInterface.",
       "output_sha256": null,
       "artifact": null
     },
@@ -2652,7 +2687,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 330.31300000038755,
+      "duration_ms": 387.056533999953,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2672,7 +2707,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "1dea527e3ef4b19e0315635195ed486efd49123a52781af7c9cde2b1fdf94d62",
+      "output_sha256": "2e4e132131b2d9f2b638e48a4e09b0dedaa438b885d28134c260c8b8f7b5f218",
       "artifact": null
     },
     {
@@ -2682,7 +2717,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 343.76139999949373,
+      "duration_ms": 392.6906589999817,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2702,7 +2737,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "e8838500a11441ea526ce78b583ca7fcbed0289707a51a48258811cebcf792f6",
+      "output_sha256": "26c3c0ac1af06d2e786a6d65a6df0d8a317da09c0e4fad19b54d515327e1f1d2",
       "artifact": null
     },
     {
@@ -2712,7 +2747,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 584.7341000007873,
+      "duration_ms": 1324.3746240000291,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2737,7 +2772,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType, AMLDefaultValue",
-      "output_sha256": "2c0dd0be6c6074caeef73d20476073790315c1ab6a4aa774a85333ab94bf7cd9",
+      "output_sha256": "bea99ab843045417e2a610392d525058e41f76710f172e5db4a91f07ac38e309",
       "artifact": null
     },
     {
@@ -2747,7 +2782,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.748199998677592,
+      "duration_ms": 3.7152159999322976,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2772,7 +2807,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "ccf069ef2524d58792096610a14387112405d3b0d3a77c76f1063d2c44ade50a",
+      "output_sha256": "20ca8e0ff34b2abc49465e0da053f32803983e591efda990eea7ba54f9c14a29",
       "artifact": null
     },
     {
@@ -2782,7 +2817,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 2.6198000014119316,
+      "duration_ms": 3.9039739999680023,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2802,7 +2837,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "4a8a213e6a224f0cdbebe4075bb6bfab5e41ca3704d4416cb1be3071b73d853d",
+      "output_sha256": "1d9a31929b683eabaec1524fd329977fcb65648b22421471f6acd96fc7db8efa",
       "artifact": null
     },
     {
@@ -2812,7 +2847,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 6.493099999715923,
+      "duration_ms": 3.95518200002698,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2832,7 +2867,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "6f1a6691c5d282241c399546101940f5a558e465854826a6d4a3b5f731d206e7",
+      "output_sha256": "9c935f6921826495801497d192edb3e5c254c519303c38e4278cce8fe649757e",
       "artifact": null
     },
     {
@@ -2842,7 +2877,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 40.8923999984836,
+      "duration_ms": 4.533510999976897,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2877,7 +2912,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 3.3341999987896997,
+      "duration_ms": 3.58567699993273,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2902,7 +2937,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "f6629894de8ba76e1dafb729861edfc7b9fed86ff576c792da1b7e62694928d8",
+      "output_sha256": "4daab49a8e3788a8ed29d1a72e0e0b1ec8aeb5ece30f31703ec4d133fae6944c",
       "artifact": null
     },
     {
@@ -2912,7 +2947,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 2.9627000003529247,
+      "duration_ms": 3.2965909999802534,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2932,7 +2967,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "accd4ed2b076f92d3b8e7bab91e732445faccdf2183b097952e7a2eb45215a9a",
+      "output_sha256": "85f9c3f794b947a81230f995e890444caf046b28f61b6bf8aaf4ede172a45d58",
       "artifact": null
     },
     {
@@ -2942,7 +2977,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.7151000015001046,
+      "duration_ms": 3.3289870000317023,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -2962,7 +2997,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "8f80118972ecb3c8739a8d5472b1880f0607881a91da16e4d46b881fb44e3912",
+      "output_sha256": "06c184bb55abb80527dc65799f837bdd9a62949a901e61c85da2ad1441b7a6f7",
       "artifact": null
     },
     {
@@ -2972,7 +3007,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 35.547900000892696,
+      "duration_ms": 4.481152000039401,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3007,7 +3042,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 3.885000000082073,
+      "duration_ms": 6.023271999993085,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3032,7 +3067,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "193bd2db99af9a698c73a19465bd53984bc35d4014e7769d11e283bdbaac8b42",
+      "output_sha256": "8c8f7340daf299c385dc54d8608336f2360b1f672c24fed95a195df7d48aff62",
       "artifact": null
     },
     {
@@ -3042,7 +3077,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 3.34840000141412,
+      "duration_ms": 4.537926000011794,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3062,7 +3097,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "d99ee62059504d70707d2aaaa4da59be8959bdd1e68bc0c846fc75ff1eab4ad3",
+      "output_sha256": "e933f4ed9e25a23122038dc7539e2273b01085c18ac2cace5dd6e62e77292d8f",
       "artifact": null
     },
     {
@@ -3072,7 +3107,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.833499999018386,
+      "duration_ms": 4.883560000052967,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3092,7 +3127,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "7dd2c3def72dd712f24e7538572eda19c86ff468a88af295b74ea2e88967fe93",
+      "output_sha256": "8560660dbe42af16d053d840367bff9c715ab1dca0bf5693e1fe2994d1c9f36b",
       "artifact": null
     },
     {
@@ -3102,7 +3137,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 42.40910000044096,
+      "duration_ms": 7.264117999966402,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3137,7 +3172,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 11.10049999988405,
+      "duration_ms": 13.311329999964983,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3162,7 +3197,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "eac7cbac4290ea31f0954646470f6cd60ad8d5ec38e13e9682bdae108b4fba5e",
+      "output_sha256": "1feb968c85e48f48e2af1e6b62fe388c193d0c19fe2c15c3ddc8afd45b779d43",
       "artifact": null
     },
     {
@@ -3172,7 +3207,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 10.783199999423232,
+      "duration_ms": 13.036683999985144,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3192,7 +3227,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "5228f1d52674207989be8ad7ce1dd4f905f15e9c3f02f1cd0ebf3aecb0e8cb6b",
+      "output_sha256": "aa31d1be4d269810490b96cafe2ad4422c24df0b855c0ede223fa0d286d01ce0",
       "artifact": null
     },
     {
@@ -3202,7 +3237,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 11.200000000826549,
+      "duration_ms": 13.419965000025513,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3222,7 +3257,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "2a63fe77e03a253cb54c249d24f024bec975eb02c9f93ec3c481886ded3a39ae",
+      "output_sha256": "93737fd0af7362795fa0a7fb12f5f6e364a5782937b7b8b17d32205a2cab8855",
       "artifact": null
     },
     {
@@ -3232,7 +3267,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 65.32779999906779,
+      "duration_ms": 23.325202000023637,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3266,18 +3301,33 @@
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 7.798700000421377,
+      "outcome": "PASS",
+      "duration_ms": 61.688724000077855,
       "evidence": [
         {
-          "oracle": "mapping",
-          "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": true,
+          "detail": "NodeIds, aliases, BrowseNames, and references are resolvable"
+        },
+        {
+          "oracle": "no_roundtrip_metadata",
+          "passed": true,
+          "detail": "no embedded AML or forbidden mapper-private shadow nodes"
         }
       ],
-      "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
-      "output_sha256": null,
+      "diagnostic_category": null,
+      "diagnostic": null,
+      "output_sha256": "77834b5bd3a25d3387b40b5332ff33d0b6ea6a08c57352612026e1d90a212af4",
       "artifact": null
     },
     {
@@ -3287,7 +3337,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 60.58189999930619,
+      "duration_ms": 73.16242899992176,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3307,7 +3357,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "e5660d087f47720d838bb814d294f248fcd3ca13fa5aa639c9491e26f35d918a",
+      "output_sha256": "ff2a152e24f588f5bc318bf77913d1a3ae36cde737f5f130df45cab957d1d662",
       "artifact": null
     },
     {
@@ -3317,7 +3367,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 57.22040000000561,
+      "duration_ms": 72.48488299990186,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3337,7 +3387,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "3b30a6b0bdd8c126613022807d8cc6ac53b9be7d00db09f3a720ed45d48308df",
+      "output_sha256": "1f98a645581c5a7b35296e18c0117ecc541c4be1aee18ec8ac1ffba30c6c5d06",
       "artifact": null
     },
     {
@@ -3347,7 +3397,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 152.63410000079602,
+      "duration_ms": 160.74455400007537,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3372,7 +3422,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType",
-      "output_sha256": "e01de0c9c5e0c8239b8e594c9624db239feb2cb6c60574a24813f07d029310cb",
+      "output_sha256": "4011325b979e656ebca2c037e94943065d3667ba80a0ada381f46d4d5af54e41",
       "artifact": null
     },
     {
@@ -3381,18 +3431,33 @@
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 3.061699999307166,
+      "outcome": "PASS",
+      "duration_ms": 53.17662800007383,
       "evidence": [
         {
-          "oracle": "mapping",
-          "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": true,
+          "detail": "NodeIds, aliases, BrowseNames, and references are resolvable"
+        },
+        {
+          "oracle": "no_roundtrip_metadata",
+          "passed": true,
+          "detail": "no embedded AML or forbidden mapper-private shadow nodes"
         }
       ],
-      "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
-      "output_sha256": null,
+      "diagnostic_category": null,
+      "diagnostic": null,
+      "output_sha256": "ce886316efcb52d0c349ca952b55167392da44f00587433c83f6f8554141c3e8",
       "artifact": null
     },
     {
@@ -3402,7 +3467,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 46.90479999953823,
+      "duration_ms": 52.68169099997522,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3422,7 +3487,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "a790b1bf8a541b1bfd389c20fcb4606560df6ee65fe7a07416766cc34b084a47",
+      "output_sha256": "e058b18dd77b3ddcfaa82b9e609dd4cbcab365d3c734b43a29d90b06bc399700",
       "artifact": null
     },
     {
@@ -3432,7 +3497,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 48.105599998962134,
+      "duration_ms": 55.70369399993069,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3452,7 +3517,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "94bbd1bdaf8279fcafa6f9fac107738492d0b75ae7403dfd7877f1c152e86b11",
+      "output_sha256": "d00af6caf9f01ea39a2f33d6bdec2693c0952c239f0d74f11940140c5195b81d",
       "artifact": null
     },
     {
@@ -3462,7 +3527,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 114.87810000107856,
+      "duration_ms": 118.90802100003839,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3487,7 +3552,7 @@
       ],
       "diagnostic_category": "NO_ROUNDTRIP_METADATA",
       "diagnostic": "no_roundtrip_metadata: forbidden shadow nodes AMLAttributeDataType",
-      "output_sha256": "db42cd9c049ead7a6df33dab893ba0a6fbcaf2013bd0e8f0e69d0ca26b6ee9f7",
+      "output_sha256": "ad2ae8ceaca22862d1d5e243b75a6f2c64d4892d34f27aea872bbb984a1d0cf9",
       "artifact": null
     },
     {
@@ -3496,88 +3561,8 @@
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 1.113999998779036,
-      "evidence": [
-        {
-          "oracle": "mapping",
-          "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
-        }
-      ],
-      "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
-      "output_sha256": null,
-      "artifact": null
-    },
-    {
-      "case_id": "UP-APP-012",
-      "engine": "XSLT-RAW",
-      "family": "upstream-application-legacy",
-      "severity": "observation",
-      "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 7.7341000014712336,
-      "evidence": [
-        {
-          "oracle": "secure_xml",
-          "passed": true,
-          "detail": "DTD/entity markup absent and no-network parser succeeded"
-        },
-        {
-          "oracle": "nodeset_xsd",
-          "passed": true,
-          "detail": "official vendored UANodeSet XSD accepts the output"
-        },
-        {
-          "oracle": "nodeset_semantics",
-          "passed": false,
-          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
-        }
-      ],
-      "diagnostic_category": "NODESET_SEMANTICS",
-      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "a9a1a5148a42d2dfbf266e14b4a048e23f3f8cc08f6a32233238ba86ae9391fd",
-      "artifact": null
-    },
-    {
-      "case_id": "UP-APP-012",
-      "engine": "XSLT-RUNNER",
-      "family": "upstream-application-legacy",
-      "severity": "observation",
-      "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 8.81410000147298,
-      "evidence": [
-        {
-          "oracle": "secure_xml",
-          "passed": true,
-          "detail": "DTD/entity markup absent and no-network parser succeeded"
-        },
-        {
-          "oracle": "nodeset_xsd",
-          "passed": true,
-          "detail": "official vendored UANodeSet XSD accepts the output"
-        },
-        {
-          "oracle": "nodeset_semantics",
-          "passed": false,
-          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
-        }
-      ],
-      "diagnostic_category": "NODESET_SEMANTICS",
-      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "470d6aa73f72d7ce7cafa2712501e18eb8b02f6d6b759e0bbe0ff5b28ea92fc0",
-      "artifact": null
-    },
-    {
-      "case_id": "UP-APP-012",
-      "engine": "XSLT-PATCHED",
-      "family": "upstream-application-legacy",
-      "severity": "observation",
-      "scored": false,
       "outcome": "PASS",
-      "duration_ms": 54.119899999932386,
+      "duration_ms": 11.519468999949822,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3602,37 +3587,17 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "dfbeccd49537827a69e4fa3da2840754da0d8fe94d931711f6b6caf42ef1e2f2",
+      "output_sha256": "715803d070f43bc9d9167524ffcfa278293064bb63ffdcbd199d9ccbff20e439",
       "artifact": null
     },
     {
-      "case_id": "UP-APP-013",
-      "engine": "PY-STRICT",
-      "family": "upstream-application-legacy",
-      "severity": "observation",
-      "scored": false,
-      "outcome": "FAIL",
-      "duration_ms": 1.6109999996842816,
-      "evidence": [
-        {
-          "oracle": "mapping",
-          "passed": false,
-          "detail": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported."
-        }
-      ],
-      "diagnostic_category": "CONVERSION_ERROR",
-      "diagnostic": "Python OPC UA mapping failed: SupportedRoleClass on an InternalElement is ambiguous in the implicit role profile; only RoleRequirements is supported.",
-      "output_sha256": null,
-      "artifact": null
-    },
-    {
-      "case_id": "UP-APP-013",
+      "case_id": "UP-APP-012",
       "engine": "XSLT-RAW",
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 7.075999999869964,
+      "duration_ms": 9.672459000057643,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3652,17 +3617,17 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "2ebbf49fd0d03d1a1a73fd67fcff6eddbba350da94547435caa47ad899741a78",
+      "output_sha256": "5a4b09673228a4bfeb39a554f92204c055e405847f01361fba7cc996ed0520d5",
       "artifact": null
     },
     {
-      "case_id": "UP-APP-013",
+      "case_id": "UP-APP-012",
       "engine": "XSLT-RUNNER",
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 7.459899999957997,
+      "duration_ms": 10.137258000099791,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3682,17 +3647,17 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "1ef516bfd88f31c85dc2b73cf0c363be991ed8ceb4b3427871edc2e8b4f08d50",
+      "output_sha256": "9c295535e4984d9858727504d28bf8064926661a9f061487fb5823642c969d73",
       "artifact": null
     },
     {
-      "case_id": "UP-APP-013",
+      "case_id": "UP-APP-012",
       "engine": "XSLT-PATCHED",
       "family": "upstream-application-legacy",
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 60.522399999172194,
+      "duration_ms": 21.88760599995021,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3717,7 +3682,137 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "672e5d87261bd7f70abe6a6ffaee4e42dc7d1b46ba9f63f1ce69f5908e53e0a6",
+      "output_sha256": "6add0e872d9a32092efa851239170247d6e69c4800b5078e128846d06eb6c0a7",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-APP-013",
+      "engine": "PY-STRICT",
+      "family": "upstream-application-legacy",
+      "severity": "observation",
+      "scored": false,
+      "outcome": "PASS",
+      "duration_ms": 11.538571999949454,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": true,
+          "detail": "NodeIds, aliases, BrowseNames, and references are resolvable"
+        },
+        {
+          "oracle": "no_roundtrip_metadata",
+          "passed": true,
+          "detail": "no embedded AML or forbidden mapper-private shadow nodes"
+        }
+      ],
+      "diagnostic_category": null,
+      "diagnostic": null,
+      "output_sha256": "af152f1e997d1ce9597da5b46c67b08f70e2a9d5c4c7577400bc986ce0430f7e",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-APP-013",
+      "engine": "XSLT-RAW",
+      "family": "upstream-application-legacy",
+      "severity": "observation",
+      "scored": false,
+      "outcome": "FAIL",
+      "duration_ms": 9.718544000065776,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": false,
+          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
+        }
+      ],
+      "diagnostic_category": "NODESET_SEMANTICS",
+      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
+      "output_sha256": "e05a076e858339d514b4edf7997b667279862486e95446cabf1956c0d74c1308",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-APP-013",
+      "engine": "XSLT-RUNNER",
+      "family": "upstream-application-legacy",
+      "severity": "observation",
+      "scored": false,
+      "outcome": "FAIL",
+      "duration_ms": 9.14475400008996,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": false,
+          "detail": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'"
+        }
+      ],
+      "diagnostic_category": "NODESET_SEMANTICS",
+      "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
+      "output_sha256": "0621a96a151270a1f19202819fe14d9b637fa54aabeb53ca337cd885cfc38282",
+      "artifact": null
+    },
+    {
+      "case_id": "UP-APP-013",
+      "engine": "XSLT-PATCHED",
+      "family": "upstream-application-legacy",
+      "severity": "observation",
+      "scored": false,
+      "outcome": "PASS",
+      "duration_ms": 20.42361799999526,
+      "evidence": [
+        {
+          "oracle": "secure_xml",
+          "passed": true,
+          "detail": "DTD/entity markup absent and no-network parser succeeded"
+        },
+        {
+          "oracle": "nodeset_xsd",
+          "passed": true,
+          "detail": "official vendored UANodeSet XSD accepts the output"
+        },
+        {
+          "oracle": "nodeset_semantics",
+          "passed": true,
+          "detail": "NodeIds, aliases, BrowseNames, and references are resolvable"
+        },
+        {
+          "oracle": "no_roundtrip_metadata",
+          "passed": true,
+          "detail": "no embedded AML or forbidden mapper-private shadow nodes"
+        }
+      ],
+      "diagnostic_category": null,
+      "diagnostic": null,
+      "output_sha256": "63dca5685b3782fe42e4cc89403396d1061eda14bebb49e20c1e3284820c87a7",
       "artifact": null
     },
     {
@@ -3727,7 +3822,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 3.3848000002763,
+      "duration_ms": 3.8787810000258105,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3752,7 +3847,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "0878c682657eeabad98f3cdded2ce8b6c7d52a807c89b3afdebbdd3f21a970db",
+      "output_sha256": "73db4b06324a4e809569ed230042943d069f7227a58c543d4bf0ef3f66d6196e",
       "artifact": null
     },
     {
@@ -3762,7 +3857,7 @@
       "severity": "must",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 3.4206000000267522,
+      "duration_ms": 3.8469209999902887,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3782,7 +3877,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "60e9a6c6af940957355582937554312bbba6523186565778243ef3fc4ce1f830",
+      "output_sha256": "948ae8772dece6f39561015c6344d460315256012b0e42c2b279d54ad12ae90e",
       "artifact": null
     },
     {
@@ -3792,7 +3887,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.5539000000426313,
+      "duration_ms": 4.091625000000931,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3812,7 +3907,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "a21c2d535d16377bfd4e16152cfc48165dfa3143d37beb9de6bce39a6afd1cc6",
+      "output_sha256": "25f1b7c473823a72cd11e538ccbdedbe864a84af10a5c17a43d6a944cb785767",
       "artifact": null
     },
     {
@@ -3822,7 +3917,7 @@
       "severity": "must",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 42.966099999830476,
+      "duration_ms": 4.540593000001536,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3857,7 +3952,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 3.199200000381097,
+      "duration_ms": 4.0891499999133885,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3882,7 +3977,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "3cf589cd4878900640663054ec9cd4e0bfd264f64f54d19bf88c358245b456ad",
+      "output_sha256": "0548d67bcd80f36dcea8e065f1ad1d0dde01848a9cdcb8a0f37e8e42774911ae",
       "artifact": null
     },
     {
@@ -3892,7 +3987,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 5.598100000497652,
+      "duration_ms": 7.410426999967967,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3927,7 +4022,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 3.621500000008382,
+      "duration_ms": 3.4800930000074004,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3962,7 +4057,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 2.598000000944012,
+      "duration_ms": 4.098790999933044,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -3987,7 +4082,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "3cf589cd4878900640663054ec9cd4e0bfd264f64f54d19bf88c358245b456ad",
+      "output_sha256": "0548d67bcd80f36dcea8e065f1ad1d0dde01848a9cdcb8a0f37e8e42774911ae",
       "artifact": null
     },
     {
@@ -3997,7 +4092,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 1.1379999996279366,
+      "duration_ms": 1.8457229999739866,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4032,7 +4127,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 1.4637999993283302,
+      "duration_ms": 1.854965000006814,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4067,7 +4162,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 1.7645000007178169,
+      "duration_ms": 1.8115780000016457,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4102,7 +4197,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 1.3429999999061693,
+      "duration_ms": 1.801102999934301,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4137,7 +4232,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 9.987099998397753,
+      "duration_ms": 16.512039000076584,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4157,11 +4252,11 @@
         {
           "oracle": "mapping",
           "passed": false,
-          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip."
+          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion, Version. Use an app export with embedded AML for an exact round trip."
         }
       ],
       "diagnostic_category": "UNSUPPORTED_FEATURE",
-      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip.",
+      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion, Version. Use an app export with embedded AML for an exact round trip.",
       "output_sha256": null,
       "artifact": null
     },
@@ -4172,7 +4267,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 23.523500000010245,
+      "duration_ms": 29.434234000063952,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4207,7 +4302,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 24.382900001000962,
+      "duration_ms": 28.298020000079305,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4242,7 +4337,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 13.417000000117696,
+      "duration_ms": 16.672079000045414,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4262,11 +4357,11 @@
         {
           "oracle": "mapping",
           "passed": false,
-          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip."
+          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion, Version. Use an app export with embedded AML for an exact round trip."
         }
       ],
       "diagnostic_category": "UNSUPPORTED_FEATURE",
-      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip.",
+      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion, Version. Use an app export with embedded AML for an exact round trip.",
       "output_sha256": null,
       "artifact": null
     },
@@ -4277,7 +4372,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 9.685999999419437,
+      "duration_ms": 13.929242999893177,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4312,7 +4407,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 15.409300000101211,
+      "duration_ms": 17.300244000011844,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4347,7 +4442,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 13.184499999624677,
+      "duration_ms": 17.950923000057628,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4382,7 +4477,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 11.075700000219513,
+      "duration_ms": 13.5400799999843,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4497,7 +4592,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 1.1790999997174367,
+      "duration_ms": 1.5157180000642256,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4522,7 +4617,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "1adfcc45c989254d2b7a2c2376b6bb947dd84d9d925438ed9c1bca9e966da060",
+      "output_sha256": "75d61ecb45a15183657cc42c95a3431d2f605cd936df03fe651667f9490eb1fc",
       "artifact": null
     },
     {
@@ -4532,7 +4627,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 1.5134000004763948,
+      "duration_ms": 1.3385380000272562,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4567,7 +4662,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 1.1252000003878493,
+      "duration_ms": 1.239880999946763,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4602,7 +4697,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 1.34529999922961,
+      "duration_ms": 1.4462970000295172,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4627,7 +4722,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "1adfcc45c989254d2b7a2c2376b6bb947dd84d9d925438ed9c1bca9e966da060",
+      "output_sha256": "75d61ecb45a15183657cc42c95a3431d2f605cd936df03fe651667f9490eb1fc",
       "artifact": null
     },
     {
@@ -4637,7 +4732,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 2.2910999996383907,
+      "duration_ms": 1.7962929999839616,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4657,11 +4752,11 @@
         {
           "oracle": "mapping",
           "passed": false,
-          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip."
+          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion. Use an app export with embedded AML for an exact round trip."
         }
       ],
       "diagnostic_category": "UNSUPPORTED_FEATURE",
-      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip.",
+      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion. Use an app export with embedded AML for an exact round trip.",
       "output_sha256": null,
       "artifact": null
     },
@@ -4672,7 +4767,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 2.884900000935886,
+      "duration_ms": 2.565457999935461,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4707,7 +4802,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 2.636200000779354,
+      "duration_ms": 2.575490000026548,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4742,7 +4837,7 @@
       "severity": "observation",
       "scored": false,
       "outcome": "UNSUPPORTED",
-      "duration_ms": 5.1354999995965045,
+      "duration_ms": 1.882182999906945,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4762,11 +4857,11 @@
         {
           "oracle": "mapping",
           "passed": false,
-          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip."
+          "detail": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion. Use an app export with embedded AML for an exact round trip."
         }
       ],
       "diagnostic_category": "UNSUPPORTED_FEATURE",
-      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support a NodeSet without exactly one UAObject of CAEXFileType. Use an app export with embedded AML for an exact round trip.",
+      "diagnostic": "The semantic OPC UA reverse mapping 'automationml-python-semantic-v3' does not yet support CAEXFile properties CAEXSchemaVersion. Use an app export with embedded AML for an exact round trip.",
       "output_sha256": null,
       "artifact": null
     },
@@ -4777,7 +4872,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 1.9187999987479998,
+      "duration_ms": 1.966459999948711,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4802,7 +4897,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "06bcdf6baae1b96f1707a04b3ab63ea593c2fb6835a23358ee9f7a5aa23edaac",
+      "output_sha256": "04a57b035ce948e93632bb15356fa51f4c3b9b254c2b03f93661d715f11ccc0f",
       "artifact": null
     },
     {
@@ -4812,7 +4907,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 1.9146000013279263,
+      "duration_ms": 2.227016000006188,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4837,7 +4932,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: NodeIds match forbidden 'ns=\\\\d+;ns=': ['ns=2;ns=2;i=2004', 'ns=2;ns=2;i=2005', 'ns=2;ns=2;i=2006']",
-      "output_sha256": "932c54a78909d36140069acdbf8d68697cd463b3259f5c2984e334dd1fb39996",
+      "output_sha256": "c3d8cf4ba14ebbaec1ed93a817ecd67a8bf8b07099b14e33a6b36881ab8c7082",
       "artifact": null
     },
     {
@@ -4847,7 +4942,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 1.7987000010180054,
+      "duration_ms": 2.262743000073897,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4872,7 +4967,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: NodeIds match forbidden 'ns=\\\\d+;ns=': ['ns=2;ns=2;i=2004', 'ns=2;ns=2;i=2005', 'ns=2;ns=2;i=2006']",
-      "output_sha256": "4b8c287b1d60f6b9a7eff2566eaf5692c48f7222c7f7e581a3a70e2b9dc8d25d",
+      "output_sha256": "f6cff2a8103011098ef8115148fd39b65afed20ac3f2301503b98230954f5a96",
       "artifact": null
     },
     {
@@ -4882,7 +4977,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 49.254499999733525,
+      "duration_ms": 2.5257219999730296,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4917,7 +5012,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 8.481099999698927,
+      "duration_ms": 7.726605000016207,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4942,7 +5037,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "5d4c5f616572b3e0e6a0183a63497f1eb6080e77ffd1761a22bb6e445097c5db",
+      "output_sha256": "114aa0279708529fa96cc2b0fb0a61bf4865316ecf7f410b44e2edfa6bcb15c6",
       "artifact": null
     },
     {
@@ -4952,7 +5047,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 7.65270000010787,
+      "duration_ms": 9.108260000061819,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -4977,7 +5072,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: forbidden reference types HasComponnent",
-      "output_sha256": "4ee8d224843b7bb513d1a9b6ffe371f831d5333d5f079cfc8934ee3ac27f10a2",
+      "output_sha256": "1d3df084d28db8be10f8636d28a227f93cf74291d1dee06afb5e3ecc47c53dac",
       "artifact": null
     },
     {
@@ -4987,7 +5082,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 8.484599999064812,
+      "duration_ms": 9.212781000087489,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5012,7 +5107,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: forbidden reference types HasComponnent",
-      "output_sha256": "1888953077536d05de84e60b8885b1e984bcb221e9283506be368c267ddf5368",
+      "output_sha256": "6e2c8f36346bbbea6669c5290f3a1498b60d8b94d545d88677269c2b4fed0599",
       "artifact": null
     },
     {
@@ -5022,7 +5117,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 48.71879999882367,
+      "duration_ms": 11.806802000023708,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5052,7 +5147,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.033000000665197,
+      "duration_ms": 2.791488999946523,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5077,7 +5172,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "666f6b223d5109563c3373fc1464a3a50c187297bab94759052fc88f1d171f96",
+      "output_sha256": "4671842775b48513ab9bee563b821de59ab17074be18ac974dcfd5f8d6633f95",
       "artifact": null
     },
     {
@@ -5087,7 +5182,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 2.6968999991368037,
+      "duration_ms": 3.106295000065984,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5112,7 +5207,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: a Model Version is absent or empty",
-      "output_sha256": "b616b7bf986d72f6080f2021f2be1c94417d7ddee61835adb99ff3f39218148b",
+      "output_sha256": "4cd0da9e7c7f1013e2bef5ed40316b5ffb877527efce5dc17cd45f5f5f695e2f",
       "artifact": null
     },
     {
@@ -5122,7 +5217,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.5374999986524926,
+      "duration_ms": 3.3730330000025788,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5147,7 +5242,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: a Model Version is absent or empty",
-      "output_sha256": "9df8b44564b84d8eb4936a732a9883b8f6e73a5a693b70997efdd5df8029e302",
+      "output_sha256": "dfb356e01158978ed857e785eb40ec10446ff7a420d0b3a86593df5a63bc6f50",
       "artifact": null
     },
     {
@@ -5157,7 +5252,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 37.45650000018941,
+      "duration_ms": 3.9954390000502826,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5187,7 +5282,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.8456999989430187,
+      "duration_ms": 3.2420190000266302,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5217,7 +5312,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "06bcdf6baae1b96f1707a04b3ab63ea593c2fb6835a23358ee9f7a5aa23edaac",
+      "output_sha256": "04a57b035ce948e93632bb15356fa51f4c3b9b254c2b03f93661d715f11ccc0f",
       "artifact": null
     },
     {
@@ -5227,7 +5322,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 1.6951000015978934,
+      "duration_ms": 1.8260860000509638,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5247,12 +5342,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-08-17T02:28:20Z']"
+          "detail": "expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-09-18T11:38:58Z']"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-08-17T02:28:20Z']",
-      "output_sha256": "932c54a78909d36140069acdbf8d68697cd463b3259f5c2984e334dd1fb39996",
+      "diagnostic": "expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-09-18T11:38:58Z']",
+      "output_sha256": "c3d8cf4ba14ebbaec1ed93a817ecd67a8bf8b07099b14e33a6b36881ab8c7082",
       "artifact": null
     },
     {
@@ -5261,8 +5356,8 @@
       "family": "known-defect",
       "severity": "critical",
       "scored": false,
-      "outcome": "PASS",
-      "duration_ms": 3.628099999332335,
+      "outcome": "FAIL",
+      "duration_ms": 1.9769829999631838,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5281,18 +5376,13 @@
         },
         {
           "oracle": "expected_graph",
-          "passed": true,
-          "detail": "all independently declared graph facts hold"
-        },
-        {
-          "oracle": "deterministic",
-          "passed": true,
-          "detail": "two transformations are byte-equivalent after XML C14N"
+          "passed": false,
+          "detail": "expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-09-18T00:00:00Z']"
         }
       ],
-      "diagnostic_category": null,
-      "diagnostic": null,
-      "output_sha256": "4b8c287b1d60f6b9a7eff2566eaf5692c48f7222c7f7e581a3a70e2b9dc8d25d",
+      "diagnostic_category": "EXPECTED_GRAPH",
+      "diagnostic": "expected_graph: required PublicationDate '2026-08-17T00:00:00Z' is absent; got ['2026-09-18T00:00:00Z']",
+      "output_sha256": "f6cff2a8103011098ef8115148fd39b65afed20ac3f2301503b98230954f5a96",
       "artifact": null
     },
     {
@@ -5302,7 +5392,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 84.06590000049619,
+      "duration_ms": 4.405558999906134,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5342,7 +5432,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.864299998691422,
+      "duration_ms": 2.681452000047102,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5367,7 +5457,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "666f6b223d5109563c3373fc1464a3a50c187297bab94759052fc88f1d171f96",
+      "output_sha256": "4671842775b48513ab9bee563b821de59ab17074be18ac974dcfd5f8d6633f95",
       "artifact": null
     },
     {
@@ -5377,7 +5467,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 3.504300000713556,
+      "duration_ms": 5.031945999917298,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5397,12 +5487,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'identifier' @DataType is 'id', expected 'String'"
+          "detail": "expected_graph: UAVariable 'identifier' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'identifier' @DataType is 'id', expected 'String'",
-      "output_sha256": "b616b7bf986d72f6080f2021f2be1c94417d7ddee61835adb99ff3f39218148b",
+      "diagnostic": "expected_graph: UAVariable 'identifier' count is 0, expected 1",
+      "output_sha256": "4cd0da9e7c7f1013e2bef5ed40316b5ffb877527efce5dc17cd45f5f5f695e2f",
       "artifact": null
     },
     {
@@ -5412,7 +5502,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.785000000585569,
+      "duration_ms": 3.555798999968829,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5432,12 +5522,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'identifier' @DataType is 'id', expected 'String'"
+          "detail": "expected_graph: UAVariable 'identifier' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'identifier' @DataType is 'id', expected 'String'",
-      "output_sha256": "9df8b44564b84d8eb4936a732a9883b8f6e73a5a693b70997efdd5df8029e302",
+      "diagnostic": "expected_graph: UAVariable 'identifier' count is 0, expected 1",
+      "output_sha256": "dfb356e01158978ed857e785eb40ec10446ff7a420d0b3a86593df5a63bc6f50",
       "artifact": null
     },
     {
@@ -5447,7 +5537,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 39.30209999998624,
+      "duration_ms": 3.968246999988878,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5477,7 +5567,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.8567999997903826,
+      "duration_ms": 2.670837999971809,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5502,7 +5592,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "666f6b223d5109563c3373fc1464a3a50c187297bab94759052fc88f1d171f96",
+      "output_sha256": "4671842775b48513ab9bee563b821de59ab17074be18ac974dcfd5f8d6633f95",
       "artifact": null
     },
     {
@@ -5512,7 +5602,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 3.252299999076058,
+      "duration_ms": 3.2027140000536747,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5532,12 +5622,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'timestamp' @DataType is 'datetime', expected 'DateTime'"
+          "detail": "expected_graph: UAVariable 'timestamp' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'timestamp' @DataType is 'datetime', expected 'DateTime'",
-      "output_sha256": "b8a39d24b697cbf6e062f612d91513356be8875fb949a9d0ed221e7e7fb5ef6d",
+      "diagnostic": "expected_graph: UAVariable 'timestamp' count is 0, expected 1",
+      "output_sha256": "4cd0da9e7c7f1013e2bef5ed40316b5ffb877527efce5dc17cd45f5f5f695e2f",
       "artifact": null
     },
     {
@@ -5547,7 +5637,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 4.165899999861722,
+      "duration_ms": 3.53616500001408,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5567,12 +5657,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'timestamp' @DataType is 'datetime', expected 'DateTime'"
+          "detail": "expected_graph: UAVariable 'timestamp' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'timestamp' @DataType is 'datetime', expected 'DateTime'",
-      "output_sha256": "9df8b44564b84d8eb4936a732a9883b8f6e73a5a693b70997efdd5df8029e302",
+      "diagnostic": "expected_graph: UAVariable 'timestamp' count is 0, expected 1",
+      "output_sha256": "dfb356e01158978ed857e785eb40ec10446ff7a420d0b3a86593df5a63bc6f50",
       "artifact": null
     },
     {
@@ -5582,7 +5672,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 45.54430000098364,
+      "duration_ms": 3.918042999998761,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5612,7 +5702,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.946600001450861,
+      "duration_ms": 2.600637000000461,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5637,7 +5727,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "666f6b223d5109563c3373fc1464a3a50c187297bab94759052fc88f1d171f96",
+      "output_sha256": "4671842775b48513ab9bee563b821de59ab17074be18ac974dcfd5f8d6633f95",
       "artifact": null
     },
     {
@@ -5647,7 +5737,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 2.842799998688861,
+      "duration_ms": 3.2505429999218904,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5667,12 +5757,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'token' @DataType is 'Guid', expected 'String'"
+          "detail": "expected_graph: UAVariable 'token' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'token' @DataType is 'Guid', expected 'String'",
-      "output_sha256": "b8a39d24b697cbf6e062f612d91513356be8875fb949a9d0ed221e7e7fb5ef6d",
+      "diagnostic": "expected_graph: UAVariable 'token' count is 0, expected 1",
+      "output_sha256": "4cd0da9e7c7f1013e2bef5ed40316b5ffb877527efce5dc17cd45f5f5f695e2f",
       "artifact": null
     },
     {
@@ -5682,7 +5772,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.595300000393763,
+      "duration_ms": 3.544111999985944,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5702,12 +5792,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'token' @DataType is 'Guid', expected 'String'"
+          "detail": "expected_graph: UAVariable 'token' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'token' @DataType is 'Guid', expected 'String'",
-      "output_sha256": "9df8b44564b84d8eb4936a732a9883b8f6e73a5a693b70997efdd5df8029e302",
+      "diagnostic": "expected_graph: UAVariable 'token' count is 0, expected 1",
+      "output_sha256": "dfb356e01158978ed857e785eb40ec10446ff7a420d0b3a86593df5a63bc6f50",
       "artifact": null
     },
     {
@@ -5717,7 +5807,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 44.439799999963725,
+      "duration_ms": 4.15659999998752,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5747,7 +5837,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 3.5313000007590745,
+      "duration_ms": 3.0210410000108823,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5772,7 +5862,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "b546ce9c9062dab1301da541c980b095ebecaea1a0ab72d9e2bf10d896f97d37",
+      "output_sha256": "f57489538bca03d9b3ca88619faba23c2a9bfa34884f8f3c0f9ad5ff88850110",
       "artifact": null
     },
     {
@@ -5782,7 +5872,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 5.414200000814162,
+      "duration_ms": 3.384594999943147,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5807,7 +5897,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: NodeIds match forbidden '/': ['ConnectorLib/BaseConnector/PortConnector']",
-      "output_sha256": "6c2898a815769bb6b3df6aa71f12c48727be4ccbbe84df9163b69c4896119517",
+      "output_sha256": "450c4543ac6123051e301508156bded477cb1ad227758192bb7cbb46d4e07e03",
       "artifact": null
     },
     {
@@ -5817,7 +5907,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.53240000004007,
+      "duration_ms": 3.3891629999516226,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5842,7 +5932,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: NodeIds match forbidden '/': ['ConnectorLib/BaseConnector/PortConnector']",
-      "output_sha256": "fde72f7de9ddca5776562cbef0fd5f27fed87215c5dbf28a47072f7a19c72d55",
+      "output_sha256": "26ccb666afd71af4403527b00119f3f09e998e4cd18d0933ab6b9dcbace96ce4",
       "artifact": null
     },
     {
@@ -5852,7 +5942,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 44.72890000033658,
+      "duration_ms": 4.153160999976535,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5887,7 +5977,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 1.7172000007121824,
+      "duration_ms": 1.8027509999001268,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5917,7 +6007,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "b1171767b3e2e1779120bd132749e1da2c1624b6492514a3bc73ddd8982915d4",
+      "output_sha256": "ce7a7cbfa98917d2f7d2ae6d628cb0d66de4c162757cd35a789879b0e838eb4c",
       "artifact": null
     },
     {
@@ -5927,7 +6017,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 2.2396000003936933,
+      "duration_ms": 1.819365000073958,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5947,7 +6037,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "5dfff2d8e45cfade3e243f453905f05802565b48e863670723d6f4dcf4a3faee",
+      "output_sha256": "85a3d52cd8d5b5fde0ae607f2d4e1e04a9c8bc6750b0adc148890d6136b06576",
       "artifact": null
     },
     {
@@ -5957,7 +6047,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.5301999994553626,
+      "duration_ms": 2.0188349999443744,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -5977,7 +6067,7 @@
       ],
       "diagnostic_category": "NODESET_SEMANTICS",
       "diagnostic": "nodeset_semantics: invalid alias 'RequiredValue' 'ns=2;ns=2;i=2004'",
-      "output_sha256": "6a733e50137e86e261712c6080f5087c17b76eddd4c80105b6b62616c94975d3",
+      "output_sha256": "a903cc2a1e2f2fd7563c3dd7f7c296ad009f12468b92795456bab4890e6df9ce",
       "artifact": null
     },
     {
@@ -5987,7 +6077,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 44.287500000791624,
+      "duration_ms": 2.423549000013736,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6027,7 +6117,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.655999998751213,
+      "duration_ms": 3.121799000041392,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6052,7 +6142,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "3287b80cb7f79d7192738353b6940706e47b3b42f817a70a18bb15411a86a917",
+      "output_sha256": "b443412652e7d9f83e3e2edbb1090e1dd9d3ddb994e52e8eb197f9f82a82c2ca",
       "artifact": null
     },
     {
@@ -6062,7 +6152,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 4.136800000196672,
+      "duration_ms": 3.6084399999936068,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6087,7 +6177,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "3717f59d7e42c1d19ff7b95a3c71b50d3dfb5260f3cc2a13b423ffd27f6e3309",
+      "output_sha256": "1d19b06c19a0957254edb75efa020a1f83d3950ea36836534e631df73966819b",
       "artifact": null
     },
     {
@@ -6097,7 +6187,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 4.8765000010462245,
+      "duration_ms": 3.807227000038438,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6122,7 +6212,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "90eba1a993c80f13780f29f01472d9dc374c689d45feac679204e6da27660a75",
+      "output_sha256": "275f4a9f37a5de0d275c30d0bf927b7530be7fb43754e6012500dc21fa40049f",
       "artifact": null
     },
     {
@@ -6132,7 +6222,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "PASS",
-      "duration_ms": 40.15559999970719,
+      "duration_ms": 4.578881000043111,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6167,7 +6257,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 2.1060999988549156,
+      "duration_ms": 2.508069000100477,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6192,7 +6282,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "ee07bfc2bdc13c87e8aab0f6f2ff3fca324c11d844e6385e98f17a9c816dc85a",
+      "output_sha256": "272fe2a422ab9c7069f1db3f7e1c3e8ff46289ad940c892c820a1f72b6be14bf",
       "artifact": null
     },
     {
@@ -6202,7 +6292,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 2.469600000040373,
+      "duration_ms": 2.901098000052116,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6227,7 +6317,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: UAVariable 'DefaultValue' count is 0, expected 1",
-      "output_sha256": "4fd83255dc5faa6132eed5682e48461fcb4b33596a5b5da3afc2011e7b7f9417",
+      "output_sha256": "1124943c464edcfaea4946a733b1cd8f0041bfa715769f192fe81b66a363d1c7",
       "artifact": null
     },
     {
@@ -6237,7 +6327,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 2.2848000007797964,
+      "duration_ms": 3.1811899999638626,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6262,7 +6352,7 @@
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
       "diagnostic": "expected_graph: UAVariable 'DefaultValue' count is 0, expected 1",
-      "output_sha256": "841199afc0727ea50c5b622d51ec6c752bf46b8df6802cc7c862296929a9cbae",
+      "output_sha256": "f61a7dd9f9db46b27205d94373c644cf60ab370b347c83ade71e31665b558539",
       "artifact": null
     },
     {
@@ -6272,7 +6362,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 55.21179999959713,
+      "duration_ms": 3.450146999966819,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6302,7 +6392,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "PASS",
-      "duration_ms": 1.9379000004846603,
+      "duration_ms": 2.468330000056085,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6327,7 +6417,7 @@
       ],
       "diagnostic_category": null,
       "diagnostic": null,
-      "output_sha256": "ee07bfc2bdc13c87e8aab0f6f2ff3fca324c11d844e6385e98f17a9c816dc85a",
+      "output_sha256": "272fe2a422ab9c7069f1db3f7e1c3e8ff46289ad940c892c820a1f72b6be14bf",
       "artifact": null
     },
     {
@@ -6337,7 +6427,7 @@
       "severity": "critical",
       "scored": true,
       "outcome": "FAIL",
-      "duration_ms": 3.734699999768054,
+      "duration_ms": 2.730874999997468,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6357,12 +6447,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'state' documentation is None, expected 'Current operating state'"
+          "detail": "expected_graph: UAVariable 'state' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'state' documentation is None, expected 'Current operating state'",
-      "output_sha256": "4fd83255dc5faa6132eed5682e48461fcb4b33596a5b5da3afc2011e7b7f9417",
+      "diagnostic": "expected_graph: UAVariable 'state' count is 0, expected 1",
+      "output_sha256": "1124943c464edcfaea4946a733b1cd8f0041bfa715769f192fe81b66a363d1c7",
       "artifact": null
     },
     {
@@ -6372,7 +6462,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 3.7456000009115087,
+      "duration_ms": 3.0329439999832175,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6392,12 +6482,12 @@
         {
           "oracle": "expected_graph",
           "passed": false,
-          "detail": "expected_graph: 'state' documentation is None, expected 'Current operating state'"
+          "detail": "expected_graph: UAVariable 'state' count is 0, expected 1"
         }
       ],
       "diagnostic_category": "EXPECTED_GRAPH",
-      "diagnostic": "expected_graph: 'state' documentation is None, expected 'Current operating state'",
-      "output_sha256": "841199afc0727ea50c5b622d51ec6c752bf46b8df6802cc7c862296929a9cbae",
+      "diagnostic": "expected_graph: UAVariable 'state' count is 0, expected 1",
+      "output_sha256": "f61a7dd9f9db46b27205d94373c644cf60ab370b347c83ade71e31665b558539",
       "artifact": null
     },
     {
@@ -6407,7 +6497,7 @@
       "severity": "critical",
       "scored": false,
       "outcome": "FAIL",
-      "duration_ms": 40.60539999954926,
+      "duration_ms": 3.419970999971156,
       "evidence": [
         {
           "oracle": "secure_xml",
@@ -6441,9 +6531,9 @@
       "critical_total": 12,
       "outcomes": {
         "CANONICAL_PASS": 5,
-        "FAIL": 8,
+        "FAIL": 3,
         "INVALID_FIXTURE": 2,
-        "PASS": 30,
+        "PASS": 35,
         "UNSUPPORTED": 4
       }
     },
@@ -6468,9 +6558,9 @@
       "critical_passed": 0,
       "critical_total": 0,
       "outcomes": {
-        "FAIL": 39,
+        "FAIL": 40,
         "INVALID_FIXTURE": 2,
-        "PASS": 8
+        "PASS": 7
       }
     },
     {
@@ -6481,9 +6571,9 @@
       "critical_passed": 0,
       "critical_total": 0,
       "outcomes": {
-        "FAIL": 25,
+        "FAIL": 24,
         "INVALID_FIXTURE": 2,
-        "PASS": 17,
+        "PASS": 18,
         "UNSUPPORTED": 5
       }
     }

@@ -19,7 +19,10 @@ import psutil
 
 from automationml import CAEXFile
 from automationml.opcua import UA_NODESET_NS, nodeset_to_document
-from automationml.opcua_evaluation import ComparisonEngine, ComparisonRunner
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "evaluation"))
+
+from opcua_evaluation import ComparisonEngine, ComparisonRunner
 
 
 PUBLICATION_DATE = "2026-08-17"

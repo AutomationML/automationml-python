@@ -224,6 +224,29 @@ The harness also contains one deliberately mutated output for every row. Each
 oracle must reject its mutant. This tests the tests and prevents vacuous green
 checks.
 
+#### A note on `REG-DETERMINISM-001` and calendar coincidence
+
+This case requires the caller-selected publication date
+`2026-08-17T00:00:00Z`. The unmodified upstream stylesheet has no
+`publication-date` parameter and stamps the current timestamp, which is the
+defect the case exists to record. `XSLT-RAW` therefore fails it, correctly.
+
+`XSLT-RUNNER` applies the official upstream runner's post-processing, and that
+runner normalizes only the *time* portion of the stamp
+(`T[0-9:]+Z` becomes `T00:00:00Z`); it does not select the date. On
+2026-08-17 — the day the original evidence was frozen — the normalized stamp
+therefore equalled the required date by coincidence, and the case was recorded
+as a `PASS` for an engine that demonstrably cannot honor a caller-selected
+date. On any other day it fails, which is the accurate result and what the
+current evidence records.
+
+The required date is fixed and in the past, so the coincidence cannot recur.
+The case needs no change; it is documented here so that a future reader does
+not mistake the corrected `FAIL` for a regression, and does not re-freeze
+evidence on a day that reintroduces the false pass. `XSLT-PATCHED` passes this
+case legitimately: accepting a caller-selected publication date is one of the
+documented patches (see `evaluation/resources/xslt/PATCHES.md`).
+
 ### 7.3 Document and structural cases
 
 - `AML-DOC-001`: minimal valid CAEX 3.0 file.
