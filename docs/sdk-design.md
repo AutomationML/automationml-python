@@ -43,6 +43,22 @@ and the SDK serializes:
 }
 ```
 
+The same holds for type checkers. Model fields declare their CAEX alias inside
+`Annotated` and keep the default on the right-hand side:
+
+```python
+name: Annotated[str, Field(alias="Name")]
+attributes: Annotated[list[Attribute], Field(alias="Attribute")] = Field(
+    default_factory=list
+)
+```
+
+Type checkers name a Pydantic model's `__init__` parameters after the alias of
+the assigned `Field`, but ignore `Field` metadata inside `Annotated`. Written
+this way, editors accept `InternalElement(name=...)`, while Pydantic still
+validates and serializes the `Name` alias. A plain `= Field(alias="Name")`
+would make pyright and Pylance reject the `snake_case` name.
+
 ## XML contract
 
 XML is an adapter, not the primary model. The XML layer:

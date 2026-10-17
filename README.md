@@ -294,7 +294,9 @@ official CAEX names:
 
 All models are [Pydantic](https://docs.pydantic.dev/) models, so you can also
 build them from dictionaries that use either kind of name, and they check your
-values as you assign them.
+values as you assign them. Editors and type checkers such as VS Code (Pylance),
+pyright, and mypy understand the `snake_case` names, so you get autocompletion
+and warnings for typos or missing required fields.
 
 ## What else can it do?
 

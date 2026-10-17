@@ -25,6 +25,13 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Editors and type checkers now accept the documented `snake_case`
+  constructor arguments, such as `InternalElement(name="Motor")`. The CAEX
+  aliases moved into `Annotated[...]` field metadata, which pyright and
+  Pylance ignore when naming `__init__` parameters. Previously pyright
+  reported every such argument as unknown and the alias as missing. Runtime
+  behavior, field metadata, AML JSON/XML output, and the generated JSON Schema
+  are unchanged.
 - The README is now a beginner-oriented introduction: what AutomationML is, the
   core CAEX concepts, installation including extras, and a step-by-step
   tutorial whose every snippet runs on the base install. The OPC UA usage,
