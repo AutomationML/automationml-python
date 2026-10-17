@@ -25,5 +25,24 @@ class LegacyConversionError(ValueError, AutomationMLError):
     """Raised when CAEX 2.15 cannot be upgraded without data loss."""
 
 
+class AMLParseError(LegacyConversionError):
+    """Raised when AML XML is not a readable CAEX 2.15 or CAEX 3.0 document.
+
+    It subclasses ``LegacyConversionError``, which earlier versions raised for
+    the same input, so existing handlers keep working.
+    """
+
+
+class MissingDependencyError(ModuleNotFoundError, AutomationMLError):
+    """Raised when an optional feature is used without its extra installed."""
+
+    def __init__(self, feature: str, module: str, extra: str) -> None:
+        super().__init__(
+            f"{feature} needs the optional dependency {module!r}. Install it with: "
+            f'python -m pip install "automationml[{extra}]"',
+            name=module,
+        )
+
+
 class ChangeSetError(ValueError, AutomationMLError):
     """Raised when a document change set is invalid or targets the wrong base."""

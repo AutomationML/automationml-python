@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Iterable, Mapping
 
+from ._version import __version__
 from .models import (
     Attribute,
     AttributeType,
@@ -31,7 +32,7 @@ def source_document(
     *,
     origin_name: str = "AutomationML Python SDK",
     origin_id: str = "automationml-python",
-    origin_version: str = "0.1.0",
+    origin_version: str = __version__,
     last_writing_date_time: datetime | None = None,
 ) -> SourceDocumentInformation:
     """Create CAEX source document metadata."""

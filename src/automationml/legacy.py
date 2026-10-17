@@ -14,7 +14,7 @@ from xml.etree import ElementTree as ET
 
 import xmlschema
 
-from .exceptions import LegacyConversionError, LegacyConversionWarning
+from .exceptions import AMLParseError, LegacyConversionError, LegacyConversionWarning
 from .models import CAEXFile, InternalElement, RoleRequirements, SourceDocumentInformation
 
 CAEX_NS = "http://www.dke.de/CAEX"
@@ -50,9 +50,9 @@ def import_aml_xml(
     try:
         root = parse_xml_element(raw)
     except (ET.ParseError, ValueError) as exc:
-        raise LegacyConversionError(f"Invalid AML XML: {exc}") from exc
+        raise AMLParseError(f"Invalid AML XML: {exc}") from exc
     if _local(root.tag) != "CAEXFile":
-        raise LegacyConversionError(f"Expected CAEXFile root, got {_local(root.tag)!r}")
+        raise AMLParseError(f"Expected CAEXFile root, got {_local(root.tag)!r}")
 
     version = root.get("SchemaVersion", "")
     namespace = _namespace(root.tag)
@@ -65,7 +65,7 @@ def import_aml_xml(
             converted=False,
         )
     if version != "2.15":
-        raise LegacyConversionError(
+        raise AMLParseError(
             f"Unsupported CAEX schema version {version!r}; expected 2.15 or 3.0"
         )
 

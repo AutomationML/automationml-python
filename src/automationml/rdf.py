@@ -32,10 +32,16 @@ from typing import Literal
 from urllib.parse import quote
 
 from pydantic import BaseModel, ConfigDict, JsonValue, computed_field
-from rdflib import OWL, RDF, RDFS, XSD, Graph
-from rdflib import Literal as RDFLiteral
-from rdflib import Namespace, URIRef
-from rdflib.collection import Collection
+
+from .exceptions import MissingDependencyError
+
+try:
+    from rdflib import OWL, RDF, RDFS, XSD, Graph
+    from rdflib import Literal as RDFLiteral
+    from rdflib import Namespace, URIRef
+    from rdflib.collection import Collection
+except ModuleNotFoundError as error:
+    raise MissingDependencyError("RDF/Turtle conversion", "rdflib", "rdf") from error
 
 from .builders import (
     attribute as build_attribute,

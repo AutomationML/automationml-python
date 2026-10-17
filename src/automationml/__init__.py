@@ -1,5 +1,6 @@
 """AutomationML CAEX 3.0 JSON-first SDK."""
 
+from ._version import __version__
 from .builders import (
     attribute,
     attribute_type,
@@ -59,10 +60,14 @@ from .models import (
 )
 from .changes import ChangeOperation, ChangeSet, DocumentEdit, EditResult, diff_documents
 from .exceptions import (
+    AMLParseError,
     AmbiguousReferenceError,
+    AutomationMLError,
+    CAEXValidationError,
     ChangeSetError,
     LegacyConversionError,
     LegacyConversionWarning,
+    MissingDependencyError,
     ReferenceNotFoundError,
 )
 from .legacy import AMLImportResult, MigrationIssue
@@ -86,19 +91,23 @@ from .resolver import (
 from .validation import CAEXIssue, ReferenceIndex, ReferenceTarget, validate_caex_document
 
 __all__ = [
+    "__version__",
     "AdditionalInformation",
     "AMLImportResult",
+    "AMLParseError",
     "AmbiguousReferenceError",
     "Attribute",
     "AttributeNameMapping",
     "AttributeType",
     "AttributeTypeLib",
     "AttributeValueRequirement",
+    "AutomationMLError",
     "CAEXBasicObject",
     "CAEXFile",
     "CAEXIssue",
     "CAEXObject",
     "CAEXQuery",
+    "CAEXValidationError",
     "ChangeOperation",
     "ChangeSet",
     "ChangeSetError",
@@ -120,6 +129,7 @@ __all__ = [
     "MergePolicy",
     "MergeResult",
     "MigrationIssue",
+    "MissingDependencyError",
     "NominalScaledType",
     "OrdinalScaledType",
     "ReferenceIndex",

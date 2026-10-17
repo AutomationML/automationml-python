@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "automationml"
-version = "0.1.0a1"
+dynamic = ["version"]
 description = "JSON-first Python SDK for AutomationML CAEX 3.0 documents."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -74,6 +74,9 @@ Source = "https://github.com/AutomationML/automationml-python"
 Documentation = "https://github.com/AutomationML/automationml-python/tree/main/docs"
 Issues = "https://github.com/AutomationML/automationml-python/issues"
 Changelog = "https://github.com/AutomationML/automationml-python/blob/main/CHANGELOG.md"
+
+[tool.hatch.version]
+path = "src/automationml/_version.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/automationml"]

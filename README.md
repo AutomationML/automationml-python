@@ -109,6 +109,9 @@ brackets, for example `python -m pip install -e ".[opcua,rdf]"`:
 | `learning` | Jupyter, for the [learning notebooks](learning/) |
 | `dev` | Everything needed to run the test suite |
 
+If you use a feature without its extra, the SDK raises a
+`MissingDependencyError` that names the command to install it.
+
 ## Tutorial: your first plant model
 
 This walkthrough uses only the base installation. Run the snippets in order in
@@ -148,7 +151,7 @@ The printed AML JSON uses the official AutomationML names:
     {
       "OriginName": "AutomationML Python SDK",
       "OriginID": "automationml-python",
-      "OriginVersion": "0.1.0",
+      "OriginVersion": "0.1.0a1",
       "LastWritingDateTime": "2026-10-17T12:00:00Z"
     }
   ],

@@ -22,8 +22,14 @@ from typing import Self
 from uuid import NAMESPACE_URL, uuid5
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
-from rdflib import XSD
-from rdflib.term import URIRef
+
+from .exceptions import MissingDependencyError
+
+try:
+    from rdflib import XSD
+    from rdflib.term import URIRef
+except ModuleNotFoundError as error:
+    raise MissingDependencyError("RDF/Turtle conversion", "rdflib", "rdf") from error
 
 
 class RDFMappingUnsupported(ValueError):
