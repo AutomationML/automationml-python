@@ -65,6 +65,12 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- Builders for all four class-library kinds: `system_unit_class`,
+  `system_unit_class_lib`, `role_class`, `role_class_lib`, `interface_class`,
+  `interface_class_lib`, `attribute_type`, and `attribute_type_lib`. They
+  return the hierarchical `*Family` models that libraries hold, so authors no
+  longer need to know that a library rejects a plain `SystemUnitClass` or
+  `RoleClass`.
 - Extension-safe, namespace-aware mixed XML content in `AdditionalInformation`
   with a documented AML JSON `$xml` representation and generated schema.
 - Immutable `CAEXQuery` snapshots with ID/path lookup, reverse references,

@@ -216,19 +216,17 @@ error unresolved-system-unit-class-reference
 
 ### 4. Fix it with a class library
 
-Add the missing library with a `Motor` template. Libraries hold
-`SystemUnitFamily` entries, which are SystemUnitClasses that may contain
-sub-classes:
+Add the missing library with a `Motor` template:
 
 ```python
-from automationml import SystemUnitClassLib, SystemUnitFamily
+from automationml import system_unit_class, system_unit_class_lib
 
 doc.system_unit_class_libs.append(
-    SystemUnitClassLib(
-        name="MyComponents",
-        system_unit_classes=[
-            SystemUnitFamily(
-                name="Motor",
+    system_unit_class_lib(
+        "MyComponents",
+        classes=[
+            system_unit_class(
+                "Motor",
                 attributes=[attribute("speed", unit="rpm", data_type="xs:double")],
             )
         ],
@@ -237,6 +235,9 @@ doc.system_unit_class_libs.append(
 
 assert doc.caex_validation_issues() == []  # the reference resolves now
 ```
+
+`role_class_lib`, `interface_class_lib`, and `attribute_type_lib` build the
+other three kinds of library in the same way.
 
 ### 5. Create objects from the template
 
