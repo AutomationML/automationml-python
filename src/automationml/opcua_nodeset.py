@@ -14,7 +14,6 @@ from datetime import date, datetime
 from typing import TYPE_CHECKING, Literal, Self
 from urllib.parse import urlparse
 
-from lxml import etree
 from pydantic import (
     BaseModel,
     ConfigDict,
@@ -25,6 +24,13 @@ from pydantic import (
     field_validator,
     model_validator,
 )
+
+from .exceptions import MissingDependencyError
+
+try:
+    from lxml import etree
+except ModuleNotFoundError as error:
+    raise MissingDependencyError("OPC UA conversion", "lxml", "opcua") from error
 
 if TYPE_CHECKING:
     from .models import CAEXFile

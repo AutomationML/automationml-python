@@ -18,8 +18,14 @@ from hmac import compare_digest
 from pathlib import Path
 from typing import Literal
 
-from lxml import etree
 from pydantic import BaseModel, ConfigDict, JsonValue, computed_field
+
+from .exceptions import MissingDependencyError
+
+try:
+    from lxml import etree
+except ModuleNotFoundError as error:
+    raise MissingDependencyError("OPC UA conversion", "lxml", "opcua") from error
 
 from .models import CAEXFile
 from .opcua_mapping import (

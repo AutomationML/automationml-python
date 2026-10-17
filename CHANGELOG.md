@@ -25,6 +25,13 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- Editors and type checkers now accept the documented `snake_case`
+  constructor arguments, such as `InternalElement(name="Motor")`. The CAEX
+  aliases moved into `Annotated[...]` field metadata, which pyright and
+  Pylance ignore when naming `__init__` parameters. Previously pyright
+  reported every such argument as unknown and the alias as missing. Runtime
+  behavior, field metadata, AML JSON/XML output, and the generated JSON Schema
+  are unchanged.
 - The README is now a beginner-oriented introduction: what AutomationML is, the
   core CAEX concepts, installation including extras, and a step-by-step
   tutorial whose every snippet runs on the base install. The OPC UA usage,
@@ -58,6 +65,25 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Added
 
+- `automationml.__version__`, defined once in `automationml/_version.py`,
+  which the build also reads. `source_document()` and `caex_file()` now record
+  it as `OriginVersion` instead of a hard-coded `0.1.0`.
+- `MissingDependencyError`, a `ModuleNotFoundError` subclass raised when OPC
+  UA or RDF conversion is used without its extra. Its message names the
+  `pip install "automationml[...]"` command, replacing a bare
+  `No module named 'lxml'`.
+- `AMLParseError` for AML XML that is not a readable CAEX 2.15 or 3.0
+  document: malformed XML, a non-`CAEXFile` root, or an unsupported schema
+  version. It subclasses `LegacyConversionError`, which was raised before, so
+  existing handlers keep working.
+- `AutomationMLError` and `CAEXValidationError` are now importable from the
+  top-level package.
+- Builders for all four class-library kinds: `system_unit_class`,
+  `system_unit_class_lib`, `role_class`, `role_class_lib`, `interface_class`,
+  `interface_class_lib`, `attribute_type`, and `attribute_type_lib`. They
+  return the hierarchical `*Family` models that libraries hold, so authors no
+  longer need to know that a library rejects a plain `SystemUnitClass` or
+  `RoleClass`.
 - Extension-safe, namespace-aware mixed XML content in `AdditionalInformation`
   with a documented AML JSON `$xml` representation and generated schema.
 - Immutable `CAEXQuery` snapshots with ID/path lookup, reverse references,

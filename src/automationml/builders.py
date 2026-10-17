@@ -5,22 +5,34 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from typing import Iterable, Mapping
 
+from ._version import __version__
 from .models import (
     Attribute,
+    AttributeType,
+    AttributeTypeLib,
     CAEXFile,
     InstanceHierarchy,
     InterfaceClass,
+    InterfaceClassLib,
+    InterfaceFamily,
     InternalElement,
+    RoleClassLib,
+    RoleFamily,
     RoleRequirements,
     SourceDocumentInformation,
+    SupportedRoleClass,
+    SystemUnitClassLib,
+    SystemUnitFamily,
 )
+
+AttributeInput = Mapping[str, str | int | float | bool] | Iterable[Attribute] | None
 
 
 def source_document(
     *,
     origin_name: str = "AutomationML Python SDK",
     origin_id: str = "automationml-python",
-    origin_version: str = "0.1.0",
+    origin_version: str = __version__,
     last_writing_date_time: datetime | None = None,
 ) -> SourceDocumentInformation:
     """Create CAEX source document metadata."""
@@ -90,36 +102,183 @@ def role_requirement(ref_base_role_class_path: str) -> RoleRequirements:
     return RoleRequirements(ref_base_role_class_path=ref_base_role_class_path)
 
 
+def _attribute_list(attributes: AttributeInput) -> list[Attribute]:
+    if attributes is None:
+        return []
+    if isinstance(attributes, Mapping):
+        return [attribute(key, value) for key, value in attributes.items()]
+    return list(attributes)
+
+
 def internal_element(
     name: str,
     *,
     id: str | None = None,
     ref_base_system_unit_path: str | None = None,
-    attributes: Mapping[str, str | int | float | bool] | Iterable[Attribute] | None = None,
+    attributes: AttributeInput = None,
     role_paths: Iterable[str] | None = None,
     children: Iterable[InternalElement] | None = None,
     external_interfaces: Iterable[InterfaceClass] | None = None,
 ) -> InternalElement:
     """Create an InternalElement with common nested collections."""
 
-    attr_list: list[Attribute]
-    if attributes is None:
-        attr_list = []
-    elif isinstance(attributes, Mapping):
-        attr_list = [attribute(key, value) for key, value in attributes.items()]
-    else:
-        attr_list = list(attributes)
-
     return InternalElement(
         id=id,
         name=name,
         ref_base_system_unit_path=ref_base_system_unit_path,
-        attributes=attr_list,
+        attributes=_attribute_list(attributes),
         role_requirements=[
             role_requirement(role_path) for role_path in (role_paths or [])
         ],
         internal_elements=list(children or []),
         external_interfaces=list(external_interfaces or []),
+    )
+
+
+def system_unit_class(
+    name: str,
+    *,
+    id: str | None = None,
+    ref_base_class_path: str | None = None,
+    attributes: AttributeInput = None,
+    role_paths: Iterable[str] | None = None,
+    children: Iterable[InternalElement] | None = None,
+    external_interfaces: Iterable[InterfaceClass] | None = None,
+    classes: Iterable[SystemUnitFamily] | None = None,
+) -> SystemUnitFamily:
+    """Create a SystemUnitClass, a reusable template for InternalElements.
+
+    ``ref_base_class_path`` names a class to inherit from, ``role_paths``
+    lists the RoleClasses the class supports, ``children`` holds its nested
+    InternalElements, and ``classes`` nests further SystemUnitClasses below
+    it in the library tree.
+    """
+
+    return SystemUnitFamily(
+        id=id,
+        name=name,
+        ref_base_class_path=ref_base_class_path,
+        attributes=_attribute_list(attributes),
+        supported_role_classes=[
+            SupportedRoleClass(ref_role_class_path=role_path)
+            for role_path in (role_paths or [])
+        ],
+        internal_elements=list(children or []),
+        external_interfaces=list(external_interfaces or []),
+        system_unit_classes=list(classes or []),
+    )
+
+
+def system_unit_class_lib(
+    name: str,
+    *,
+    classes: Iterable[SystemUnitFamily] | None = None,
+    id: str | None = None,
+) -> SystemUnitClassLib:
+    """Create a SystemUnitClassLib holding SystemUnitClasses."""
+
+    return SystemUnitClassLib(id=id, name=name, system_unit_classes=list(classes or []))
+
+
+def role_class(
+    name: str,
+    *,
+    id: str | None = None,
+    ref_base_class_path: str | None = None,
+    attributes: AttributeInput = None,
+    external_interfaces: Iterable[InterfaceClass] | None = None,
+    classes: Iterable[RoleFamily] | None = None,
+) -> RoleFamily:
+    """Create a RoleClass, a vendor-neutral description of what an object is.
+
+    ``classes`` nests further RoleClasses below it in the library tree.
+    """
+
+    return RoleFamily(
+        id=id,
+        name=name,
+        ref_base_class_path=ref_base_class_path,
+        attributes=_attribute_list(attributes),
+        external_interfaces=list(external_interfaces or []),
+        role_classes=list(classes or []),
+    )
+
+
+def role_class_lib(
+    name: str,
+    *,
+    classes: Iterable[RoleFamily] | None = None,
+    id: str | None = None,
+) -> RoleClassLib:
+    """Create a RoleClassLib holding RoleClasses."""
+
+    return RoleClassLib(id=id, name=name, role_classes=list(classes or []))
+
+
+def interface_class(
+    name: str,
+    *,
+    id: str | None = None,
+    ref_base_class_path: str | None = None,
+    attributes: AttributeInput = None,
+    classes: Iterable[InterfaceFamily] | None = None,
+) -> InterfaceFamily:
+    """Create an InterfaceClass, a reusable type for ExternalInterfaces.
+
+    ``classes`` nests further InterfaceClasses below it in the library tree.
+    """
+
+    return InterfaceFamily(
+        id=id,
+        name=name,
+        ref_base_class_path=ref_base_class_path,
+        attributes=_attribute_list(attributes),
+        interface_classes=list(classes or []),
+    )
+
+
+def interface_class_lib(
+    name: str,
+    *,
+    classes: Iterable[InterfaceFamily] | None = None,
+    id: str | None = None,
+) -> InterfaceClassLib:
+    """Create an InterfaceClassLib holding InterfaceClasses."""
+
+    return InterfaceClassLib(id=id, name=name, interface_classes=list(classes or []))
+
+
+def attribute_type(
+    name: str,
+    value: str | int | float | bool | None = None,
+    *,
+    data_type: str | None = None,
+    unit: str | None = None,
+    id: str | None = None,
+) -> AttributeType:
+    """Create an AttributeType, a reusable attribute definition."""
+
+    return AttributeType(
+        id=id,
+        name=name,
+        value=None if value is None else str(value),
+        attribute_data_type=data_type,
+        unit=unit,
+    )
+
+
+def attribute_type_lib(
+    name: str,
+    *,
+    attribute_types: Iterable[AttributeType] | None = None,
+    id: str | None = None,
+) -> AttributeTypeLib:
+    """Create an AttributeTypeLib holding AttributeTypes."""
+
+    return AttributeTypeLib(
+        id=id,
+        name=name,
+        attribute_types=list(attribute_types or []),
     )
 
 

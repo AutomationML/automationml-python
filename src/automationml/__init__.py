@@ -1,13 +1,22 @@
 """AutomationML CAEX 3.0 JSON-first SDK."""
 
+from ._version import __version__
 from .builders import (
     attribute,
+    attribute_type,
+    attribute_type_lib,
     caex_file,
     external_interface,
     instance_hierarchy,
+    interface_class,
+    interface_class_lib,
     internal_element,
+    role_class,
+    role_class_lib,
     role_requirement,
     source_document,
+    system_unit_class,
+    system_unit_class_lib,
 )
 from .io import dump_json, dump_xml, load_json, load_xml
 from .models import (
@@ -51,10 +60,14 @@ from .models import (
 )
 from .changes import ChangeOperation, ChangeSet, DocumentEdit, EditResult, diff_documents
 from .exceptions import (
+    AMLParseError,
     AmbiguousReferenceError,
+    AutomationMLError,
+    CAEXValidationError,
     ChangeSetError,
     LegacyConversionError,
     LegacyConversionWarning,
+    MissingDependencyError,
     ReferenceNotFoundError,
 )
 from .legacy import AMLImportResult, MigrationIssue
@@ -78,19 +91,23 @@ from .resolver import (
 from .validation import CAEXIssue, ReferenceIndex, ReferenceTarget, validate_caex_document
 
 __all__ = [
+    "__version__",
     "AdditionalInformation",
     "AMLImportResult",
+    "AMLParseError",
     "AmbiguousReferenceError",
     "Attribute",
     "AttributeNameMapping",
     "AttributeType",
     "AttributeTypeLib",
     "AttributeValueRequirement",
+    "AutomationMLError",
     "CAEXBasicObject",
     "CAEXFile",
     "CAEXIssue",
     "CAEXObject",
     "CAEXQuery",
+    "CAEXValidationError",
     "ChangeOperation",
     "ChangeSet",
     "ChangeSetError",
@@ -112,6 +129,7 @@ __all__ = [
     "MergePolicy",
     "MergeResult",
     "MigrationIssue",
+    "MissingDependencyError",
     "NominalScaledType",
     "OrdinalScaledType",
     "ReferenceIndex",
@@ -135,18 +153,26 @@ __all__ = [
     "XmlExtensionNode",
     "XmlExtensionPayload",
     "attribute",
+    "attribute_type",
+    "attribute_type_lib",
     "caex_file",
     "dump_json",
     "dump_xml",
     "diff_documents",
     "external_interface",
     "instance_hierarchy",
+    "interface_class",
+    "interface_class_lib",
     "internal_element",
     "load_json",
     "load_xml",
     "merge_documents",
+    "role_class",
+    "role_class_lib",
     "role_requirement",
     "source_document",
+    "system_unit_class",
+    "system_unit_class_lib",
     "resolve_and_merge",
     "resolve_external_references",
     "validate_caex_document",

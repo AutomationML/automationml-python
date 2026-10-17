@@ -109,6 +109,9 @@ brackets, for example `python -m pip install -e ".[opcua,rdf]"`:
 | `learning` | Jupyter, for the [learning notebooks](learning/) |
 | `dev` | Everything needed to run the test suite |
 
+If you use a feature without its extra, the SDK raises a
+`MissingDependencyError` that names the command to install it.
+
 ## Tutorial: your first plant model
 
 This walkthrough uses only the base installation. Run the snippets in order in
@@ -148,7 +151,7 @@ The printed AML JSON uses the official AutomationML names:
     {
       "OriginName": "AutomationML Python SDK",
       "OriginID": "automationml-python",
-      "OriginVersion": "0.1.0",
+      "OriginVersion": "0.1.0a1",
       "LastWritingDateTime": "2026-10-17T12:00:00Z"
     }
   ],
@@ -216,19 +219,17 @@ error unresolved-system-unit-class-reference
 
 ### 4. Fix it with a class library
 
-Add the missing library with a `Motor` template. Libraries hold
-`SystemUnitFamily` entries, which are SystemUnitClasses that may contain
-sub-classes:
+Add the missing library with a `Motor` template:
 
 ```python
-from automationml import SystemUnitClassLib, SystemUnitFamily
+from automationml import system_unit_class, system_unit_class_lib
 
 doc.system_unit_class_libs.append(
-    SystemUnitClassLib(
-        name="MyComponents",
-        system_unit_classes=[
-            SystemUnitFamily(
-                name="Motor",
+    system_unit_class_lib(
+        "MyComponents",
+        classes=[
+            system_unit_class(
+                "Motor",
                 attributes=[attribute("speed", unit="rpm", data_type="xs:double")],
             )
         ],
@@ -237,6 +238,9 @@ doc.system_unit_class_libs.append(
 
 assert doc.caex_validation_issues() == []  # the reference resolves now
 ```
+
+`role_class_lib`, `interface_class_lib`, and `attribute_type_lib` build the
+other three kinds of library in the same way.
 
 ### 5. Create objects from the template
 
@@ -294,7 +298,9 @@ official CAEX names:
 
 All models are [Pydantic](https://docs.pydantic.dev/) models, so you can also
 build them from dictionaries that use either kind of name, and they check your
-values as you assign them.
+values as you assign them. Editors and type checkers such as VS Code (Pylance),
+pyright, and mypy understand the `snake_case` names, so you get autocompletion
+and warnings for typos or missing required fields.
 
 ## What else can it do?
 
