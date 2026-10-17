@@ -20,5 +20,5 @@ harness verifies the following executable-source hashes before running:
 | `Nodeset2AML_V2.xslt` | `492392dcb40894a6c81c49873d4847ca3ec12503621535c2f90726829a7f244a` |
 | `License.txt` | `5e7dcaed9c919e408039d268a1835dc6758545bd9f96269112917864712f69c0` |
 
-Do not patch these files. Corrected comparison stylesheets live under the SDK
-package resources and are identified separately as `XSLT-PATCHED`.
+Do not patch these files. Corrected comparison stylesheets live under
+`evaluation/resources/xslt/` and are identified separately as `XSLT-PATCHED`.

@@ -1,0 +1,6 @@
+# Vendored third-party files are pinned by SHA-256 (see the VENDOR.md files)
+# and must stay byte-identical to upstream on every platform. Without this,
+# core.autocrlf on Windows rewrites LF files to CRLF at checkout and the hash
+# checks fail.
+tests/vendor/** -text
+src/automationml/resources/** -text

@@ -322,6 +322,19 @@ def test_official_legacy_fixtures_upgrade_to_xsd_valid_caex3(fixture_name):
     schema.validate(result.document.to_aml_xml(pretty=False))
 
 
+def test_packaged_legacy_schema_is_byte_identical_to_vendored_upstream():
+    repository = Path(__file__).parents[1]
+    packaged = (
+        repository / "src/automationml/resources/caex/CAEX_ClassModel_V2.15.xsd"
+    )
+    upstream = (
+        repository
+        / "tests/vendor/aml-ua-xslt-e38653c/UnitTests/AML/CAEX_ClassModel_V2.15.xsd"
+    )
+
+    assert packaged.read_bytes() == upstream.read_bytes()
+
+
 def test_changes_apply_inverse_and_transaction_rollback():
     original = _class_document()
     edit = original.edit()
