@@ -2,195 +2,154 @@
 
 [![CI](https://github.com/AutomationML/automationml-python/actions/workflows/ci.yml/badge.svg)](https://github.com/AutomationML/automationml-python/actions/workflows/ci.yml)
 
-A JSON-first Python SDK for creating, reading, validating, and converting
-AutomationML CAEX 3.0 documents.
-
-The SDK is based on the CAEX 3.0 XSD shape, but its primary developer experience
-is Pydantic and AML JSON: readable Python attributes in code, canonical
-AutomationML names in serialized JSON, and XML when an existing AML toolchain
-requires `.aml` output.
-
-> **Project status:** Alpha. The core model, JSON/XML round trips, schema
-> generation, and semantic validation are usable, but the public API may still
-> change before the first stable release.
-
-## Requirements
-
-- Python 3.11 or newer
-- Pydantic 2
-
-## Installation
-
-Install the current development version from a local checkout:
-
-```bash
-python -m pip install -e .
-```
-
-Install development and validation dependencies:
-
-```bash
-python -m pip install -e ".[dev]"
-```
-
-Once the first package release is available, the intended installation command
-will be:
-
-```bash
-python -m pip install automationml
-```
-
-Install the optional OPC UA conversion runtime when UANodeSet export is needed:
-
-```bash
-python -m pip install "automationml[opcua]"
-```
-
-```python
-from automationml import CAEXFile
-
-document = CAEXFile.from_aml_xml(aml_xml)
-nodeset = document.to_opcua_nodeset()
-nodeset_xml = document.to_opcua_nodeset_xml()
-archival_nodeset = document.to_opcua_nodeset_xml(include_roundtrip=True)
-
-# Source-preserving only for exports that explicitly embed an AML payload.
-archival_recovery = CAEXFile.from_opcua_nodeset_xml(archival_nodeset)
-
-# The normal NodeSet uses the Python semantic reverse profile.
-semantic = CAEXFile.from_opcua_nodeset_xml(nodeset_xml)
-
-# The semantic path can also be selected explicitly for an app export.
-semantic = CAEXFile.from_opcua_nodeset_xml(
-    nodeset_xml,
-    prefer_embedded_source=False,
-)
-
-# Exercise and inspect both directions without source embedding.
-roundtrip = document.round_trip_opcua(publication_date="2026-08-17")
-recovered = roundtrip.assert_equivalent()
-
-# The lifecycle may start from an OPC-UA-authored graph as well.
-opcua_roundtrip = nodeset.round_trip_automationml(
-    publication_date="2026-08-17"
-)
-canonical_nodeset = opcua_roundtrip.assert_equivalent()
-```
-
-The default forward mapper builds a typed Pydantic OPC UA graph and validates
-the serialized UANodeSet without output repair. The strict profile covers file
-metadata, instance trees, attributes and datatypes, all four class-library
-kinds, inheritance/type relations, contextual roles and MappingObjects,
-interfaces, directed InternalLinks, constraints, mirrors, facets, and real OPC
-UA Part 19 dictionary-entry Objects. Unsupported or ambiguous features fail
-explicitly. The pinned, patched AutomationML/OPC Foundation XSLT is retained as
-a development comparison engine in `evaluation/`, not as SDK API: it scores
-1/121 against the Python mapper's 121/121, so it is evidence rather than a
-conversion path anyone should ship. The SDK reads NodeSets produced by that
-stylesheet like any other supported graph. The
-Python semantic reverse maps supported OPC UA graphs to canonical AML without
-requiring an embedded source payload. This is a versioned AutomationML mapping
-profile, not a claim to convert arbitrary third-party NodeSets.
-
-The OPC UA authoring layer uses immutable Pydantic value objects and an explicit
-mutable `UANodeSetBuilder`. `UANodeSet.from_xml()` and `to_xml()` allow the
-supported graph to be inspected independently of either mapper. Forward and
-reverse conversion share validated datatype and contextual role-reference
-rules, including their documented canonical inverses. This prevents the two
-directions from silently growing separate lookup tables.
-
-The versioned [mapper comparison test plan](docs/opcua-mapper-comparison-test-plan.md)
-defines the independent oracles, 120-case minimum corpus, OPC-UA-origin cases,
-and publication gates used to compare the Python profile with the unmodified
-working-group XSLT. The companion
-[strict-implicit mapping profile](docs/opcua-strict-implicit-mapping.md)
-documents every induced and canonical reverse choice.
-
-The frozen release corpus declares 145 cases, of which 121 are scored. The
-current evidence is `PY-STRICT` 121/121 versus unmodified `XSLT-RAW` 1/121,
-with 30/30 versus 1/30 critical cases. Inspect the
-[release manifest](tests/opcua-comparison/release-manifest.json),
-[complete result matrix](docs/reports/opcua-release-comparison/report.md),
-[scale report](docs/reports/opcua-scale/report.md), and
-[expert-review checklist](docs/opcua-mapping-review-checklist.md).
-Regenerate the release JSON, JUnit, and Markdown evidence with:
-
-```bash
-python tools/compare_opcua_mappers.py \
-  --manifest tests/opcua-comparison/release-manifest.json \
-  --output-dir build/opcua-release
-
-python tools/benchmark_opcua_scale.py \
-  --repeats 1 \
-  --output-dir build/opcua-scale
-```
-
-Both roundtrip results expose `differences` as frozen Pydantic records. Each
-record has an RFC 6901-style JSON Pointer such as
-`/InstanceHierarchy/0/InternalElement/0/Attribute/0/Value`, a change kind, and
-the source/recovered values. `semantically_equivalent` is computed from this
-evidence rather than stored as an independently writable Boolean.
-
-```python
-from automationml.opcua_nodeset import UANodeSet
-
-graph = UANodeSet.from_xml(nodeset_xml)
-# Equivalent Python-first path, without an XML serialization step:
-graph = document.to_opcua_nodeset()
-file_node = graph.node("ns=1;s=CAEXFile")
-properties = graph.outgoing(file_node.node_id, "HasProperty")
-```
-
-## Design stance
-
-- Python API: `snake_case` fields and small builder helpers.
-- JSON serialization: canonical CAEX names such as `InstanceHierarchy`,
-  `InternalElement`, `RefBaseSystemUnitPath`, and `SchemaVersion`.
-- XML serialization: explicit adapter, namespace-aware, ordered according to the
-  CAEX object model.
-- Semantic validation: structured issues for unresolved class paths, duplicate
-  IDs, attribute type references, role links, interface references, and internal
-  link partners.
-- XSD conformance: practical by default so existing JSON examples load, with
-  stricter checks available through `assert_caex_valid(strict_xsd=True)`.
-
-## Quick start
+Create, read, check, and convert [AutomationML](https://www.automationml.org/)
+files from Python.
 
 ```python
 from automationml import attribute, caex_file, instance_hierarchy, internal_element
 
 doc = caex_file("plant.aml")
+motor = internal_element("Motor-1", attributes=[attribute("speed", 1500, unit="rpm")])
+doc.instance_hierarchies.append(instance_hierarchy("Plant", internal_elements=[motor]))
+
+doc.to_aml_json()  # AML JSON, for web apps and scripts
+doc.to_aml_xml()   # CAEX XML, for AutomationML tools such as the AutomationML Editor
+```
+
+> **Project status: alpha.** The core model, JSON/XML conversion, and
+> validation work and are tested, but the Python API may still change before
+> the first stable release.
+
+## Contents
+
+- [What is AutomationML?](#what-is-automationml)
+- [Installation](#installation)
+- [Tutorial: your first plant model](#tutorial-your-first-plant-model)
+- [Validation](#validation)
+- [Python names and file names](#python-names-and-file-names)
+- [What else can it do?](#what-else-can-it-do)
+- [Learn more](#learn-more)
+- [Development](#development)
+
+## What is AutomationML?
+
+AutomationML (IEC 62714) is an open, XML-based format for exchanging
+engineering data between the tools used to plan a production plant:
+mechanical design, electrical design, PLC programming, simulation, and so on.
+Instead of re-typing the same motor in five tools, each tool reads and writes
+one shared AutomationML file.
+
+An AutomationML file (`.aml`) is a *CAEX* document (IEC 62424). It has two
+halves: the **plant you are describing**, and **libraries of reusable
+definitions** that the plant refers to.
+
+```text
+plant.aml                        CAEXFile             the whole document
+├── Plant                        InstanceHierarchy    the real plant, as a tree
+│   └── Motor-1                  InternalElement      one object in the plant
+│       ├── speed = 1500 rpm     Attribute            a property of the object
+│       └── Power                ExternalInterface    a connection point
+└── MyComponents                 SystemUnitClassLib   a library of templates
+    └── Motor                    SystemUnitClass      "what a motor looks like"
+```
+
+The main building blocks:
+
+| Term | What it means |
+| --- | --- |
+| **InstanceHierarchy** | The plant itself: a tree of objects such as lines, cells, robots, and motors. |
+| **InternalElement** | One object in that tree. It can contain other InternalElements. |
+| **Attribute** | A named property of an object, with an optional unit and data type, such as `speed = 1500 rpm`. |
+| **ExternalInterface** | A connection point on an object, such as a power port or a signal. |
+| **InternalLink** | Connects two interfaces, such as a cable from a power supply to a motor. |
+| **SystemUnitClass** | A reusable template for objects ("a Motor has a speed and a power port"). Objects point to it with `RefBaseSystemUnitPath`. |
+| **RoleClass** | A vendor-neutral description of what an object *is* ("this is a drive"). Objects declare it with `RoleRequirements`. |
+| **InterfaceClass**, **AttributeType** | Reusable definitions for interfaces and attributes. |
+
+Libraries and classes are referenced by path, such as `MyComponents/Motor`.
+
+This SDK lets you work with all of that as ordinary Python objects. It saves to
+**AML XML**, the standard `.aml` format every AutomationML tool understands,
+and to **AML JSON**, a JSON form with the same structure that is easier to use
+from web applications and scripts.
+
+## Installation
+
+You need Python 3.11 or newer. A
+[virtual environment](https://docs.python.org/3/library/venv.html) is
+recommended:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+```
+
+The package is not on PyPI yet. Install the latest version from GitHub:
+
+```bash
+python -m pip install "automationml @ git+https://github.com/AutomationML/automationml-python"
+```
+
+Or install from a local checkout if you want to edit the code or run the
+learning notebooks:
+
+```bash
+git clone https://github.com/AutomationML/automationml-python
+cd automationml-python
+python -m pip install -e .
+```
+
+Optional features need extra dependencies, which you select in square
+brackets, for example `python -m pip install -e ".[opcua,rdf]"`:
+
+| Extra | Adds |
+| --- | --- |
+| `opcua` | Conversion to and from OPC UA NodeSets |
+| `rdf` | Conversion to and from RDF/Turtle |
+| `learning` | Jupyter, for the [learning notebooks](learning/) |
+| `dev` | Everything needed to run the test suite |
+
+## Tutorial: your first plant model
+
+This walkthrough uses only the base installation. Run the snippets in order in
+one Python session.
+
+### 1. Build a plant
+
+```python
+from automationml import attribute, caex_file, instance_hierarchy, internal_element
+
+# A new, empty AutomationML document
+doc = caex_file("my-first-plant.aml")
+
+# One motor with one attribute
 motor = internal_element(
-    "Motor",
-    id="ie-1",
-    ref_base_system_unit_path="ExampleSystemUnitClassLib/Motor",
+    "Motor-1",
+    id="motor-1",
     attributes=[attribute("speed", 1500, unit="rpm", data_type="xs:double")],
-    role_paths=["ExampleRoleClassLib/Drive"],
 )
 
+# The plant is an InstanceHierarchy that contains the motor
 doc.instance_hierarchies.append(
     instance_hierarchy("Plant", internal_elements=[motor])
 )
 
-json_text = doc.to_aml_json()
-xml_text = doc.to_aml_xml()
-
-for issue in doc.caex_validation_issues():
-    print(issue.code, issue.path, issue.message)
+print(doc.to_aml_json())
 ```
 
-The JSON output stays compact and canonical:
+The printed AML JSON uses the official AutomationML names:
 
 ```json
 {
-  "SchemaVersion": "3.0",
-  "FileName": "plant.aml",
+  "SuperiorStandardVersion": [
+    "AutomationML 2.1"
+  ],
   "SourceDocumentInformation": [
     {
       "OriginName": "AutomationML Python SDK",
       "OriginID": "automationml-python",
       "OriginVersion": "0.1.0",
-      "LastWritingDateTime": "2026-06-28T00:00:00Z"
+      "LastWritingDateTime": "2026-10-17T12:00:00Z"
     }
   ],
   "InstanceHierarchy": [
@@ -198,9 +157,8 @@ The JSON output stays compact and canonical:
       "Name": "Plant",
       "InternalElement": [
         {
-          "ID": "ie-1",
-          "Name": "Motor",
-          "RefBaseSystemUnitPath": "ExampleSystemUnitClassLib/Motor",
+          "ID": "motor-1",
+          "Name": "Motor-1",
           "Attribute": [
             {
               "Name": "speed",
@@ -208,135 +166,219 @@ The JSON output stays compact and canonical:
               "Unit": "rpm",
               "AttributeDataType": "xs:double"
             }
-          ],
-          "RoleRequirements": [
-            {
-              "RefBaseRoleClassPath": "ExampleRoleClassLib/Drive"
-            }
           ]
         }
       ]
     }
-  ]
+  ],
+  "SchemaVersion": "3.0",
+  "FileName": "my-first-plant.aml"
 }
 ```
 
-## Core authoring platform
+`SourceDocumentInformation` records which tool wrote the file and when; the
+SDK fills it in for you.
 
-Beyond the basic model and serializers, the SDK now provides extension-safe
-`AdditionalInformation` XML, immutable ID/path and reverse-reference queries,
-SystemUnitClass instantiation, automatic CAEX 2.15 import, reversible change
-sets and copy-on-write edit transactions, atomic policy-driven merging, and a
-filesystem-confined external-reference resolver.
+### 2. Save and load files
 
 ```python
-from automationml import CAEXFile, FileSystemResolver, diff_documents
+from automationml import dump_json, dump_xml, load_json, load_xml
 
-imported = CAEXFile.import_aml_xml(source_xml)
-document = imported.document
-motor = document.query().find_by_path("Equipment/Motor")
-instance = document.instantiate_system_unit_class("Equipment/Motor", name="M1")
+dump_json(doc, "my-first-plant.json")  # AML JSON
+dump_xml(doc, "my-first-plant.aml")    # AML XML, opens in AutomationML tools
 
-edit = document.edit()
-with edit as working:
-    working.instance_hierarchies[0].internal_elements.append(instance)
-updated = edit.result.document
-assert edit.result.inverse.apply(updated).to_aml_dict() == document.to_aml_dict()
+again = load_xml("my-first-plant.aml")
+assert again.to_aml_dict() == doc.to_aml_dict()  # nothing was lost
 ```
 
-See the [core-platform API guide](docs/core-platform.md) for lookup semantics,
-migration diagnostics, conflict policies, transaction guarantees, and external
-reference security rules.
+`load_xml` reads both CAEX 3.0 and older CAEX 2.15 files. Older files are
+upgraded to CAEX 3.0 automatically, with a warning.
 
-## Generate the JSON Schema
+### 3. Let validation find a mistake
+
+Point the motor at a template that does not exist yet, then ask the SDK to
+check the document:
+
+```python
+motor.ref_base_system_unit_path = "MyComponents/Motor"
+
+for issue in doc.caex_validation_issues():
+    print(issue.severity, issue.code)
+    print("  at", issue.path)
+    print("  ", issue.message)
+```
+
+```text
+error unresolved-system-unit-class-reference
+  at $.InstanceHierarchy[0].InternalElement[0].RefBaseSystemUnitPath
+   Unresolved SystemUnitClass reference 'MyComponents/Motor'.
+```
+
+### 4. Fix it with a class library
+
+Add the missing library with a `Motor` template. Libraries hold
+`SystemUnitFamily` entries, which are SystemUnitClasses that may contain
+sub-classes:
+
+```python
+from automationml import SystemUnitClassLib, SystemUnitFamily
+
+doc.system_unit_class_libs.append(
+    SystemUnitClassLib(
+        name="MyComponents",
+        system_unit_classes=[
+            SystemUnitFamily(
+                name="Motor",
+                attributes=[attribute("speed", unit="rpm", data_type="xs:double")],
+            )
+        ],
+    )
+)
+
+assert doc.caex_validation_issues() == []  # the reference resolves now
+```
+
+### 5. Create objects from the template
+
+```python
+motor_2 = doc.instantiate_system_unit_class("MyComponents/Motor", name="Motor-2")
+doc.instance_hierarchies[0].internal_elements.append(motor_2)
+
+print(motor_2.ref_base_system_unit_path)        # MyComponents/Motor
+print([a.name for a in motor_2.attributes])     # ['speed']
+```
+
+The new object copies the template's attributes, interfaces, and children,
+including inherited ones, and gets a fresh unique ID.
+
+**Next step:** the [learning notebooks](learning/) continue from here with
+interfaces, links, roles, and inheritance.
+
+## Validation
+
+`caex_validation_issues()` checks a document and returns a list of issues.
+Each issue has:
+
+- `severity`: `error` for broken documents, `warning` for best-practice hints;
+- `code`: a stable identifier such as `duplicate-id`;
+- `path`: where the problem is, such as `$.InstanceHierarchy[0].InternalElement[0]`;
+- `message`, and optional `target` and `suggestion`.
+
+Validation never changes or rejects your document, so incomplete files can
+still be loaded and inspected; your application decides which severities
+matter. It checks, among other things, that class, role, interface, and
+attribute-type references resolve, that IDs are unique, and that InternalLinks
+connect existing interfaces.
+
+```python
+doc.assert_caex_valid()                 # raise if there are issues
+doc.assert_caex_valid(strict_xsd=True)  # also enforce every XSD-required field
+```
+
+The [validation suite](examples/validation-suite/) contains small, medium, and
+large example files, valid and invalid, in both JSON and XML, with the issues
+each one is expected to produce.
+
+## Python names and file names
+
+In Python you use `snake_case` names. In AML JSON and XML the SDK writes the
+official CAEX names:
+
+| Python | AML JSON / XML |
+| --- | --- |
+| `doc.file_name` | `FileName` |
+| `doc.instance_hierarchies` | `InstanceHierarchy` |
+| `element.internal_elements` | `InternalElement` |
+| `element.ref_base_system_unit_path` | `RefBaseSystemUnitPath` |
+| `element.role_requirements` | `RoleRequirements` |
+
+All models are [Pydantic](https://docs.pydantic.dev/) models, so you can also
+build them from dictionaries that use either kind of name, and they check your
+values as you assign them.
+
+## What else can it do?
+
+| Feature | Start here |
+| --- | --- |
+| Find objects by ID or path, follow references, and walk inheritance | `doc.query()` in the [core-platform guide](docs/core-platform.md#queries-and-instantiation) |
+| Edit with automatic undo information, and diff two documents | `doc.edit()`, `diff_documents()` in the [core-platform guide](docs/core-platform.md#changes-and-transactions) |
+| Merge two documents with explicit conflict rules | `merge_documents()` in the [core-platform guide](docs/core-platform.md#atomic-merge) |
+| Load libraries referenced from other `.aml` files | `FileSystemResolver` in the [core-platform guide](docs/core-platform.md#local-external-references) |
+| Inspect what happened when upgrading a CAEX 2.15 file | `CAEXFile.import_aml_xml()` in the [core-platform guide](docs/core-platform.md#legacy-import) |
+| Convert to and from OPC UA NodeSets | The [OPC UA guide](docs/opcua.md) (needs the `opcua` extra) |
+| Convert to and from RDF/Turtle | See below (needs the `rdf` extra) |
+| Validate AML JSON from non-Python tools | See [JSON Schema](#json-schema) |
+
+### RDF/Turtle
+
+```python
+from automationml import CAEXFile
+
+ttl = doc.to_ttl()                          # Turtle text
+restored = CAEXFile.from_ttl(ttl)           # and back
+doc.round_trip_ttl().assert_equivalent()    # check that nothing is lost
+```
+
+The [RDF mapping notes](docs/rdf-mapping-audit.md) explain the mapping and how
+it replaces the earlier `AML2TTL.xslt` stylesheet.
+
+### JSON Schema
+
+A JSON Schema for AML JSON lives in
+[`schemas/automationml.caex3.schema.json`](schemas/automationml.caex3.schema.json).
+Other languages and tools can use it to check AML JSON. Regenerate it after
+changing the models:
 
 ```bash
 python -m automationml.schema --output schemas/automationml.caex3.schema.json
 ```
 
-The generated schema is intentionally keyed by AML names. That makes it useful
-for non-Python producers and validators while preserving a clean Python SDK.
+## Learn more
 
-## Semantic validation
-
-Use `caex_validation_issues()` when an application needs structured validation
-results. Each issue includes `severity`, `code`, `path`, `message`, and optional
-`target` / `suggestion` fields. Use `reference_index()` when authoring tools
-need to resolve AML paths such as `SystemUnitClassLib/Motor` or
-`RoleClassLib/Drive`.
-
-Validation is intentionally non-destructive. Invalid or incomplete documents
-can still be loaded and inspected, while applications decide which issue
-severities should block their workflows.
-
-## Validation example suite
-
-Ready-to-upload AML JSON and AML XML examples live in
-`examples/validation-suite`. The suite includes small, medium, and big positive
-and negative cases, plus a `manifest.json` with expected SDK validation issue
-counts. The SDK test suite reads these same files so the public examples stay
-locked to the validator.
-
-## Learning notebooks
-
-Three self-guided notebooks in `learning/` introduce AutomationML through the
-same public SDK APIs used by applications:
-
-1. Build a drive station progressively from concrete equipment to stable class
-   semantics.
-2. Round-trip one validated model through AML JSON and AML XML.
-3. Explore SystemUnitClass inheritance, interface materialization, semantic
-   warnings, repairs, and InternalLink partners.
-
-Install the local learning environment and open the notebooks with:
-
-```bash
-python -m pip install -e ".[learning]"
-jupyter lab learning
-```
+- [`learning/`](learning/): three hands-on Jupyter notebooks. Install them with
+  `python -m pip install -e ".[learning]"`, then run `jupyter lab learning`.
+  1. Build a drive station step by step, from objects to reusable classes.
+  2. Save one model as AML JSON and AML XML and prove both are equivalent.
+  3. Explore inheritance and interfaces, fix validation warnings, and add an
+     InternalLink.
+- [`examples/validation-suite/`](examples/validation-suite/): ready-made valid
+  and invalid example files.
+- [`docs/core-platform.md`](docs/core-platform.md): queries, instantiation,
+  editing, merging, external references, and CAEX 2.15 import.
+- [`docs/opcua.md`](docs/opcua.md): AutomationML and OPC UA.
+- [`docs/sdk-design.md`](docs/sdk-design.md): design decisions behind the
+  JSON, Python, and XML contracts.
 
 ## Development
 
 ```bash
-python -m pip install -e ".[dev]"
-pytest
+git clone https://github.com/AutomationML/automationml-python
+cd automationml-python
+python -m pip install -e ".[dev,xml]"
+python -m pytest
 ```
 
-Build the source distribution and wheel:
+Build the source distribution and wheel with:
 
 ```bash
 python -m pip install build
 python -m build
 ```
 
-## Repository layout
+Repository layout:
 
-- `src/automationml/`: public SDK models, builders, serialization, schema, and
-  validation APIs.
-- `tests/`: unit, round-trip, schema, and semantic validation tests.
-- `examples/validation-suite/`: catalog of valid, invalid, and warning-focused
-  AML JSON/XML documents.
-- `learning/`: executable, self-guided AutomationML lessons.
-- `schemas/`: generated AML JSON Schema artifacts.
-- `docs/`: design and SDK documentation.
-- `tools/`: repository maintenance and generation utilities.
+- `src/automationml/`: the SDK package.
+- `tests/`: the test suite.
+- `examples/validation-suite/`: valid, invalid, and warning example documents.
+- `learning/`: Jupyter lessons.
+- `schemas/`: the generated AML JSON Schema and the CAEX 3.0 XSD.
+- `docs/`: guides and design notes.
+- `evaluation/`, `tools/`: OPC UA comparison tooling and maintenance scripts.
 
-## Contributing
-
-Issues and pull requests are welcome. Before submitting a change, install the
-development dependencies and run the complete test suite:
-
-```bash
-pytest
-```
-
-Changes to validation behavior should include a focused test and, when useful
-to SDK consumers, a matching example in the validation suite.
-
-The optional `xml` extra is reserved for pydantic-xml integration work. The
-current XML adapter is kept separate from the public model so XML concerns do
-not dominate the JSON-first model design.
+Issues and pull requests are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
+Changes to validation behavior should include a focused test and, where
+useful, a matching example in the validation suite.
 
 ## License
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

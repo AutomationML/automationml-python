@@ -25,6 +25,10 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Changed
 
+- The README is now a beginner-oriented introduction: what AutomationML is, the
+  core CAEX concepts, installation including extras, and a step-by-step
+  tutorial whose every snippet runs on the base install. The OPC UA usage,
+  mapping scope, and comparison evidence moved to `docs/opcua.md`.
 - Regenerated the committed release and phase-1 comparison evidence. Scored
   outcomes are unchanged (`PY-STRICT` 121/121, `XSLT-RAW` 1/121, critical 30/30
   versus 1/30); six unscored upstream cases improved after the CAEX 2.15
@@ -41,6 +45,10 @@ and this project follows [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+- The packaged CAEX 2.15 schema is byte-identical to the upstream file again,
+  matching the SHA-256 recorded in its `VENDOR.md`, and vendored files keep
+  their exact bytes on Windows checkouts, where line-ending conversion had
+  broken the evaluation harness hash checks.
 - CAEX 2.15 migration no longer raises when a RoleClass derives from a base
   class the document does not carry, which is normal for files that rely on
   the standard AutomationML libraries. The resolvable part of the inheritance

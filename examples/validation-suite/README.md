@@ -34,10 +34,11 @@ inside each part when a part contains multiple words. For example:
 
 ## Regenerate
 
-Run this from `automationml-sdk` after changing the example definitions:
+After changing the example definitions, run this from the repository root with
+the SDK installed (`python -m pip install -e .`):
 
 ```bash
-$env:PYTHONPATH=".\src"; .\.venv\Scripts\python.exe .\tools\generate_validation_examples.py
+python tools/generate_validation_examples.py
 ```
 
 Then run the SDK tests to verify that JSON and XML stay in sync.
